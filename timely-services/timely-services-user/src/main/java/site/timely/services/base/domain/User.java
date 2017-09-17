@@ -1,5 +1,8 @@
 package site.timely.services.base.domain;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,7 +14,9 @@ import java.util.Date;
  * @since 1.8
  */
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance
+@DynamicInsert
+@DynamicUpdate
 public class User implements java.io.Serializable {
 
     // Fields
@@ -37,17 +42,17 @@ public class User implements java.io.Serializable {
     /**
      * 昵称
      */
-    @Column
+    @Column(length = 32)
     private String nickname;        // 昵称
     /**
      * 真实姓名
      */
-    @Column
+    @Column(length = 32)
     private String realname;        // 真实姓名
     /**
      * 身份证
      */
-    @Column
+    @Column(length = 18)
     private String idnumber;        // 身份证
     /**
      * 头像
@@ -73,9 +78,9 @@ public class User implements java.io.Serializable {
     /**
      * 录入时间
      */
-    @Column
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date date;              // 录入时间
+    private Date date;              // 创建时间
     /**
      * 手机号
      */
@@ -102,6 +107,8 @@ public class User implements java.io.Serializable {
         this();
         this.username = username;
     }
+
+    // Getter And Setter
 
     public Long getId() {
         return id;

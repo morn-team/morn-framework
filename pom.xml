@@ -8,47 +8,96 @@
     <artifactId>timely-boot</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
+        <module>timely-test</module>
         <module>timely-core</module>
         <module>timely-web</module>
         <module>timely-jpa</module>
         <module>timely-services</module>
+        <module>timely-config</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <boot.version>1.5.6.RELEASE</boot.version>
+        <boot.version>1.5.7.RELEASE</boot.version>
         <timely.version>1.0-SNAPSHOT</timely.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <condition.version>1.0-SNAPSHOT</condition.version>
     </properties>
+
+    <!-- Inherit defaults from Spring Boot -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+    </parent>
 
     <dependencyManagement>
         <dependencies>
+            <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-dependencies</artifactId>-->
+            <!--<version>${boot.version}</version>-->
+            <!--<type>pom</type>-->
+            <!--<scope>import</scope>-->
+            <!--</dependency>-->
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa-condition</artifactId>
+                <version>${condition.version}</version>
             </dependency>
+            <dependency>
+                <groupId>site.timely.web</groupId>
+                <artifactId>timely-test</artifactId>
+                <version>${timely.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.timely.web</groupId>
+                <artifactId>timely-core</artifactId>
+                <version>${timely.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.timely.web</groupId>
+                <artifactId>timely-config</artifactId>
+                <version>${timely.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.timely.web</groupId>
+                <artifactId>timely-web</artifactId>
+                <version>${timely.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.timely.web</groupId>
+                <artifactId>timely-jpa</artifactId>
+                <version>${timely.version}</version>
+            </dependency>
+            <!--Services Start-->
+            <dependency>
+                <groupId>site.timely.web</groupId>
+                <artifactId>timely-services</artifactId>
+                <version>${timely.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.timely.web</groupId>
+                <artifactId>timely-services-base</artifactId>
+                <version>${timely.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.timely.web</groupId>
+                <artifactId>timely-services-user</artifactId>
+                <version>${timely.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.timely.web</groupId>
+                <artifactId>timely-services-notice</artifactId>
+                <version>${timely.version}</version>
+            </dependency>
+            <!--Services End-->
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${boot.version}</version>
-            </plugin>
-        </plugins>
-    </build>
 </project>

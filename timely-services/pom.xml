@@ -12,25 +12,32 @@
     <artifactId>timely-services</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>timely-services-notice</module>
         <module>timely-services-base</module>
+        <module>timely-services-user</module>
+        <module>timely-services-notice</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>site.timely.web</groupId>
+            <artifactId>timely-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>site.timely.web</groupId>
+            <artifactId>timely-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>site.timely.web</groupId>
             <artifactId>timely-core</artifactId>
-            <version>${timely.version}</version>
         </dependency>
         <dependency>
             <groupId>site.timely.web</groupId>
             <artifactId>timely-web</artifactId>
-            <version>${timely.version}</version>
         </dependency>
         <dependency>
             <groupId>site.timely.web</groupId>
             <artifactId>timely-jpa</artifactId>
-            <version>${timely.version}</version>
         </dependency>
     </dependencies>
 
