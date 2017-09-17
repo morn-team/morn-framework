@@ -13,9 +13,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>site.timely.web</groupId>
+            <artifactId>timely-services-base</artifactId>
         </dependency>
     </dependencies>
 </project>

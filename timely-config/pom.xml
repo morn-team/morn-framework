@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>timely-core</artifactId>
+    <artifactId>timely-config</artifactId>
+
 
     <dependencies>
         <dependency>
@@ -18,8 +19,16 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <groupId>site.timely.web</groupId>
+            <artifactId>timely-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>site.timely.web</groupId>
+            <artifactId>timely-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>site.timely.web</groupId>
+            <artifactId>timely-jpa</artifactId>
         </dependency>
     </dependencies>
 
