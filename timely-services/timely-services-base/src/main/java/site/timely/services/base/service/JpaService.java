@@ -43,23 +43,4 @@ public interface JpaService<T, ID extends Serializable> {
      * @apiNote
      */
     T pullOne(ID id);
-
-    /**
-     * 更新,并判断实体是否存在
-     *
-     * @param id       主键
-     * @param function 更新Lambda
-     * @return 实体类
-     * @apiNote before:获取entity -> function -> after:保存entity
-     */
-    T update(ID id, Function<T, T> function);
-
-    /**
-     * 删除,并判断实体是否存在
-     *
-     * @param id       主键
-     * @param consumer 删除Lambda
-     * @apiNote before:获取entity -> consumer -> after:删除entity
-     */
-    void delete(ID id, Consumer<T> consumer);
 }

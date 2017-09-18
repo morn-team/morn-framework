@@ -7,10 +7,6 @@
  */
 package site.timely.message;
 
-import org.springframework.context.i18n.LocaleContextHolder;
-
-import java.util.Locale;
-
 /**
  * 国际化常量
  */

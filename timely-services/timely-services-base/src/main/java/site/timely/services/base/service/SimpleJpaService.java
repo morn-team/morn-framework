@@ -81,15 +81,31 @@ public class SimpleJpaService<T, ID extends Serializable, D extends JpaRepositor
         return one;
     }
 
-    @Override
-    public T update(ID id, Function<T, T> function) {
+
+    /**
+     * 更新,并判断实体是否存在
+     *
+     * @param id       主键
+     * @param function 更新Lambda
+     * @return 实体类
+     * @implNote protected service
+     * @apiNote before:获取entity -> function -> after:保存entity
+     */
+    protected T update(ID id, Function<T, T> function) {
         T one = pullOne(id);
         T apply = function.apply(one);
         return dao.save(apply);
     }
 
-    @Override
-    public void delete(ID id, Consumer<T> consumer) {
+    /**
+     * 删除,并判断实体是否存在
+     *
+     * @param id       主键
+     * @param consumer 删除Lambda
+     * @implNote protected service
+     * @apiNote before:获取entity -> consumer -> after:删除entity
+     */
+    protected void delete(ID id, Consumer<T> consumer) {
         T one = pullOne(id);
         consumer.accept(one);
         dao.delete(id);

@@ -7,10 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
-
 import java.util.Locale;
-
-import static org.junit.Assert.*;
 
 /**
  * site.timely.message
@@ -22,7 +19,7 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MessageHolderTest {
-    
+
     @Resource
     private MessageHolder messageHolder;
 

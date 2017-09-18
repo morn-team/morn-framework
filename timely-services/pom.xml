@@ -15,6 +15,7 @@
         <module>timely-services-base</module>
         <module>timely-services-user</module>
         <module>timely-services-notice</module>
+        <module>timely-services-login</module>
     </modules>
 
     <dependencies>

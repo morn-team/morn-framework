@@ -16,6 +16,7 @@
         <module>timely-jpa</module>
         <module>timely-services</module>
         <module>timely-config</module>
+        <module>timely-shiro</module>
     </modules>
 
     <properties>
@@ -26,8 +27,8 @@
         <timely.version>1.0-SNAPSHOT</timely.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-
         <condition.version>1.0-SNAPSHOT</condition.version>
+        <shiro.version>1.3.2</shiro.version>
     </properties>
 
     <!-- Inherit defaults from Spring Boot -->
@@ -46,11 +47,20 @@
             <!--<type>pom</type>-->
             <!--<scope>import</scope>-->
             <!--</dependency>-->
+
+            <!--依赖模块-->
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-jpa-condition</artifactId>
                 <version>${condition.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+
+            <!--本地模块-->
             <dependency>
                 <groupId>site.timely.web</groupId>
                 <artifactId>timely-test</artifactId>
@@ -74,6 +84,11 @@
             <dependency>
                 <groupId>site.timely.web</groupId>
                 <artifactId>timely-jpa</artifactId>
+                <version>${timely.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.timely.web</groupId>
+                <artifactId>timely-shiro</artifactId>
                 <version>${timely.version}</version>
             </dependency>
             <!--Services Start-->
