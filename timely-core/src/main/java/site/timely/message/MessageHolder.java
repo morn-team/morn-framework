@@ -41,10 +41,22 @@ public class MessageHolder {
     /**
      * 获取国际化信息
      *
-     * @param code 国际化key
+     * @param code 国际化编码
      * @return 国际化信息
      */
     public String getMessage(String code) {
         return source.getMessage(code, null, currentLocale());
+    }
+
+
+    /**
+     * 获取国际化信息
+     *
+     * @param code 国际化编码
+     * @param args 参数
+     * @return 国际化信息
+     */
+    public String getMessage(String code, String... args) {
+        return source.getMessage(code, args, currentLocale());
     }
 }
