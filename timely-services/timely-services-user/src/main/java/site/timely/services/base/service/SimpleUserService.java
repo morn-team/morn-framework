@@ -5,8 +5,12 @@ import org.springframework.transaction.annotation.Transactional;
 import site.timely.services.base.domain.User;
 import site.timely.services.base.repository.JpaRepository;
 import site.timely.services.base.repository.UserRepository;
+import site.timely.util.ConstantUtils;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -14,16 +18,40 @@ import javax.annotation.Resource;
 public class SimpleUserService
         extends SimpleJpaService<User, Long, UserRepository> implements UserService {
 
-    @Resource
-    private UserRepository repository;
-
     @Override
     public User findByUsername(String username) {
-        return repository.findByUsername(username);
+        return dao().findByUsername(username);
     }
 
     @Override
     public void deleteByUsername(String username) {
-        repository.deleteByUsername(username);
+        dao().deleteByUsername(username);
+    }
+
+    @Override
+    public List<String> getPrivilegeCodes(User user) {
+
+        List<String> list = new ArrayList<>();
+//        if (ConstantUtils.isAdmin(user.getUsername()))
+//        {
+//            list = privilegeService.getAllCodes();
+//        }
+//        else
+//        {
+//            user = userDao.findOne(user.getId());
+//            Set<Role> roles = user.getRoles();
+//            for (Role role : roles)
+//            {
+//                Set<Privilege> privileges = role.getPrivileges();
+//                for (Privilege privilege : privileges)
+//                {
+//                    list.add(privilege.getPrivilegeCode());
+//                }
+//            }
+//        }
+
+        return list;
     }
 }
+
+

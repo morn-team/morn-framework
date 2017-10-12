@@ -10,6 +10,7 @@ import site.timely.services.base.domain.User;
 import site.timely.services.base.service.UserService;
 
 import javax.annotation.Resource;
+import java.util.Objects;
 
 /**
  * site.timely.shiro
@@ -27,6 +28,13 @@ public class UserRealm extends AuthorizingRealm {
     @Resource
     private UserService userService;
 
+//    /**
+//     * 权限服务
+//     */
+//    @Resource
+//    @Lazy
+//    private PrivilegeService privilegeService;
+
     /**
      * 认证 AuthenticationInfo 认证信息
      *
@@ -38,6 +46,7 @@ public class UserRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         // 查询用户
         User user = userService.findByUsername(token.getUsername());
+        if (Objects.isNull(user)) throw new UnknownAccountException();
         return createAuthenticationInfo(user);
     }
 
@@ -49,8 +58,13 @@ public class UserRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        User user = (User) principals.getPrimaryPrincipal();
-        return null;
+//        User user = (User) principals.getPrimaryPrincipal();
+//        List<Privilege> all = privilegeService.findAll(user);
+//        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+//        for (Privilege privilege : all) {
+//            info.addStringPermission(privilege.getCode());
+//        }
+        return null; // 不需要Shiro验证权限
     }
 
 
@@ -61,10 +75,9 @@ public class UserRealm extends AuthorizingRealm {
      * @return AuthenticationInfo 认证信息
      */
     private AuthenticationInfo createAuthenticationInfo(User user) {
-        // 用用户名当做盐来加密
+        // 将用户名当做盐来加密
         ByteSource salt = ByteSource.Util.bytes(ByteSource.Util.bytes(user.getUsername()));
-        AuthenticationInfo info = new SimpleAuthenticationInfo(user, user.getPassword(), salt, getName());
-        return info;
+        return new SimpleAuthenticationInfo(user, user.getPassword(), salt, getName());
     }
 
 }

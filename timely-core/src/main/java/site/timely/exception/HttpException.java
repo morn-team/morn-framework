@@ -1,37 +1,47 @@
 package site.timely.exception;
 
 /**
- * 应用异常
+ * 网络异常
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/16
+ * @verion 1.0.0, 2017/10/9
  * @since 1.8
  */
-public class ApplicationException extends RuntimeException implements ExceptionAdapter {
+public class HttpException extends ApplicationException implements HttpExceptionAdapter {
 
-    private ExceptionBody body;
+    /**
+     * 网络异常内容
+     */
+    private HttpExceptionBody body;
 
-    public ApplicationException() {
+    public HttpException() {
     }
 
-    public ApplicationException(String message) {
+    public HttpException(String message) {
         super(message);
     }
 
-    public ApplicationException(ExceptionAdapter adapter) {
-        this.setAdapter(adapter);
+    public HttpException(String code, ExceptionLevel level, String title, String description, String solution) {
+        this.body = new HttpExceptionBody(code, level, title, description, solution);
     }
 
-    public ApplicationException(String code, ExceptionLevel level, String description, String solution) {
-        this.body = new ExceptionBody(code, level, description, solution);
-    }
-
-    public ExceptionBody getBody() {
+    @Override
+    public HttpExceptionBody getBody() {
         return body;
     }
 
-    public void setBody(ExceptionBody body) {
+    public void setBody(HttpExceptionBody body) {
         this.body = body;
+    }
+
+    @Override
+    public String getTitle() {
+        return body.getTitle();
+    }
+
+    @Override
+    public void setTitle(String title) {
+        body.setTitle(title);
     }
 
     @Override
@@ -75,8 +85,7 @@ public class ApplicationException extends RuntimeException implements ExceptionA
     }
 
     @Override
-    public ExceptionAdapter setAdapter(ExceptionAdapter adapter) {
+    public HttpExceptionAdapter setAdapter(HttpExceptionAdapter adapter) {
         return body.setAdapter(adapter);
     }
-
 }

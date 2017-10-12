@@ -16,10 +16,6 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
         </dependency>
-        <dependency>
-            <groupId>site.timely.web</groupId>
-            <artifactId>timely-services-user</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

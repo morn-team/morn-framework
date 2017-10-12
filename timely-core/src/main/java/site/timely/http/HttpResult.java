@@ -1,7 +1,10 @@
 package site.timely.http;
 
+import site.timely.exception.ExceptionBody;
+import site.timely.exception.HttpExceptionBody;
+
 /**
- * Http结果
+ * 网络请求结果
  *
  * @author timely-rain
  * @verion 1.0.0, 2017/9/29
@@ -12,7 +15,7 @@ public class HttpResult {
     /**
      * Http应答
      */
-    private HttpNotify notify;
+    private HttpExceptionBody notify;
 
     /**
      * 是否成功
@@ -29,16 +32,22 @@ public class HttpResult {
      */
     private String attach;
 
-    public HttpResult(boolean isSuccess, HttpNotify notify) {
+    public HttpResult(boolean isSuccess, ExceptionBody notify) {
+        this.isSuccess = isSuccess;
+        this.notify = new HttpExceptionBody();
+        this.notify.setAdapter(notify);
+    }
+
+    public HttpResult(boolean isSuccess, HttpExceptionBody notify) {
         this.isSuccess = isSuccess;
         this.notify = notify;
     }
 
-    public HttpNotify getNotify() {
+    public HttpExceptionBody getNotify() {
         return notify;
     }
 
-    public void setNotify(HttpNotify notify) {
+    public void setNotify(HttpExceptionBody notify) {
         this.notify = notify;
     }
 

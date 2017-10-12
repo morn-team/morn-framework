@@ -5,6 +5,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * 用户
@@ -87,10 +88,11 @@ public class User implements java.io.Serializable {
     @Column
     private String phone;           // 手机号
     /**
-     * 权限
+     * 角色
      */
-    @Column
-    private Integer power;          // 权限
+    @ManyToMany
+    @JoinColumn
+    private Set<Role> roles;
 
     // Constructors
 
@@ -206,11 +208,11 @@ public class User implements java.io.Serializable {
         this.phone = phone;
     }
 
-    public Integer getPower() {
-        return power;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setPower(Integer power) {
-        this.power = power;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
