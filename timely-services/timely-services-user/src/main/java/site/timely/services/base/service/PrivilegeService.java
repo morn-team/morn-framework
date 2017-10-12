@@ -20,4 +20,6 @@ public interface PrivilegeService extends JpaService<Privilege, Long> {
      * @return 权限集合
      */
     List<String> findCodes(User user);
+
+    List<Privilege> findAll(User user);
 }

@@ -34,6 +34,10 @@
         </dependency>
         <dependency>
             <groupId>site.timely.web</groupId>
+            <artifactId>timely-shiro</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>site.timely.web</groupId>
             <artifactId>timely-web</artifactId>
         </dependency>
         <dependency>

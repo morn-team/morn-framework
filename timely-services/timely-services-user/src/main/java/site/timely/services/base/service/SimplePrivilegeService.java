@@ -22,12 +22,18 @@ import java.util.stream.Collectors;
 public class SimplePrivilegeService extends SimpleJpaService<Privilege, Long, PrivilegeRepository> implements PrivilegeService {
     @Override
     public List<String> findCodes(User user) {
+        List<Privilege> all = findAll(user);
+        return all.stream().map(Privilege::getCode).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Privilege> findAll(User user) {
         Specification<Privilege> specification = (root, query, cb) -> {
             Join<Privilege, Role> roles = root.join("roles");
-            Predicate equal = cb.equal(roles.get("creator"), user.getUsername());
+            Join<Role, User> users = roles.join("users");
+            Predicate equal = cb.equal(users.get("username"), user.getUsername());
             return cb.and(equal);
         };
-        List<Privilege> all = dao().findAll(specification);
-        return all.stream().map(Privilege::getCode).collect(Collectors.toList());
+        return dao().findAll(specification);
     }
 }

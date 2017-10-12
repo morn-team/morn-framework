@@ -40,6 +40,9 @@ public class Role {
     @ManyToMany(mappedBy = "roles")
     private Set<Privilege> privileges;  // 权限
 
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;            // 用户
+
     public Long getId() {
         return id;
     }
@@ -86,5 +89,13 @@ public class Role {
 
     public void setPrivileges(Set<Privilege> privileges) {
         this.privileges = privileges;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }

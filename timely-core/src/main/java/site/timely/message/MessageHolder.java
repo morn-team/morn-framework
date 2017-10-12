@@ -45,7 +45,7 @@ public class MessageHolder {
      * @return 国际化信息
      */
     public String getMessage(String code) {
-        return source.getMessage(code, null, currentLocale());
+        return source.getMessage(code, null, code, currentLocale());
     }
 
 
@@ -57,6 +57,6 @@ public class MessageHolder {
      * @return 国际化信息
      */
     public String getMessage(String code, String... args) {
-        return source.getMessage(code, args, currentLocale());
+        return source.getMessage(code, args, code, currentLocale());
     }
 }

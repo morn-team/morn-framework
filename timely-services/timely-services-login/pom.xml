@@ -11,5 +11,11 @@
 
     <artifactId>timely-services-login</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>site.timely.web</groupId>
+            <artifactId>timely-services-user</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
