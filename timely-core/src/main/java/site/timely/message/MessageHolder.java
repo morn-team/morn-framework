@@ -17,9 +17,13 @@ import java.util.Objects;
  */
 @Component
 public class MessageHolder {
+
     @Resource
     private MessageSource source;
 
+    /**
+     * 当前语言环境
+     */
     private Locale locale;
 
     /**
@@ -30,7 +34,7 @@ public class MessageHolder {
      */
     public Locale currentLocale() {
         if (Objects.isNull(locale))
-            locale = new Locale(LocaleContextHolder.getLocale().getLanguage());
+            locale = LocaleContextHolder.getLocale();
         return locale;
     }
 
