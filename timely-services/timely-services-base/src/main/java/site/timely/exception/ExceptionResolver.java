@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author timely-rain
  * @verion 1.0.0, 2017/10/9
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 @ControllerAdvice
 public class ExceptionResolver {
@@ -45,6 +45,8 @@ public class ExceptionResolver {
      * @return json
      */
     private String resolveException(HttpServletRequest request, HttpServletResponse response, Exception e) {
+
+        logger.error("Error:" + request.getRequestURI());
         //如果是业务异常，错误码也记录进日志
         if (e instanceof ApplicationException) {
             ApplicationException exception = (ApplicationException) e;

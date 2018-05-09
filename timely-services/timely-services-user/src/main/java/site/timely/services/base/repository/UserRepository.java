@@ -11,7 +11,7 @@ import site.timely.services.base.domain.User;
  *
  * @author TianGanLin
  * @version 1.0.0, 2017/9/9
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 @RepositoryRestResource
 public interface UserRepository extends JpaRepository<User, Long> {

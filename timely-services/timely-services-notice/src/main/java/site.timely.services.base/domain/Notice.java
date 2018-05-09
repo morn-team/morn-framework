@@ -8,7 +8,7 @@ import java.util.Date;
  *
  * @author TianGanLin
  * @version 1.0.0, 2017/9/10
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 @Entity
 public class Notice {

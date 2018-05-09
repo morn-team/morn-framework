@@ -16,7 +16,7 @@ import java.util.function.Function;
  *
  * @author timely-rain
  * @verion 1.0.0, 2017/9/16
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 public class SimpleJpaService<T, ID extends Serializable, D extends JpaRepository<T, ID>> implements JpaService<T, ID> {
 
