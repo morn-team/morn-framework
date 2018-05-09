@@ -1,5 +1,7 @@
 package site.timely.exception;
 
+import org.springframework.util.StringUtils;
+
 import java.util.Objects;
 
 /**
@@ -19,11 +21,6 @@ public class ExceptionBody implements ExceptionAdapter {
      * 异常级别
      */
     private ExceptionLevel level;
-
-    /**
-     * 异常消息
-     */
-    private String message;
 
     /**
      * 异常说明
@@ -51,8 +48,8 @@ public class ExceptionBody implements ExceptionAdapter {
 
     public ExceptionBody(Exception exception, String code, ExceptionLevel level, String description, String solution) {
         this(code, level, description, solution);
-        if (Objects.nonNull(exception))
-            setMessage(exception.getMessage());
+        if (Objects.nonNull(exception) && StringUtils.isEmpty(description))
+            setDescription(exception.toString());
     }
 
     public String getCode() {
@@ -69,14 +66,6 @@ public class ExceptionBody implements ExceptionAdapter {
 
     public void setLevel(ExceptionLevel level) {
         this.level = level;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     public String getDescription() {
