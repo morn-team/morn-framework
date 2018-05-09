@@ -8,7 +8,7 @@ import java.util.Objects;
  * @author timely-rain
  * @verion 1.0.0, 2017/9/28
  * @see Constant
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 public class ConstantUtils {
     /**
