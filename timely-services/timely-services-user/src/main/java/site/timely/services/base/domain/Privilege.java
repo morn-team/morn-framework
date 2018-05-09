@@ -12,7 +12,7 @@ import java.util.Set;
  *
  * @author timely-rain
  * @verion 1.0.0, 2017/9/17
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 @Entity
 @Inheritance

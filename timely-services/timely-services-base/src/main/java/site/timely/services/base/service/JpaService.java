@@ -5,15 +5,13 @@ import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 /**
  * JPA基础服务
  *
  * @author timely-rain
  * @verion 1.0.0, 2017/9/16
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 public interface JpaService<T, ID extends Serializable> {
 

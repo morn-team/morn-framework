@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  *
  * @author timely-rain
  * @verion 1.0.0, 2017/9/18
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 @Service
 public class SimplePrivilegeService extends SimpleJpaService<Privilege, Long, PrivilegeRepository> implements PrivilegeService {

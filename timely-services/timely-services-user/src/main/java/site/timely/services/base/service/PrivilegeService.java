@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author timely-rain
  * @verion 1.0.0, 2017/9/18
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 public interface PrivilegeService extends JpaService<Privilege, Long> {
     /**

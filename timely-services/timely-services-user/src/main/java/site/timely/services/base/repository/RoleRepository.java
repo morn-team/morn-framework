@@ -9,7 +9,7 @@ import site.timely.services.base.domain.Role;
  *
  * @author TianGanLin
  * @version 1.0.0, 2017/9/10
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 @RepositoryRestResource
 public interface RoleRepository extends JpaRepository<Role, Long> {

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  *
  * @author timely-rain
  * @verion 1.0.0, 2017/10/12
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 @Component
 public class LoginListener implements AuthenticationListener {
