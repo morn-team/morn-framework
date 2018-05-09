@@ -37,7 +37,7 @@ public class HttpResultProvider {
      * @return HttpResult
      */
     public HttpResult success() {
-        return success(SUCCESS);
+        return this.success(SUCCESS);
     }
 
     /**
@@ -49,7 +49,7 @@ public class HttpResultProvider {
      */
     public HttpResult success(String code, String... params) {
         HttpExceptionBody info = provider.info(code, params);
-        return result(true, info, null, null);
+        return this.result(true, info, null, null);
     }
 
     /**
@@ -58,7 +58,7 @@ public class HttpResultProvider {
      * @return HttpResult
      */
     public HttpResult fail() {
-        return fail(FAIL);
+        return this.fail(FAIL);
     }
 
     /**
@@ -70,7 +70,7 @@ public class HttpResultProvider {
      */
     public HttpResult fail(String code, String... params) {
         HttpExceptionBody warning = provider.warning(code, params);
-        return result(false, warning, null, null);
+        return this.result(false, warning, null, null);
     }
 
 
@@ -83,7 +83,7 @@ public class HttpResultProvider {
      */
     public HttpResult error(Exception exception, String code, String... params) {
         HttpExceptionBody warning = provider.error(exception, code, params);
-        return result(false, warning, null, null);
+        return this.result(false, warning, null, null);
     }
 
     /**
@@ -93,7 +93,9 @@ public class HttpResultProvider {
      * @return HttpResult
      */
     public HttpResult exception(ApplicationException exception) {
-        return new HttpResult(false, exception.getBody());
+        HttpExceptionBody exceptionBody = new HttpExceptionBody();
+        exceptionBody.setAdapter(exception);
+        return this.result(false, exceptionBody, null, null);
     }
 
     /**
@@ -103,7 +105,7 @@ public class HttpResultProvider {
      * @return HttpResult
      */
     public HttpResult exception(HttpException exception) {
-        return new HttpResult(false, exception.getBody());
+        return this.result(false, exception.getBody(), null, null);
     }
 
     /**
@@ -115,7 +117,7 @@ public class HttpResultProvider {
      * @param attach    补充数据
      * @return HttpResult
      */
-    public HttpResult result(boolean isSuccess, HttpExceptionBody notify, String data, String attach) {
+    private HttpResult result(boolean isSuccess, HttpExceptionBody notify, String data, String attach) {
         HttpResult result = new HttpResult(isSuccess, notify);
         result.setData(data);
         result.setAttach(attach);

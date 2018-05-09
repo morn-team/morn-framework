@@ -1,7 +1,6 @@
 package site.timely.exception;
 
 import org.springframework.stereotype.Component;
-import site.timely.message.MessageHolder;
 
 import javax.annotation.Resource;
 import java.util.Objects;
@@ -53,14 +52,14 @@ public class HttpExceptionProvider {
     }
 
     /**
-     * 异常
+     * 错误
      *
-     * @param code   错误码
-     * @param params 描述参数
+     * @param exception 异常
+     * @param params    描述参数
      * @return 网络异常
      */
-    public HttpException exception(Exception exception, String code, String... params) {
-        return instance(exception, code, ExceptionLevel.Error, params);
+    public HttpException error(Exception exception, String... params) {
+        return instance(exception, exception.getClass().getSimpleName(), ExceptionLevel.Error, params);
     }
 
     /**
