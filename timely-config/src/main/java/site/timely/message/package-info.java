@@ -3,7 +3,7 @@
  *
  * @author timely-rain
  * @verion 1.0.0, 2017/9/16
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 package site.timely.message;
 
@@ -62,4 +62,11 @@ class Constant {
      * @see org.springframework.web.servlet.i18n.CookieLocaleResolver
      */
     static final Integer COOKIE_MAX_AGE = 2592000;
+
+    /**
+     * Cookie默认有效期 - 1个月
+     *
+     * @see org.springframework.web.servlet.i18n.CookieLocaleResolver
+     */
+    static final String DEFAULT_COOKIE_MAX_AGE = "2592000";
 }
