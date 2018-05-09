@@ -8,39 +8,30 @@ import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.FixedLocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import site.timely.config.ApplicationConstant;
 
 import java.util.Locale;
-import java.util.Objects;
 
 /**
  * 国际化配置
  *
  * @author timely-rain
  * @verion 1.0.0, 2017/9/16
- * @since 1.8
+ * @since 1.0-SNAPSHOT
  */
 @Configuration
-@ConfigurationProperties(prefix = "spring.messages")
 public class MessageConfiguration {
+
     /**
-     * 解释器类型
+     * 读取国际化配置属性
      *
-     * @apiNote 决定用户语言的获取方式
-     * @see MessageHolder
+     * @return 国际化配置属性
      */
-    private String resolver;
-
-    /**
-     * 默认语言
-     */
-    private String language;
-
-    /* Cookie Start */
-    /**
-     * cookie有效期
-     */
-    private Integer cookieMaxAge;
-    /* Cookie End */
+    @Bean
+    @ConfigurationProperties(prefix = ApplicationConstant.MESSAGE_PROPERTIES)
+    public MessageProperties getProperties() {
+        return new MessageProperties();
+    }
 
     /**
      * 注册解析器
@@ -49,53 +40,28 @@ public class MessageConfiguration {
      */
     @Bean
     public LocaleResolver localeResolver() throws Exception {
-        if (Objects.isNull(resolver)) resolver = Constant.DEFAULT_RESOLVER;
-        switch (resolver) {
+        MessageProperties properties = getProperties();
+        Locale locale = new Locale(properties.getLanguage()); // 默认语言环境
+        switch (properties.getResolver()) {
             case Constant.RESOLVER_ACCEPT_HEADER:
                 AcceptHeaderLocaleResolver acceptHeaderLocaleResolver = new AcceptHeaderLocaleResolver();
-                acceptHeaderLocaleResolver.setDefaultLocale(defaultLocale());
+                acceptHeaderLocaleResolver.setDefaultLocale(locale);
                 return acceptHeaderLocaleResolver;
             case Constant.RESOLVER_SESSION:
                 SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
-                sessionLocaleResolver.setDefaultLocale(defaultLocale());
+                sessionLocaleResolver.setDefaultLocale(locale);
                 return sessionLocaleResolver;
             case Constant.RESOLVER_FIXED:
                 FixedLocaleResolver fixedLocaleResolver = new FixedLocaleResolver();
-                fixedLocaleResolver.setDefaultLocale(defaultLocale());
+                fixedLocaleResolver.setDefaultLocale(locale);
                 return fixedLocaleResolver;
             case Constant.RESOLVER_COOKIE:
-                CookieLocaleResolver resolver = new CookieLocaleResolver();
-                resolver.setDefaultLocale(defaultLocale());
-                if (Objects.isNull(cookieMaxAge)) cookieMaxAge = Constant.COOKIE_MAX_AGE;
-                resolver.setCookieMaxAge(cookieMaxAge);
-                return resolver;
+                CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+                cookieLocaleResolver.setDefaultLocale(locale);
+                cookieLocaleResolver.setCookieMaxAge(properties.getCookieMaxAge());
+                return cookieLocaleResolver;
         }
         throw new Exception("Unknown LocaleResolver");
     }
 
-    /**
-     * 默认语言环境
-     *
-     * @return 语言环境
-     */
-    private Locale defaultLocale() {
-        if (Objects.isNull(language)) language = Constant.DEFAULT_LANGUAGE;
-        return new Locale(language);
-    }
-
-    public String getResolver() {
-        return resolver;
-    }
-
-    public void setResolver(String resolver) {
-        this.resolver = resolver;
-    }
-
-    public Integer getCookieMaxAge() {
-        return cookieMaxAge;
-    }
-
-    public void setCookieMaxAge(Integer cookieMaxAge) {
-        this.cookieMaxAge = cookieMaxAge;
-    }
 }
