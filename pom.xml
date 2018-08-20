@@ -23,31 +23,28 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <boot.version>1.5.7.RELEASE</boot.version>
-        <timely.version>1.0-SNAPSHOT</timely.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+
+
+        <boot.version>1.5.7.RELEASE</boot.version>
+        <timely.version>1.0-SNAPSHOT</timely.version>
+        <morn.version>1.0.0.SNAPSHOT</morn.version>
         <condition.version>1.0-SNAPSHOT</condition.version>
         <shiro.version>1.3.2</shiro.version>
         <fastjson.version>1.2.39</fastjson.version>
+        <lombok.version>1.16.22</lombok.version>
     </properties>
-
-    <!-- Inherit defaults from Spring Boot -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.7.RELEASE</version>
-    </parent>
 
     <dependencyManagement>
         <dependencies>
-            <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-dependencies</artifactId>-->
-            <!--<version>${boot.version}</version>-->
-            <!--<type>pom</type>-->
-            <!--<scope>import</scope>-->
-            <!--</dependency>-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
             <!--依赖模块-->
             <dependency>
@@ -64,6 +61,25 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <!--Morn-->
+            <dependency>
+                <groupId>site.morn</groupId>
+                <artifactId>morn-core</artifactId>
+                <version>${morn.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>site.morn</groupId>
+                <artifactId>morn-rest-entity</artifactId>
+                <version>${morn.version}</version>
+            </dependency>
+
+            <!--Morn Boot-->
+            <dependency>
+                <groupId>site.morn.boot</groupId>
+                <artifactId>morn-boot-autoconfigure</artifactId>
+                <version>${morn.version}</version>
             </dependency>
 
             <!--本地模块-->
