@@ -16,7 +16,7 @@ import java.util.Locale;
  * 国际化配置
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/16
+ * @version 1.0.0, 2017/9/16
  * @since 1.0-SNAPSHOT
  */
 @Configuration

@@ -3,10 +3,10 @@ package site.timely.message;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
- * site.timely.message
+ * 国际化属性
  *
  * @author timely-rain
- * @verion 1.0.0, 2018/5/9
+ * @version 1.0.0, 2018/5/9
  * @since 1.0-SNAPSHOT
  */
 public class MessageProperties {
