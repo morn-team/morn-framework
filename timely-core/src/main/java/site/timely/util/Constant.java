@@ -2,7 +2,7 @@ package site.timely.util;
 
 /**
  * @author timely-rain
- * @verion 1.0.0, 2017/9/28
+ * @version 1.0.0, 2017/9/28
  * @since 1.0-SNAPSHOT
  */
 public interface Constant {

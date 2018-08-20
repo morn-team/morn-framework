@@ -4,7 +4,7 @@ package site.timely.exception;
  * 应用异常
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/16
+ * @version 1.0.0, 2017/9/16
  * @since 1.0-SNAPSHOT
  */
 public class ApplicationException extends RuntimeException implements ExceptionAdapter {

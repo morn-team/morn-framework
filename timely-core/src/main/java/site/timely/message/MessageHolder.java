@@ -12,7 +12,7 @@ import java.util.Objects;
  * 国际化信息
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/16
+ * @version 1.0.0, 2017/9/16
  * @since 1.0-SNAPSHOT
  */
 @Component

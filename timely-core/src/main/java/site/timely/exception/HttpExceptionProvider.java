@@ -9,7 +9,7 @@ import java.util.Objects;
  * 网络异常提供者
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/29
+ * @version 1.0.0, 2017/9/29
  * @since 1.0-SNAPSHOT
  */
 @Component

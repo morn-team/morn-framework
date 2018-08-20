@@ -4,7 +4,7 @@ package site.timely.exception;
  * 网络异常
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/10/9
+ * @version 1.0.0, 2017/10/9
  * @since 1.0-SNAPSHOT
  */
 public class HttpException extends ApplicationException implements HttpExceptionAdapter {

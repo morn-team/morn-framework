@@ -12,7 +12,7 @@ import javax.annotation.Resource;
  * 网络请求结果提供者
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/29
+ * @version 1.0.0, 2017/9/29
  * @since 1.0-SNAPSHOT
  */
 @Component
