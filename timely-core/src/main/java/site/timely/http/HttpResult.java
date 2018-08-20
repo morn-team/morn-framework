@@ -7,7 +7,7 @@ import site.timely.exception.HttpExceptionBody;
  * 网络请求结果
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/29
+ * @version 1.0.0, 2017/9/29
  * @since 1.0-SNAPSHOT
  */
 public class HttpResult {

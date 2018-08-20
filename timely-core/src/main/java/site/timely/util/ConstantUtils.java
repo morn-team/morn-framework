@@ -6,7 +6,7 @@ import java.util.Objects;
  * 常量工具类
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/28
+ * @version 1.0.0, 2017/9/28
  * @see Constant
  * @since 1.0-SNAPSHOT
  */

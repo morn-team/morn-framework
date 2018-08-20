@@ -8,7 +8,7 @@ import java.util.Objects;
  * 异常内容
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/10/9
+ * @version 1.0.0, 2017/10/9
  * @since 1.0-SNAPSHOT
  */
 public class ExceptionBody implements ExceptionAdapter {

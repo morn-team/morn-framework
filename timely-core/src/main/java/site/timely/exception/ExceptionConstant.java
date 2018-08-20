@@ -4,7 +4,7 @@ package site.timely.exception;
  * 异常常量
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/10/10
+ * @version 1.0.0, 2017/10/10
  * @since 1.0-SNAPSHOT
  */
 public interface ExceptionConstant {
