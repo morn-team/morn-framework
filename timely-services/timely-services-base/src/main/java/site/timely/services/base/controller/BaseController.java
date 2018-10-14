@@ -9,7 +9,7 @@ import javax.annotation.Resource;
  * 基础控制器
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/10/11
+ * @version 1.0.0, 2017/10/11
  * @since 1.0-SNAPSHOT
  */
 public class BaseController {

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
  * site.timely.services.base.http
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/10/9
+ * @version 1.0.0, 2017/10/9
  * @since 1.0-SNAPSHOT
  */
 public class Servlets {

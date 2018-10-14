@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * 登录监听器
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/10/12
+ * @version 1.0.0, 2017/10/12
  * @since 1.0-SNAPSHOT
  */
 @Component
