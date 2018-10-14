@@ -1,5 +1,8 @@
 package site.timely.services.base.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import javax.annotation.Resource;
 import org.springframework.context.MessageSource;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,10 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import site.timely.message.MessageHolder;
 import site.timely.services.base.domain.User;
 import site.timely.services.base.service.UserService;
-
-import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * 用户控制器
@@ -23,17 +22,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController extends BaseController {
-    @Resource
-    private UserService service;
 
-    @Resource
-    private MessageHolder messageHolder;
+  @Resource
+  private UserService service;
 
-    @Resource
-    private MessageSource messageSource;
+  @Resource
+  private MessageHolder messageHolder;
 
-    @PostMapping
-    public Object add(@Validated User user) {
+  @Resource
+  private MessageSource messageSource;
+
+  @PostMapping
+  public Object add(@Validated User user) {
 //        if (result.hasErrors()) {
 //            List<FieldError> fieldErrors = result.getFieldErrors();
 //            List<String> messages = new ArrayList<>();
@@ -46,12 +46,12 @@ public class UserController extends BaseController {
 //            String s = StringUtils.collectionToCommaDelimitedString(messages);
 //            return Rests.error().message(s);
 //        }
-        return new HashMap<>();
-    }
+    return new HashMap<>();
+  }
 
-    @PostMapping("datatable")
-    public List<User> datatable() {
-        List<User> all = service.findAll();
-        return all;
-    }
+  @PostMapping("datatable")
+  public List<User> datatable() {
+    List<User> all = service.findAll();
+    return all;
+  }
 }

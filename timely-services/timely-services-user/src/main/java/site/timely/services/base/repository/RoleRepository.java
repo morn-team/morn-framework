@@ -13,4 +13,5 @@ import site.timely.services.base.domain.Role;
  */
 @RepositoryRestResource
 public interface RoleRepository extends JpaRepository<Role, Long> {
+
 }

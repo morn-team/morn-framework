@@ -9,27 +9,27 @@ package site.timely.exception;
  */
 public interface ExceptionAdapter {
 
-    String getCode();
+  String getCode();
 
-    void setCode(String code);
+  void setCode(String code);
 
-    ExceptionLevel getLevel();
+  ExceptionLevel getLevel();
 
-    void setLevel(ExceptionLevel level);
+  void setLevel(ExceptionLevel level);
 
-    String getDescription();
+  String getDescription();
 
-    void setDescription(String description);
+  void setDescription(String description);
 
-    String getSolution();
+  String getSolution();
 
-    void setSolution(String solution);
+  void setSolution(String solution);
 
-    default ExceptionAdapter setAdapter(ExceptionAdapter adapter) {
-        setCode(adapter.getCode());
-        setLevel(adapter.getLevel());
-        setDescription(adapter.getDescription());
-        setSolution(adapter.getSolution());
-        return this;
-    }
+  default ExceptionAdapter setAdapter(ExceptionAdapter adapter) {
+    setCode(adapter.getCode());
+    setLevel(adapter.getLevel());
+    setDescription(adapter.getDescription());
+    setSolution(adapter.getSolution());
+    return this;
+  }
 }

@@ -1,9 +1,8 @@
 package site.timely.services.base.controller;
 
+import javax.annotation.Resource;
 import site.timely.exception.HttpExceptionProvider;
 import site.timely.http.HttpResultProvider;
-
-import javax.annotation.Resource;
 
 /**
  * 基础控制器
@@ -13,14 +12,15 @@ import javax.annotation.Resource;
  * @since 1.0-SNAPSHOT
  */
 public class BaseController {
-    /**
-     * 网络请求结果提供者
-     */
-    @Resource
-    protected HttpResultProvider provider;
-    /**
-     * 网络异常提供者
-     */
-    @Resource
-    protected HttpExceptionProvider exceptionProvider;
+
+  /**
+   * 网络请求结果提供者
+   */
+  @Resource
+  protected HttpResultProvider provider;
+  /**
+   * 网络异常提供者
+   */
+  @Resource
+  protected HttpExceptionProvider exceptionProvider;
 }

@@ -8,32 +8,32 @@ package site.timely.exception;
  * @since 1.0-SNAPSHOT
  */
 public enum ExceptionLevel {
-    /**
-     * 提示
-     */
-    Info("info"),
+  /**
+   * 提示
+   */
+  Info("info"),
 
-    /**
-     * 警告
-     */
-    Warning("warning"),
-    /**
-     * 错误
-     */
-    Error("error");
+  /**
+   * 警告
+   */
+  Warning("warning"),
+  /**
+   * 错误
+   */
+  Error("error");
 
-    public static final String INFO = "info";
-    public static final String WARNING = "warning";
-    public static final String ERROR = "error";
+  public static final String INFO = "info";
+  public static final String WARNING = "warning";
+  public static final String ERROR = "error";
 
-    private String name;
+  private String name;
 
-    ExceptionLevel(String name) {
-        this.name = name;
-    }
+  ExceptionLevel(String name) {
+    this.name = name;
+  }
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
+  @Override
+  public String toString() {
+    return this.name;
+  }
 }

@@ -1,13 +1,12 @@
 package site.timely.message;
 
+import java.util.Locale;
+import javax.annotation.Resource;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.annotation.Resource;
-import java.util.Locale;
 
 /**
  * site.timely.message
@@ -20,15 +19,15 @@ import java.util.Locale;
 @SpringBootTest
 public class MessageHolderTest {
 
-    @Resource
-    private MessageHolder messageHolder;
+  @Resource
+  private MessageHolder messageHolder;
 
-    @Test
-    public void test() throws Exception {
-        Assert.assertEquals(messageHolder.currentLocale(), Locale.CHINESE);
-        Assert.assertEquals(messageHolder.getMessage("common.op.success"), "操作成功");
-        messageHolder.setLocale(Locale.ENGLISH);
-        Assert.assertEquals(messageHolder.getMessage("common.op.success"), "Success");
-    }
+  @Test
+  public void test() throws Exception {
+    Assert.assertEquals(messageHolder.currentLocale(), Locale.CHINESE);
+    Assert.assertEquals(messageHolder.getMessage("common.op.success"), "操作成功");
+    messageHolder.setLocale(Locale.ENGLISH);
+    Assert.assertEquals(messageHolder.getMessage("common.op.success"), "Success");
+  }
 
 }

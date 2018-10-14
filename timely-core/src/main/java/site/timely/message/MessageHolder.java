@@ -1,12 +1,11 @@
 package site.timely.message;
 
+import java.util.Locale;
+import java.util.Objects;
+import javax.annotation.Resource;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
-import java.util.Locale;
-import java.util.Objects;
 
 /**
  * 国际化信息
@@ -18,49 +17,49 @@ import java.util.Objects;
 @Component
 public class MessageHolder {
 
-    @Resource
-    private MessageSource source;
+  @Resource
+  private MessageSource source;
 
-    /**
-     * 当前语言环境
-     */
-    private Locale locale;
+  /**
+   * 当前语言环境
+   */
+  private Locale locale;
 
-    /**
-     * 当前语言环境
-     * 切换语言环境参考timely-config
-     *
-     * @return 语言环境
-     */
-    public Locale currentLocale() {
-        if (Objects.isNull(locale))
-            locale = LocaleContextHolder.getLocale();
-        return locale;
+  /**
+   * 当前语言环境 切换语言环境参考timely-config
+   *
+   * @return 语言环境
+   */
+  public Locale currentLocale() {
+    if (Objects.isNull(locale)) {
+      locale = LocaleContextHolder.getLocale();
     }
+    return locale;
+  }
 
-    public void setLocale(Locale locale) {
-        this.locale = locale;
-    }
+  public void setLocale(Locale locale) {
+    this.locale = locale;
+  }
 
-    /**
-     * 获取国际化信息
-     *
-     * @param code 国际化编码
-     * @return 国际化信息
-     */
-    public String getMessage(String code) {
-        return source.getMessage(code, null, code, currentLocale());
-    }
+  /**
+   * 获取国际化信息
+   *
+   * @param code 国际化编码
+   * @return 国际化信息
+   */
+  public String getMessage(String code) {
+    return source.getMessage(code, null, code, currentLocale());
+  }
 
 
-    /**
-     * 获取国际化信息
-     *
-     * @param code 国际化编码
-     * @param args 参数
-     * @return 国际化信息
-     */
-    public String getMessage(String code, String... args) {
-        return source.getMessage(code, args, code, currentLocale());
-    }
+  /**
+   * 获取国际化信息
+   *
+   * @param code 国际化编码
+   * @param args 参数
+   * @return 国际化信息
+   */
+  public String getMessage(String code, String... args) {
+    return source.getMessage(code, args, code, currentLocale());
+  }
 }

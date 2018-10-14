@@ -12,25 +12,25 @@ import site.timely.services.base.domain.User;
 @SpringBootTest
 public class UserServiceTest {
 
-    private static final String USERNAME = "timely-test";
+  private static final String USERNAME = "timely-test";
 
-    @Autowired
-    private UserService service;
+  @Autowired
+  private UserService service;
 
-    @Test
-    public void findByUsername() throws Exception {
-        User user = new User();
-        user.setUsername(USERNAME);
-        user.setPassword("timely-test");
-        service.save(user);
-        Assert.assertEquals(service.findByUsername(USERNAME).getUsername(), USERNAME);
-    }
+  @Test
+  public void findByUsername() throws Exception {
+    User user = new User();
+    user.setUsername(USERNAME);
+    user.setPassword("timely-test");
+    service.save(user);
+    Assert.assertEquals(service.findByUsername(USERNAME).getUsername(), USERNAME);
+  }
 
-    @Test
-    public void deleteByUsername() throws Exception {
-        service.deleteByUsername(USERNAME);
-        Assert.assertNull(service.findByUsername(USERNAME));
-    }
+  @Test
+  public void deleteByUsername() throws Exception {
+    service.deleteByUsername(USERNAME);
+    Assert.assertNull(service.findByUsername(USERNAME));
+  }
 
 
 }
