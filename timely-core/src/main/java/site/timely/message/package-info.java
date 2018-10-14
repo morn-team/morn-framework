@@ -11,4 +11,5 @@ package site.timely.message;
  * 国际化常量
  */
 class MessageConstant {
+
 }

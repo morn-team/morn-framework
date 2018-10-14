@@ -8,119 +8,120 @@ package site.timely.exception;
  * @since 1.0-SNAPSHOT
  */
 public interface ExceptionConstant {
-    /**
-     * 默认异常码，当获取指定异常码国际化信息为空时使用
-     */
-    String DEFAULT_CODE = "default";
 
-    /************************ 平台公共异常从00000-09999 ************************/
-    /**
-     * session超时
-     */
-    String SESSION_TIMEOUT = "00000";
+  /**
+   * 默认异常码，当获取指定异常码国际化信息为空时使用
+   */
+  String DEFAULT_CODE = "default";
 
-    /**
-     * 数据库无法连接
-     */
-    String DB_NOT_CONNECT = "00023";
+  /************************ 平台公共异常从00000-09999 ************************/
+  /**
+   * session超时
+   */
+  String SESSION_TIMEOUT = "00000";
 
-    /**
-     * 记录已删除
-     */
-    String RECORD_DELETE = "00001";
+  /**
+   * 数据库无法连接
+   */
+  String DB_NOT_CONNECT = "00023";
 
-    /**
-     * 编号重复
-     */
-    String CODE_REPEAT = "00002";
+  /**
+   * 记录已删除
+   */
+  String RECORD_DELETE = "00001";
 
-    /**
-     * 名称重复
-     */
-    String NAME_REPEAT = "00003";
+  /**
+   * 编号重复
+   */
+  String CODE_REPEAT = "00002";
 
-    /**
-     * 记录存在子节点
-     */
-    String RECORD_HAS_CHILD = "00004";
+  /**
+   * 名称重复
+   */
+  String NAME_REPEAT = "00003";
 
-    /**
-     * 系统默认数据
-     */
-    String SYS_RECORD = "00005";
+  /**
+   * 记录存在子节点
+   */
+  String RECORD_HAS_CHILD = "00004";
 
-    /**
-     * 用户名、密码相同
-     */
-    String PASSWORD_USERNAME_SAME = "00006";
+  /**
+   * 系统默认数据
+   */
+  String SYS_RECORD = "00005";
 
-    /**
-     * 密码长度不符合要求
-     */
-    String PASSWORD_LENGTH_NOT_MATCH = "00007";
+  /**
+   * 用户名、密码相同
+   */
+  String PASSWORD_USERNAME_SAME = "00006";
 
-    /**
-     * 密码字符种类不符合要求
-     */
-    String PASSWORD_CHARACTER_TYPE_NOT_MATCH = "00008";
+  /**
+   * 密码长度不符合要求
+   */
+  String PASSWORD_LENGTH_NOT_MATCH = "00007";
 
-    /**
-     * 密码和原来的一样
-     */
-    String PASSWORD_SAME_AS_PREVIOUS = "00009";
+  /**
+   * 密码字符种类不符合要求
+   */
+  String PASSWORD_CHARACTER_TYPE_NOT_MATCH = "00008";
 
-    /**
-     * 过多的密码字符重复
-     */
-    String PASSWORD_CHARACTER_REPEAT_OVER_MAX = "00010";
+  /**
+   * 密码和原来的一样
+   */
+  String PASSWORD_SAME_AS_PREVIOUS = "00009";
 
-    /**
-     * 原密码不正确
-     */
-    String PASSWORD_INCORRECT = "00011";
+  /**
+   * 过多的密码字符重复
+   */
+  String PASSWORD_CHARACTER_REPEAT_OVER_MAX = "00010";
 
-    /**
-     * 密码太弱
-     */
-    String PASSWORD_TOO_WEAK = "00012";
+  /**
+   * 原密码不正确
+   */
+  String PASSWORD_INCORRECT = "00011";
 
-    /**
-     * 无法删除
-     */
-    String CAN_NOT_DELETE = "00013";
+  /**
+   * 密码太弱
+   */
+  String PASSWORD_TOO_WEAK = "00012";
 
-    /**
-     * 关联类型已删除
-     */
-    String DEVICETYPE_IS_DELETE = "00015";
+  /**
+   * 无法删除
+   */
+  String CAN_NOT_DELETE = "00013";
 
-    /**
-     * 新密码与之前修改过的密码有重复
-     */
-    String PWD_REPEATED = "00016";
+  /**
+   * 关联类型已删除
+   */
+  String DEVICETYPE_IS_DELETE = "00015";
 
-    /**
-     * 密码错误
-     */
-    String PASSWORD_ERROR = "00019";
+  /**
+   * 新密码与之前修改过的密码有重复
+   */
+  String PWD_REPEATED = "00016";
 
-    /**
-     * 邮件未发送
-     */
-    String MAIL_SEND_ERROR = "00100";
+  /**
+   * 密码错误
+   */
+  String PASSWORD_ERROR = "00019";
 
-    /**
-     * 数据库外键约束
-     */
-    String DB_FOREIGN_KEY_ERROR = "00101";
+  /**
+   * 邮件未发送
+   */
+  String MAIL_SEND_ERROR = "00100";
 
-    /**
-     * 资产编号已存在
-     */
-    String ASSETNUM_REPEAT = "00109";
+  /**
+   * 数据库外键约束
+   */
+  String DB_FOREIGN_KEY_ERROR = "00101";
 
-    /**
-     * 没有权限访问
-     */
-    String NO_PRIVILEGE = "09999";
+  /**
+   * 资产编号已存在
+   */
+  String ASSETNUM_REPEAT = "00109";
+
+  /**
+   * 没有权限访问
+   */
+  String NO_PRIVILEGE = "09999";
 }

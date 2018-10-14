@@ -1,9 +1,8 @@
 package site.timely.services.base.service;
 
+import java.util.List;
 import site.timely.services.base.domain.Privilege;
 import site.timely.services.base.domain.User;
-
-import java.util.List;
 
 /**
  * 权限服务
@@ -13,13 +12,14 @@ import java.util.List;
  * @since 1.0-SNAPSHOT
  */
 public interface PrivilegeService extends JpaService<Privilege, Long> {
-    /**
-     * 查询用户权限码
-     *
-     * @param user 用户
-     * @return 权限集合
-     */
-    List<String> findCodes(User user);
 
-    List<Privilege> findAll(User user);
+  /**
+   * 查询用户权限码
+   *
+   * @param user 用户
+   * @return 权限集合
+   */
+  List<String> findCodes(User user);
+
+  List<Privilege> findAll(User user);
 }

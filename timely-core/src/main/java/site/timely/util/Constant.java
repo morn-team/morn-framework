@@ -6,8 +6,9 @@ package site.timely.util;
  * @since 1.0-SNAPSHOT
  */
 public interface Constant {
-    /**
-     * 超级管理员
-     */
-    String ADMIN = "admin";
+
+  /**
+   * 超级管理员
+   */
+  String ADMIN = "admin";
 }

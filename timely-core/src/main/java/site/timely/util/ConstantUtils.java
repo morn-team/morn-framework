@@ -11,13 +11,14 @@ import java.util.Objects;
  * @since 1.0-SNAPSHOT
  */
 public class ConstantUtils {
-    /**
-     * 判断是否管理员
-     *
-     * @param username 用户名
-     * @return 是否管理员
-     */
-    public static boolean isAdmin(String username) {
-        return Objects.equals(Constant.ADMIN, username);
-    }
+
+  /**
+   * 判断是否管理员
+   *
+   * @param username 用户名
+   * @return 是否管理员
+   */
+  public static boolean isAdmin(String username) {
+    return Objects.equals(Constant.ADMIN, username);
+  }
 }

@@ -18,27 +18,29 @@ import site.timely.config.ApplicationConstant;
  */
 @Configuration
 public class FastJsonConfiguration {
-    @Bean
-    @ConfigurationProperties(prefix = ApplicationConstant.JSON_PROPERTIES)
-    public FastJsonProperties getProperties() {
-        return new FastJsonProperties();
-    }
 
-    @Bean
-    public HttpMessageConverters fastjsonHttpMessageConverter() {
-        //定义一个转换消息的对象
-        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
+  @Bean
+  @ConfigurationProperties(prefix = ApplicationConstant.JSON_PROPERTIES)
+  public FastJsonProperties getProperties() {
+    return new FastJsonProperties();
+  }
 
-        //添加fastjson的配置信息 比如 ：是否要格式化返回的json数据
-        FastJsonConfig fastJsonConfig = new FastJsonConfig();
+  @Bean
+  public HttpMessageConverters fastjsonHttpMessageConverter() {
+    //定义一个转换消息的对象
+    FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
 
-        fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat, SerializerFeature.WriteMapNullValue);
+    //添加fastjson的配置信息 比如 ：是否要格式化返回的json数据
+    FastJsonConfig fastJsonConfig = new FastJsonConfig();
 
-        //在转换器中添加配置信息
-        fastConverter.setFastJsonConfig(fastJsonConfig);
+    fastJsonConfig
+        .setSerializerFeatures(SerializerFeature.PrettyFormat, SerializerFeature.WriteMapNullValue);
 
-        return new HttpMessageConverters(fastConverter);
+    //在转换器中添加配置信息
+    fastConverter.setFastJsonConfig(fastJsonConfig);
 
-    }
+    return new HttpMessageConverters(fastConverter);
+
+  }
 
 }

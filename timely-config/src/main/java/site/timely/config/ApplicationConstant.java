@@ -8,12 +8,13 @@ package site.timely.config;
  * @since 1.0-SNAPSHOT
  */
 public interface ApplicationConstant {
-    /**
-     * 国际化属性文件名
-     */
-    String MESSAGE_PROPERTIES = "timely.messages";
-    /**
-     * Json属性文件名
-     */
-    String JSON_PROPERTIES = "timely.json";
+
+  /**
+   * 国际化属性文件名
+   */
+  String MESSAGE_PROPERTIES = "timely.messages";
+  /**
+   * Json属性文件名
+   */
+  String JSON_PROPERTIES = "timely.json";
 }

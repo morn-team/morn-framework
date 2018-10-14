@@ -1,11 +1,10 @@
 package site.timely.services.base.controller;
 
+import javax.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import site.timely.services.base.domain.User;
-
-import javax.validation.Valid;
 
 /**
  * 登录控制器
@@ -17,11 +16,12 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping
 public class LoginController extends BaseController {
-    /**
-     * 登录由FormAuthenticationFilter代理
-     */
-    @PostMapping("/login")
-    public Object login(@Valid User user) {
+
+  /**
+   * 登录由FormAuthenticationFilter代理
+   */
+  @PostMapping("/login")
+  public Object login(@Valid User user) {
 //        Subject subject = SecurityUtils.getSubject();
 //        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
 //        try {
@@ -29,7 +29,7 @@ public class LoginController extends BaseController {
 //        } catch (Exception e) {
 //            throw exceptionProvider.error(e);
 //        }
-        return provider.success();
+    return provider.success();
 //        return Rests.ok();
-    }
+  }
 }

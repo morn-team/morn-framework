@@ -13,4 +13,5 @@ import site.timely.services.base.domain.Notice;
  */
 @RepositoryRestResource
 public interface NoticeRepository extends JpaRepository<Notice, Long> {
+
 }

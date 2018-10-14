@@ -1,8 +1,7 @@
 package site.timely.exception;
 
-import org.springframework.util.StringUtils;
-
 import java.util.Objects;
+import org.springframework.util.StringUtils;
 
 /**
  * 异常内容
@@ -12,75 +11,78 @@ import java.util.Objects;
  * @since 1.0-SNAPSHOT
  */
 public class ExceptionBody implements ExceptionAdapter {
-    /**
-     * 异常码
-     */
-    private String code;
 
-    /**
-     * 异常级别
-     */
-    private ExceptionLevel level;
+  /**
+   * 异常码
+   */
+  private String code;
 
-    /**
-     * 异常说明
-     */
-    private String description;
+  /**
+   * 异常级别
+   */
+  private ExceptionLevel level;
 
-    /**
-     * 解决方案
-     */
-    private String solution;
+  /**
+   * 异常说明
+   */
+  private String description;
 
-    public ExceptionBody() {
+  /**
+   * 解决方案
+   */
+  private String solution;
+
+  public ExceptionBody() {
+  }
+
+  public ExceptionBody(ExceptionAdapter adapter) {
+    this.setAdapter(adapter);
+  }
+
+  public ExceptionBody(String code, ExceptionLevel level, String description, String solution) {
+    this.code = code;
+    this.level = level;
+    this.description = description;
+    this.solution = solution;
+  }
+
+  public ExceptionBody(Exception exception, String code, ExceptionLevel level, String description,
+      String solution) {
+    this(code, level, description, solution);
+    if (Objects.nonNull(exception) && StringUtils.isEmpty(description)) {
+      setDescription(exception.toString());
     }
+  }
 
-    public ExceptionBody(ExceptionAdapter adapter) {
-        this.setAdapter(adapter);
-    }
+  public String getCode() {
+    return code;
+  }
 
-    public ExceptionBody(String code, ExceptionLevel level, String description, String solution) {
-        this.code = code;
-        this.level = level;
-        this.description = description;
-        this.solution = solution;
-    }
+  public void setCode(String code) {
+    this.code = code;
+  }
 
-    public ExceptionBody(Exception exception, String code, ExceptionLevel level, String description, String solution) {
-        this(code, level, description, solution);
-        if (Objects.nonNull(exception) && StringUtils.isEmpty(description))
-            setDescription(exception.toString());
-    }
+  public ExceptionLevel getLevel() {
+    return level;
+  }
 
-    public String getCode() {
-        return code;
-    }
+  public void setLevel(ExceptionLevel level) {
+    this.level = level;
+  }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public ExceptionLevel getLevel() {
-        return level;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public void setLevel(ExceptionLevel level) {
-        this.level = level;
-    }
+  public String getSolution() {
+    return solution;
+  }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getSolution() {
-        return solution;
-    }
-
-    public void setSolution(String solution) {
-        this.solution = solution;
-    }
+  public void setSolution(String solution) {
+    this.solution = solution;
+  }
 }

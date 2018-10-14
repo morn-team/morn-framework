@@ -1,10 +1,9 @@
 package site.timely.services.base.service;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 import java.io.Serializable;
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * JPA基础服务
@@ -15,30 +14,30 @@ import java.util.List;
  */
 public interface JpaService<T, ID extends Serializable> {
 
-    /* 基础 Crud Start */
+  /* 基础 Crud Start */
 
-    <S extends T> S save(S entity);
+  <S extends T> S save(S entity);
 
-    T findOne(ID id);
+  T findOne(ID id);
 
-    boolean exists(ID id);
+  boolean exists(ID id);
 
-    long count();
+  long count();
 
-    void delete(ID id);
+  void delete(ID id);
 
-    List<T> findAll();
+  List<T> findAll();
 
-    Page<T> findAll(Pageable pageable);
+  Page<T> findAll(Pageable pageable);
 
-    /* 基础 Crud End */
+  /* 基础 Crud End */
 
-    /**
-     * 查询一个实体,并判断实体是否存在
-     *
-     * @param id 主键
-     * @return 实体类
-     * @apiNote
-     */
-    T pullOne(ID id);
+  /**
+   * 查询一个实体,并判断实体是否存在
+   *
+   * @param id 主键
+   * @return 实体类
+   * @apiNote
+   */
+  T pullOne(ID id);
 }

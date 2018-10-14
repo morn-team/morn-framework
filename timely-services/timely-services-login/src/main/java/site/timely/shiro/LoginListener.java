@@ -16,18 +16,19 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class LoginListener implements AuthenticationListener {
-    @Override
-    public void onSuccess(AuthenticationToken token, AuthenticationInfo info) {
-        System.out.println("LoginListener.onSuccess");
-    }
 
-    @Override
-    public void onFailure(AuthenticationToken token, AuthenticationException ae) {
-        System.out.println("LoginListener.onFailure");
-    }
+  @Override
+  public void onSuccess(AuthenticationToken token, AuthenticationInfo info) {
+    System.out.println("LoginListener.onSuccess");
+  }
 
-    @Override
-    public void onLogout(PrincipalCollection principals) {
-        System.out.println("LoginListener.onLogout");
-    }
+  @Override
+  public void onFailure(AuthenticationToken token, AuthenticationException ae) {
+    System.out.println("LoginListener.onFailure");
+  }
+
+  @Override
+  public void onLogout(PrincipalCollection principals) {
+    System.out.println("LoginListener.onLogout");
+  }
 }

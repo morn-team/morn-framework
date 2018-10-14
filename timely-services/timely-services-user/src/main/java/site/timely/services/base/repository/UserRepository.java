@@ -15,20 +15,21 @@ import site.timely.services.base.domain.User;
  */
 @RepositoryRestResource
 public interface UserRepository extends JpaRepository<User, Long> {
-    /**
-     * 按用户名查询
-     *
-     * @param username 用户名
-     * @return 用户
-     */
-    User findByUsername(String username);
 
-    /**
-     * 按用户名删除
-     *
-     * @param username 用户名
-     */
-    @Modifying
-    @Query("delete from User where username = :username")
-    void deleteByUsername(@Param("username") String username);
+  /**
+   * 按用户名查询
+   *
+   * @param username 用户名
+   * @return 用户
+   */
+  User findByUsername(String username);
+
+  /**
+   * 按用户名删除
+   *
+   * @param username 用户名
+   */
+  @Modifying
+  @Query("delete from User where username = :username")
+  void deleteByUsername(@Param("username") String username);
 }

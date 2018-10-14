@@ -9,16 +9,16 @@ package site.timely.exception;
  */
 public interface HttpExceptionAdapter extends ExceptionAdapter {
 
-    String getTitle();
+  String getTitle();
 
-    void setTitle(String title);
+  void setTitle(String title);
 
-    default HttpExceptionAdapter setAdapter(HttpExceptionAdapter adapter) {
-        setCode(adapter.getCode());
-        setLevel(adapter.getLevel());
-        setTitle(adapter.getTitle());
-        setDescription(adapter.getDescription());
-        setSolution(adapter.getSolution());
-        return this;
-    }
+  default HttpExceptionAdapter setAdapter(HttpExceptionAdapter adapter) {
+    setCode(adapter.getCode());
+    setLevel(adapter.getLevel());
+    setTitle(adapter.getTitle());
+    setDescription(adapter.getDescription());
+    setSolution(adapter.getSolution());
+    return this;
+  }
 }
