@@ -17,6 +17,7 @@ import site.timely.services.base.repository.JpaRepository;
  * @version 1.0.0, 2017/9/16
  * @since 1.0-SNAPSHOT
  */
+@Deprecated
 public class SimpleJpaService<T, ID extends Serializable, D extends JpaRepository<T, ID>> implements
     JpaService<T, ID> {
 

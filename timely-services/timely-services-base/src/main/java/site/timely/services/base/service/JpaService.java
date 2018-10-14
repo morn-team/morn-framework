@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
  * @version 1.0.0, 2017/9/16
  * @since 1.0-SNAPSHOT
  */
+@Deprecated
 public interface JpaService<T, ID extends Serializable> {
 
   /* 基础 Crud Start */
