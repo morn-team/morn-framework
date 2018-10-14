@@ -4,6 +4,8 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Set;
 
@@ -28,17 +30,19 @@ public class User implements java.io.Serializable {
     @Id
     @GeneratedValue
     private Long id;
-
     /**
      * 用户名
      */
     @Column(length = 32, unique = true, nullable = false)
+    @NotNull
+    @Size(max = 32)
     private String username;        // 用户名
-
     /**
      * 密码
      */
     @Column(length = 32, nullable = false)
+    @NotNull
+    @Size(max = 32)
     private String password;        // 密码
     /**
      * 昵称
