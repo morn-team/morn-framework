@@ -64,14 +64,9 @@
       </dependency>
 
       <!--Morn-->
-      <!--<dependency>-->
-      <!--<groupId>site.morn</groupId>-->
-      <!--<artifactId>morn-core</artifactId>-->
-      <!--<version>${morn.version}</version>-->
-      <!--</dependency>-->
       <dependency>
         <groupId>site.morn</groupId>
-        <artifactId>morn-rest-entity</artifactId>
+        <artifactId>morn-core</artifactId>
         <version>${morn.version}</version>
       </dependency>
 

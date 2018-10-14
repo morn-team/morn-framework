@@ -13,13 +13,18 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
       <groupId>site.timely.web</groupId>
       <artifactId>timely-core</artifactId>
       <version>${timely.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>site.morn.boot</groupId>
+      <artifactId>morn-boot-web</artifactId>
+      <version>${morn.version}</version>
     </dependency>
   </dependencies>
 
