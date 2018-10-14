@@ -1,6 +1,7 @@
 package site.timely.services.base.service;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import site.timely.services.base.repository.JpaRepository;
@@ -15,7 +16,7 @@ import java.util.function.Function;
  * site.timely.services.base.service
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/16
+ * @version 1.0.0, 2017/9/16
  * @since 1.0-SNAPSHOT
  */
 public class SimpleJpaService<T, ID extends Serializable, D extends JpaRepository<T, ID>> implements JpaService<T, ID> {
@@ -23,7 +24,7 @@ public class SimpleJpaService<T, ID extends Serializable, D extends JpaRepositor
     /**
      * 数据访问对象
      */
-    @Resource
+    @Autowired
     private D dao;
 
     public D dao() {

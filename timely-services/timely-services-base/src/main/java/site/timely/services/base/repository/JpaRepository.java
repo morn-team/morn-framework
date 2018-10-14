@@ -15,7 +15,7 @@ import java.util.List;
  * Jpa基础数据访问
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/16
+ * @version 1.0.0, 2017/9/16
  * @since 1.0-SNAPSHOT
  */
 @NoRepositoryBean

@@ -1,6 +1,5 @@
 package site.timely.exception;
 
-import com.alibaba.fastjson.JSON;
 import org.apache.shiro.authc.AuthenticationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * Controller异常处理
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/10/9
+ * @version 1.0.0, 2017/10/9
  * @since 1.0-SNAPSHOT
  */
 @ControllerAdvice
@@ -32,9 +31,17 @@ public class ExceptionResolver {
 
     @ExceptionHandler
     @ResponseBody
-    public String doResolveException(HttpServletRequest request, HttpServletResponse response, Exception e) {
+    public HttpResult doResolveException(HttpServletRequest request, HttpServletResponse response, Exception e) {
         return resolveException(request, response, e);
     }
+
+    // JSON convert exception
+//    @ExceptionHandler(HttpMessageConversionException.class)
+//    @ResponseBody
+//    public RestMessage handleHttpMessageConversionException(
+//            HttpServletRequest request, HttpServletResponse response, HttpMessageConversionException e) {
+//        return Rests.error();
+//    }
 
     /**
      * 基本异常处理
@@ -44,9 +51,9 @@ public class ExceptionResolver {
      * @param e        异常
      * @return json
      */
-    private String resolveException(HttpServletRequest request, HttpServletResponse response, Exception e) {
+    private HttpResult resolveException(HttpServletRequest request, HttpServletResponse response, Exception e) {
 
-        logger.error("Error:" + request.getRequestURI());
+        logger.error("异常[url]:" + request.getRequestURI());
         //如果是业务异常，错误码也记录进日志
         if (e instanceof ApplicationException) {
             ApplicationException exception = (ApplicationException) e;
@@ -54,9 +61,9 @@ public class ExceptionResolver {
 
             //底层异常为空的时候，不打印过多的日志
             if (cause != null) {
-                logger.error("error code:" + exception.getCode(), e);
+                logger.error("异常[code]:" + exception.getCode(), e);
             } else {
-                logger.error("error code:" + exception.getCode() + " message:" + exception.getMessage());
+                logger.error("异常[code]:" + exception.getCode() + ",[description]:" + exception.getDescription());
             }
         } else {
             logger.error(e.getMessage(), e);
@@ -92,7 +99,7 @@ public class ExceptionResolver {
      * @param result 网络请求结果
      * @return json
      */
-    private String result(HttpResult result) {
+    private HttpResult result(HttpResult result) {
         //设置response状态码Session超时返回401，其它返回500
 //        String code = result.getCode();
 //        if (ExceptionCode.SESSION_TIMEOUT.equals(code)) {
@@ -111,6 +118,7 @@ public class ExceptionResolver {
 //        msgMap.put("description", exception.getDescription());
 //        msgMap.put("solution", exception.getSolution());
 
-        return JSON.toJSONString(result);
+//        return JSON.toJSONString(result);
+        return result;
     }
 }

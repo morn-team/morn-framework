@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * 权限服务实现
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/18
+ * @version 1.0.0, 2017/9/18
  * @since 1.0-SNAPSHOT
  */
 @Service

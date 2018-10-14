@@ -9,7 +9,7 @@ import java.util.List;
  * 权限服务
  *
  * @author timely-rain
- * @verion 1.0.0, 2017/9/18
+ * @version 1.0.0, 2017/9/18
  * @since 1.0-SNAPSHOT
  */
 public interface PrivilegeService extends JpaService<Privilege, Long> {
