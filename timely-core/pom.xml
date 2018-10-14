@@ -31,13 +31,9 @@
       <artifactId>fastjson</artifactId>
     </dependency>
     <dependency>
-      <groupId>site.morn</groupId>
-      <artifactId>morn-rest-entity</artifactId>
+      <groupId>site.morn.boot</groupId>
+      <artifactId>morn-boot-core</artifactId>
     </dependency>
-    <!--<dependency>-->
-    <!--<groupId>site.morn.boot</groupId>-->
-    <!--<artifactId>morn-boot-core</artifactId>-->
-    <!--</dependency>-->
   </dependencies>
 
 </project>
