@@ -1,4 +1,4 @@
-package site.timely.services.base.domain;
+package site.morn.services.base.domain;
 
 import java.util.Date;
 import javax.persistence.Column;
