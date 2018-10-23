@@ -22,7 +22,7 @@ public class UserServiceTest {
     User user = new User();
     user.setUsername(USERNAME);
     user.setPassword("timely-test");
-    service.save(user);
+    service.add(user);
     Assert.assertEquals(service.findByUsername(USERNAME).getUsername(), USERNAME);
   }
 

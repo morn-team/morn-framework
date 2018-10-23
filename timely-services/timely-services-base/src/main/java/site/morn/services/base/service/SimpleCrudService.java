@@ -2,6 +2,7 @@ package site.morn.services.base.service;
 
 import java.io.Serializable;
 import javax.persistence.criteria.Predicate;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,6 +18,7 @@ import site.morn.services.base.repository.BaseRepository;
  * @since 1.0
  */
 @Slf4j
+@Getter
 public class SimpleCrudService<T, ID extends Serializable, D extends BaseRepository<T, ID>> implements
     CrudService<T, ID> {
 
@@ -27,15 +29,6 @@ public class SimpleCrudService<T, ID extends Serializable, D extends BaseReposit
 
   public SimpleCrudService(D dao) {
     this.dao = dao;
-  }
-
-  /**
-   * 获取数据访问对象
-   *
-   * @return 数据访问对象
-   */
-  protected D repository() {
-    return dao;
   }
 
   @Override

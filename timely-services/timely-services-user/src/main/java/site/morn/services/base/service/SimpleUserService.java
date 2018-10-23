@@ -10,17 +10,21 @@ import site.morn.services.base.repository.UserRepository;
 
 @Service
 @Transactional
-public class SimpleUserService
-    extends SimpleJpaService<User, Long, UserRepository> implements UserService {
+public class SimpleUserService extends SimpleCrudService<User, Long, UserRepository> implements
+    UserService {
+
+  public SimpleUserService(UserRepository dao) {
+    super(dao);
+  }
 
   @Override
   public User findByUsername(String username) {
-    return dao().findByUsername(username);
+    return getDao().findByUsername(username);
   }
 
   @Override
   public void deleteByUsername(String username) {
-    dao().deleteByUsername(username);
+    getDao().deleteByUsername(username);
   }
 
   @Override
