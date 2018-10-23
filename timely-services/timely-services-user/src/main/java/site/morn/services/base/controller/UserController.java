@@ -3,12 +3,10 @@ package site.morn.services.base.controller;
 import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Resource;
-import org.springframework.context.MessageSource;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import site.morn.message.MessageHolder;
 import site.morn.services.base.domain.User;
 import site.morn.services.base.service.UserService;
 
@@ -25,12 +23,6 @@ public class UserController extends BaseController {
 
   @Resource
   private UserService service;
-
-  @Resource
-  private MessageHolder messageHolder;
-
-  @Resource
-  private MessageSource messageSource;
 
   @PostMapping
   public Object add(@Validated User user) {
