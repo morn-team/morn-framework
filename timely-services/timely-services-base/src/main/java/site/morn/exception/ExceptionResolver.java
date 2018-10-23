@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import site.morn.rest.RestMessage;
 import site.morn.rest.Rests;
+import site.morn.util.HttpUtils.ContentType;
+import site.morn.util.HttpUtils.Header;
 
 /**
  * Controller异常处理
@@ -34,6 +36,7 @@ public class ExceptionResolver {
   @ResponseBody
   public RestMessage doResolveException(HttpServletRequest request, HttpServletResponse response,
       Exception e) {
+    response.setHeader(Header.CONTENT_TYPE, ContentType.JSON);
     ExceptionMessage exceptionMessage = exceptionProcessor.process(e);
     if (Objects.isNull(exceptionMessage)) {
       return Rests.error();
