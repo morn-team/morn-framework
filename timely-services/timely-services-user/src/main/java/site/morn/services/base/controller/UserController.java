@@ -1,12 +1,14 @@
 package site.morn.services.base.controller;
 
 import java.util.HashMap;
-import java.util.List;
-import javax.annotation.Resource;
+import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import site.morn.boot.rest.RestPage;
+import site.morn.rest.RestMessage;
+import site.morn.rest.Rests;
 import site.morn.services.base.domain.User;
 import site.morn.services.base.service.UserService;
 
@@ -19,10 +21,11 @@ import site.morn.services.base.service.UserService;
  */
 @RestController
 @RequestMapping("/user")
-public class UserController extends BaseController {
+public class UserController extends BaseController<UserService> {
 
-  @Resource
-  private UserService service;
+  public UserController(UserService service) {
+    super(service);
+  }
 
   @PostMapping
   public Object add(@Validated User user) {
@@ -42,8 +45,8 @@ public class UserController extends BaseController {
   }
 
   @PostMapping("datatable")
-  public List<User> datatable() {
-    List<User> all = service.findAll();
-    return all;
+  public RestMessage datatable(RestPage<User> restPage) {
+    Page<User> page = getService().search(restPage);
+    return Rests.ok(page);
   }
 }

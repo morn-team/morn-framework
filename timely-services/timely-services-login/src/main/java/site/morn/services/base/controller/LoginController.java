@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import site.morn.rest.Rests;
 import site.morn.services.base.domain.User;
+import site.morn.services.base.service.UserService;
 
 /**
  * 登录控制器
@@ -16,7 +17,11 @@ import site.morn.services.base.domain.User;
  */
 @RestController
 @RequestMapping
-public class LoginController extends BaseController {
+public class LoginController extends BaseController<UserService> {
+
+  public LoginController(UserService service) {
+    super(service);
+  }
 
   /**
    * 登录由FormAuthenticationFilter代理

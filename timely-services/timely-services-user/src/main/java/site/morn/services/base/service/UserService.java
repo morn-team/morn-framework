@@ -7,7 +7,7 @@ import site.morn.services.base.domain.User;
 /**
  * 用户服务
  */
-public interface UserService extends JpaService<User, Long> {
+public interface UserService extends CrudService<User, Long> {
 
   User findByUsername(String username);
 
