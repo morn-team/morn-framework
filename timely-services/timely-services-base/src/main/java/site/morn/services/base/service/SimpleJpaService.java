@@ -8,7 +8,7 @@ import java.util.function.Function;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import site.morn.services.base.repository.JpaRepository;
+import site.morn.services.base.repository.BaseRepository;
 
 /**
  * site.timely.services.base.service
@@ -18,7 +18,7 @@ import site.morn.services.base.repository.JpaRepository;
  * @since 1.0-SNAPSHOT
  */
 @Deprecated
-public class SimpleJpaService<T, ID extends Serializable, D extends JpaRepository<T, ID>> implements
+public class SimpleJpaService<T, ID extends Serializable, D extends BaseRepository<T, ID>> implements
     JpaService<T, ID> {
 
   /**

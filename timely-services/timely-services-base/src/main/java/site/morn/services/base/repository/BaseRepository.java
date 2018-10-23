@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.condition.ConditionSpecification;
 import org.springframework.data.jpa.condition.JpaConditionUtils;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.NoRepositoryBean;
 
@@ -18,11 +19,8 @@ import org.springframework.data.repository.NoRepositoryBean;
  * @since 1.0-SNAPSHOT
  */
 @NoRepositoryBean
-public interface JpaRepository<T, ID extends Serializable>
-    extends org.springframework.data.jpa.repository.JpaRepository<T, ID>,
+public interface BaseRepository<T, I extends Serializable> extends JpaRepository<T, I>,
     JpaSpecificationExecutor<T> {
-
-  /* ConditionSpecification Queries Start */
 
   /**
    * 判断对象是否存在
@@ -31,7 +29,7 @@ public interface JpaRepository<T, ID extends Serializable>
    * @return 对象是否存在
    */
   default boolean exists(T model, ConditionSpecification<T>... specification) {
-    return findAll(model, specification).size() > 0;
+    return !findAll(model, specification).isEmpty();
   }
 
   /**
@@ -57,6 +55,7 @@ public interface JpaRepository<T, ID extends Serializable>
    * @see ConditionSpecification
    * @see JpaSpecificationExecutor
    */
+  @SuppressWarnings("unchecked")
   default List<T> findAll(T model, ConditionSpecification<T>... specifications) {
     return this.findAll(
         JpaConditionUtils.specification(model, specifications));
@@ -87,10 +86,9 @@ public interface JpaRepository<T, ID extends Serializable>
    * @see ConditionSpecification
    * @see JpaSpecificationExecutor
    */
+  @SuppressWarnings("unchecked")
   default Page<T> findAll(T model, Pageable pageable, ConditionSpecification<T>... specifications) {
     return this.findAll(
         JpaConditionUtils.specification(model, specifications), pageable);
   }
-
-  /* ConditionSpecification Queries End */
 }
