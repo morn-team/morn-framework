@@ -38,10 +38,10 @@ public class SimpleCrudService<T, ID extends Serializable, D extends BaseReposit
 
   @Override
   public Page<T> search(RestPage<T> restPage) {
+    log.info("搜索列表");
     PageRequest pageRequest = restPage.generatePageRequest();// 分页请求
     T model = restPage.getModel(); // 数据模型
     ConditionSpecification<T> specification = specification(model); // 查询条件
-    log.info("搜索列表");
     return dao.findAll(model, pageRequest, specification); // 分页查询
   }
 
