@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.condition.ConditionSpecification;
 import site.morn.boot.rest.RestPage;
-import site.morn.services.base.repository.JpaRepository;
+import site.morn.services.base.repository.BaseRepository;
 
 /**
  * 增查改删服务实现
@@ -17,7 +17,7 @@ import site.morn.services.base.repository.JpaRepository;
  * @since 1.0
  */
 @Slf4j
-public class SimpleCrudService<T, ID extends Serializable, D extends JpaRepository<T, ID>> implements
+public class SimpleCrudService<T, ID extends Serializable, D extends BaseRepository<T, ID>> implements
     CrudService<T, ID> {
 
   /**

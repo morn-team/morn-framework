@@ -14,7 +14,7 @@ import site.morn.services.base.domain.User;
  * @since 1.0-SNAPSHOT
  */
 @RepositoryRestResource
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends BaseRepository<User, Long> {
 
   /**
    * 按用户名查询

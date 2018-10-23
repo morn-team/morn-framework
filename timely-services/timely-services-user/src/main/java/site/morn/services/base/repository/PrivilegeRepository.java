@@ -12,7 +12,7 @@ import site.morn.services.base.domain.Privilege;
  */
 //@NoRepositoryBean
 @RepositoryRestResource
-public interface PrivilegeRepository extends JpaRepository<Privilege, Long> {
+public interface PrivilegeRepository extends BaseRepository<Privilege, Long> {
 //    /**
 //     * 所有权限码
 //     *
