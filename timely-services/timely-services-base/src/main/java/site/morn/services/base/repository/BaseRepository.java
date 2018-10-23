@@ -19,7 +19,7 @@ import org.springframework.data.repository.NoRepositoryBean;
  * @since 1.0-SNAPSHOT
  */
 @NoRepositoryBean
-public interface BaseRepository<T, I extends Serializable> extends JpaRepository<T, I>,
+public interface BaseRepository<T, ID extends Serializable> extends JpaRepository<T, ID>,
     JpaSpecificationExecutor<T> {
 
   /**
