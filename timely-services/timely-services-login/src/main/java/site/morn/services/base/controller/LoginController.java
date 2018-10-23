@@ -28,14 +28,6 @@ public class LoginController extends BaseController<UserService> {
    */
   @PostMapping("/login")
   public Object login(@Valid User user) {
-//        Subject subject = SecurityUtils.getSubject();
-//        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
-//        try {
-//            subject.login(token);
-//        } catch (Exception e) {
-//            throw exceptionProvider.error(e);
-//        }
-//    return provider.success();
     return Rests.ok();
   }
 }
