@@ -3,6 +3,7 @@ package site.morn.shiro;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.servlet.Filter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationListener;
 import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
 import org.apache.shiro.mgt.SecurityManager;
@@ -13,8 +14,6 @@ import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.filter.authc.LogoutFilter;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -27,17 +26,9 @@ import org.springframework.context.annotation.Configuration;
  * @version 1.0.0, 2017/9/18
  * @since 1.0-SNAPSHOT
  */
+@Slf4j
 @Configuration
 public class ShiroConfiguration {
-
-  private static final Logger logger = LoggerFactory.getLogger(ShiroConfiguration.class);
-
-//    @Bean
-//    public FormAuthenticationFilter formAuthenticationFilter() {
-////        FormAuthenticationFilter formAuthenticationFilter = new FormAuthenticationFilter();
-////        formAuthenticationFilter.setLoginUrl("/login");
-//        return new RestAuthenticationFilter();
-//    }
 
   /**
    * LifecycleBeanPostProcessor，这是个DestructionAwareBeanPostProcessor的子类，
@@ -45,13 +36,13 @@ public class ShiroConfiguration {
    */
   @Bean
   public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
-    logger.info("ShiroConfiguration.getLifecycleBeanPostProcessor()");
+    log.info("ShiroConfiguration.getLifecycleBeanPostProcessor()");
     return new LifecycleBeanPostProcessor();
   }
 
   @Bean
   public SimpleCookie rememberMeCookie() {
-    logger.info("ShiroConfiguration.rememberMeCookie()");
+    log.info("ShiroConfiguration.rememberMeCookie()");
     // 这个参数是cookie的名称，对应前端的checkbox的name = rememberMe
     SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
     // cookie生效时间30天 ,单位秒
@@ -80,8 +71,6 @@ public class ShiroConfiguration {
     bean.setSecurityManager(securityManager);
     //配置登录的url和登录成功的url
     bean.setLoginUrl("/login");
-//        bean.setSuccessUrl("/index.html");
-//        bean.setUnauthorizedUrl("/index.html");
 
     // 注入过滤器和过滤规则
     Map<String, Filter> filters = bean.getFilters();
