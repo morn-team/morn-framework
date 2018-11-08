@@ -27,7 +27,7 @@ import site.morn.util.HttpUtils.ContentType;
  * @since 1.0
  */
 @Slf4j
-public class RestAuthenticationFilter extends FormAuthenticationFilter {
+public class RestLoginFilter extends FormAuthenticationFilter {
 
   /**
    * 拒绝访问
