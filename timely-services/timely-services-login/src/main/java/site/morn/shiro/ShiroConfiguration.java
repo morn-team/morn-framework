@@ -10,6 +10,7 @@ import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+import org.apache.shiro.web.filter.authc.LogoutFilter;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
 import org.slf4j.Logger;
@@ -84,9 +85,13 @@ public class ShiroConfiguration {
 
     // 注入过滤器和过滤规则
     Map<String, Filter> filters = bean.getFilters();
-    FormAuthenticationFilter filter = new RestAuthenticationFilter();
-    filter.setLoginUrl("/login");
-    filters.put("authc", filter);
+    // 登录过滤器
+    FormAuthenticationFilter loginFilter = new RestAuthenticationFilter();
+    loginFilter.setLoginUrl("/login");
+    filters.put("authc", loginFilter);
+    // 登出过滤器
+    LogoutFilter logoutFilter = new RestLogoutFilter();
+    filters.put("logout", logoutFilter);
     bean.setFilterChainDefinitionMap(getFilterChainDefinitionMap());
     return bean;
   }
