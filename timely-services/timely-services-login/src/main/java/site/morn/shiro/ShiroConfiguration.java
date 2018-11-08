@@ -3,6 +3,8 @@ package site.morn.shiro;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.servlet.Filter;
+import org.apache.shiro.authc.AuthenticationListener;
+import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -61,10 +63,12 @@ public class ShiroConfiguration {
   public SecurityManager securityManager(UserRealm userRealm, ApplicationContext context) {
     DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
     manager.setRealm(userRealm);
-//        // 注册认证监听器
-//        Map<String, AuthenticationListener> listeners = context.getBeansOfType(AuthenticationListener.class);
-//        ModularRealmAuthenticator authenticator = (ModularRealmAuthenticator) manager.getAuthenticator();
-//        authenticator.setAuthenticationListeners(listeners.values());
+    // 注册认证监听器
+    Map<String, AuthenticationListener> listeners = context
+        .getBeansOfType(AuthenticationListener.class);
+    ModularRealmAuthenticator authenticator = (ModularRealmAuthenticator) manager
+        .getAuthenticator();
+    authenticator.setAuthenticationListeners(listeners.values());
     return manager;
   }
 
