@@ -2,7 +2,6 @@ package site.morn.shiro;
 
 import java.util.Objects;
 import javax.annotation.Resource;
-import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
@@ -46,8 +45,7 @@ public class UserRealm extends AuthorizingRealm {
    * @return 认证信息
    */
   @Override
-  protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken)
-      throws AuthenticationException {
+  protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) {
     UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
     // 查询用户
     User user = userService.findByUsername(token.getUsername());
