@@ -2,9 +2,11 @@ package site.morn.services.base.controller;
 
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import site.morn.rest.Rests;
+import site.morn.rest.RestBuilders;
+import site.morn.rest.RestMessage;
 import site.morn.services.base.domain.User;
 import site.morn.services.base.service.UserService;
 
@@ -27,7 +29,7 @@ public class LoginController extends BaseController<UserService> {
    * 登录由FormAuthenticationFilter代理
    */
   @PostMapping("/login")
-  public Object login(@Valid User user) {
-    return Rests.ok();
+  public RestMessage login(@Valid @RequestBody User user) {
+    return RestBuilders.successMessage();
   }
 }

@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
@@ -15,9 +16,14 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
-import site.morn.rest.Rests;
-import site.morn.util.HttpUtils.ContentType;
+import site.morn.bean.BeanCaches;
+import site.morn.exception.ApplicationMessage;
+import site.morn.exception.ExceptionInterpreter;
+import site.morn.rest.RestBuilder;
+import site.morn.rest.RestBuilders;
+import site.morn.rest.RestMessage;
 
 /**
  * REST鉴权过滤器
@@ -69,7 +75,8 @@ public class RestLoginFilter extends FormAuthenticationFilter {
   @Override
   protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) {
     String contentType = request.getContentType();
-    if (!StringUtils.isEmpty(contentType) && contentType.contains(ContentType.JSON)) {
+    if (!StringUtils.isEmpty(contentType) && contentType
+        .contains(MediaType.APPLICATION_JSON_VALUE)) {
       return createJsonToken(request);
     }
     return super.createToken(request, response);
@@ -81,7 +88,8 @@ public class RestLoginFilter extends FormAuthenticationFilter {
   @Override
   protected boolean onLoginSuccess(AuthenticationToken token, Subject subject,
       ServletRequest request, ServletResponse response) throws Exception {
-    String s = JSONObject.toJSONString(Rests.ok());
+    RestMessage ok = RestBuilders.successMessage();
+    String s = JSONObject.toJSONString(ok);
     response.setCharacterEncoding(StandardCharsets.UTF_8.name());
     response.getWriter().write(s);
     return super.onLoginSuccess(token, subject, request, response);
@@ -93,7 +101,16 @@ public class RestLoginFilter extends FormAuthenticationFilter {
   @Override
   protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e,
       ServletRequest request, ServletResponse response) {
-    String s = JSONObject.toJSONString(Rests.error());
+    // 从缓存中获取异常解释器
+    ExceptionInterpreter exceptionInterpreter = BeanCaches.defaultBeanCache()
+        .bean(ExceptionInterpreter.class, e.getClass());
+    if (Objects.isNull(exceptionInterpreter)) {
+      log.warn("登录异常处理失败：尚未发现处理{}的异常解释器", e.getClass().getSimpleName());
+      return false;
+    }
+    ApplicationMessage applicationMessage = exceptionInterpreter.resolve(e);
+    RestMessage message = RestBuilder.from(applicationMessage);
+    String s = JSONObject.toJSONString(message);
     try {
       response.setCharacterEncoding(StandardCharsets.UTF_8.name());
       response.getWriter().write(s);
