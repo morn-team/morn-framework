@@ -8,8 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.session.SessionException;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.LogoutFilter;
-import site.morn.rest.Rests;
-import site.morn.util.HttpUtils.ContentType;
+import org.springframework.http.MediaType;
+import site.morn.rest.RestBuilders;
 
 /**
  * Rest登出过滤器
@@ -30,8 +30,8 @@ public class RestLogoutFilter extends LogoutFilter {
           "Encountered session exception during logout.  This can generally safely be ignored.",
           ise);
     }
-    String s = JSONObject.toJSONString(Rests.ok());
-    response.setContentType(ContentType.JSON);
+    String s = JSONObject.toJSONString(RestBuilders.successMessage());
+    response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
     response.setCharacterEncoding(StandardCharsets.UTF_8.name());
     response.getWriter().write(s);
     return false;

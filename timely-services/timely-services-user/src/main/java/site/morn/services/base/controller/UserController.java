@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import site.morn.boot.rest.RestPage;
+import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
-import site.morn.rest.Rests;
 import site.morn.services.base.domain.User;
 import site.morn.services.base.service.UserService;
 
@@ -47,6 +47,6 @@ public class UserController extends BaseController<UserService> {
   @PostMapping("datatable")
   public RestMessage datatable(RestPage<User> restPage) {
     Page<User> page = getService().search(restPage);
-    return Rests.ok(page);
+    return RestBuilders.successMessage(page);
   }
 }
