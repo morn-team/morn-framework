@@ -15,7 +15,6 @@ public class MessageProperties {
    * 解释器类型
    *
    * @apiNote 决定用户语言的获取方式
-   * @see MessageHolder
    */
   @Value("resolver:" + Constant.DEFAULT_RESOLVER)
   private String resolver;
