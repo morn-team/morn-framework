@@ -10,6 +10,7 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.FixedLocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import site.morn.config.ApplicationConstant;
+import site.morn.exception.ApplicationMessages;
 
 /**
  * 国际化配置
@@ -38,7 +39,7 @@ public class MessageConfiguration {
    * @return LocaleResolver
    */
   @Bean
-  public LocaleResolver localeResolver() throws Exception {
+  public LocaleResolver localeResolver() {
     MessageProperties properties = getProperties();
     Locale locale = new Locale(properties.getLanguage()); // 默认语言环境
     switch (properties.getResolver()) {
@@ -59,8 +60,9 @@ public class MessageConfiguration {
         cookieLocaleResolver.setDefaultLocale(locale);
         cookieLocaleResolver.setCookieMaxAge(properties.getCookieMaxAge());
         return cookieLocaleResolver;
+      default:
+        throw ApplicationMessages.translateMessage("config.unknown-resolver").exception();
     }
-    throw new Exception("Unknown LocaleResolver");
   }
 
 }
