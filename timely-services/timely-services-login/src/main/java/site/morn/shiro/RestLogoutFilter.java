@@ -1,15 +1,14 @@
 package site.morn.shiro;
 
-import com.alibaba.fastjson.JSONObject;
-import java.nio.charset.StandardCharsets;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.session.SessionException;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.LogoutFilter;
-import org.springframework.http.MediaType;
+import site.morn.boot.web.Responses;
 import site.morn.rest.RestBuilders;
+import site.morn.rest.RestMessage;
 
 /**
  * Rest登出过滤器
@@ -30,10 +29,8 @@ public class RestLogoutFilter extends LogoutFilter {
           "Encountered session exception during logout.  This can generally safely be ignored.",
           ise);
     }
-    String s = JSONObject.toJSONString(RestBuilders.successMessage());
-    response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-    response.setCharacterEncoding(StandardCharsets.UTF_8.name());
-    response.getWriter().write(s);
+    RestMessage restMessage = RestBuilders.successMessage();
+    Responses.standard(response).respond(restMessage);
     return false;
   }
 }
