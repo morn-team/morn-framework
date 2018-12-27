@@ -19,7 +19,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
 import site.morn.bean.BeanCaches;
+import site.morn.boot.web.Responses;
 import site.morn.exception.ApplicationMessage;
+import site.morn.exception.ApplicationMessages;
 import site.morn.exception.ExceptionInterpreter;
 import site.morn.rest.RestBuilder;
 import site.morn.rest.RestBuilders;
@@ -87,12 +89,10 @@ public class RestLoginFilter extends FormAuthenticationFilter {
    */
   @Override
   protected boolean onLoginSuccess(AuthenticationToken token, Subject subject,
-      ServletRequest request, ServletResponse response) throws Exception {
-    RestMessage ok = RestBuilders.successMessage();
-    String s = JSONObject.toJSONString(ok);
-    response.setCharacterEncoding(StandardCharsets.UTF_8.name());
-    response.getWriter().write(s);
-    return super.onLoginSuccess(token, subject, request, response);
+      ServletRequest request, ServletResponse response) {
+    RestMessage restMessage = RestBuilders.successMessage();
+    Responses.standard(response).respond(restMessage);
+    return false;
   }
 
   /**
@@ -101,22 +101,18 @@ public class RestLoginFilter extends FormAuthenticationFilter {
   @Override
   protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e,
       ServletRequest request, ServletResponse response) {
+    ApplicationMessage applicationMessage;
     // 从缓存中获取异常解释器
     ExceptionInterpreter exceptionInterpreter = BeanCaches.defaultBeanCache()
         .bean(ExceptionInterpreter.class, e.getClass());
     if (Objects.isNull(exceptionInterpreter)) {
       log.warn("登录异常处理失败：尚未发现处理{}的异常解释器", e.getClass().getSimpleName());
-      return false;
+      applicationMessage = ApplicationMessages.translateMessage("login.failure");
+    } else {
+      applicationMessage = exceptionInterpreter.resolve(e);
     }
-    ApplicationMessage applicationMessage = exceptionInterpreter.resolve(e);
     RestMessage message = RestBuilder.from(applicationMessage);
-    String s = JSONObject.toJSONString(message);
-    try {
-      response.setCharacterEncoding(StandardCharsets.UTF_8.name());
-      response.getWriter().write(s);
-    } catch (IOException exception) {
-      log.error(e.getMessage(), e);
-    }
+    Responses.standard(response).respond(message);
     return false;
   }
 
