@@ -29,6 +29,10 @@
       <groupId>site.morn.boot</groupId>
       <artifactId>morn-boot-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>site.morn.boot</groupId>
+      <artifactId>morn-boot-autoconfigure</artifactId>
+    </dependency>
   </dependencies>
 
 </project>
