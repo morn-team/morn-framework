@@ -76,7 +76,6 @@ public class ShiroConfiguration {
     Map<String, Filter> filters = bean.getFilters();
     // 登录过滤器
     FormAuthenticationFilter loginFilter = new RestLoginFilter();
-    loginFilter.setLoginUrl("/login");
     filters.put("authc", loginFilter);
     // 登出过滤器
     LogoutFilter logoutFilter = new RestLogoutFilter();
