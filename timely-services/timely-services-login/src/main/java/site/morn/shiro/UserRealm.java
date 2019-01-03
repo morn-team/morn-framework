@@ -80,9 +80,12 @@ public class UserRealm extends AuthorizingRealm {
    * @return AuthenticationInfo 认证信息
    */
   private AuthenticationInfo createAuthenticationInfo(User user) {
+    // 防止密码暴露
+    String password = user.getPassword();
+    user.setPassword(null);
     // 将用户名当做盐来加密
     ByteSource salt = ByteSource.Util.bytes(ByteSource.Util.bytes(user.getUsername()));
-    return new SimpleAuthenticationInfo(user, user.getPassword(), salt, getName());
+    return new SimpleAuthenticationInfo(user, password, salt, getName());
   }
 
 }
