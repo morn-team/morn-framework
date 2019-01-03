@@ -3,13 +3,13 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>timely-boot</artifactId>
+    <artifactId>morn-framework-dependencies</artifactId>
     <groupId>site.timely.web</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>timely-web</artifactId>
+  <artifactId>morn-framework-web</artifactId>
 
   <dependencies>
     <dependency>
@@ -17,19 +17,13 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
-      <groupId>site.timely.web</groupId>
-      <artifactId>timely-core</artifactId>
-      <version>${timely.version}</version>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-hibernate5</artifactId>
     </dependency>
     <dependency>
       <groupId>site.morn.boot</groupId>
       <artifactId>morn-boot-web</artifactId>
       <version>${morn.version}</version>
     </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.datatype</groupId>
-      <artifactId>jackson-datatype-hibernate5</artifactId>
-    </dependency>
   </dependencies>
-
 </project>

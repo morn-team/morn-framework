@@ -10,13 +10,10 @@
   <version>1.0-SNAPSHOT</version>
 
   <modules>
-    <module>timely-test</module>
-    <module>timely-core</module>
-    <module>timely-web</module>
-    <module>timely-jpa</module>
-    <module>timely-services</module>
+    <module>morn-framework-dependencies</module>
     <module>timely-config</module>
-    <module>timely-shiro</module>
+    <module>timely-services</module>
+    <module>timely-test</module>
   </modules>
 
   <properties>
@@ -25,7 +22,6 @@
     <java.version>1.8</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-
 
     <boot.version>1.5.15.RELEASE</boot.version>
     <timely.version>1.0-SNAPSHOT</timely.version>
@@ -100,7 +96,7 @@
       </dependency>
       <dependency>
         <groupId>site.timely.web</groupId>
-        <artifactId>timely-web</artifactId>
+        <artifactId>morn-framework-web</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <dependency>

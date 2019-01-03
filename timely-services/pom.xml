@@ -38,7 +38,7 @@
     </dependency>
     <dependency>
       <groupId>site.timely.web</groupId>
-      <artifactId>timely-web</artifactId>
+      <artifactId>morn-framework-web</artifactId>
     </dependency>
     <dependency>
       <groupId>site.timely.web</groupId>
