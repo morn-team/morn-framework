@@ -9,13 +9,15 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>timely-shiro</artifactId>
+  <artifactId>morn-framework-dependencies</artifactId>
+  <packaging>pom</packaging>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.shiro</groupId>
-      <artifactId>shiro-spring</artifactId>
-    </dependency>
-  </dependencies>
+
+  <modules>
+    <module>timely-core</module>
+    <module>timely-jpa</module>
+    <module>timely-shiro</module>
+    <module>morn-framework-web</module>
+  </modules>
 
 </project>
