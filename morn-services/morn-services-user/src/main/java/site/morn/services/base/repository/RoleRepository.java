@@ -1,6 +1,5 @@
 package site.morn.services.base.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import site.morn.services.base.domain.Role;
 
@@ -12,6 +11,6 @@ import site.morn.services.base.domain.Role;
  * @since 1.0-SNAPSHOT
  */
 @RepositoryRestResource
-public interface RoleRepository extends JpaRepository<Role, Long> {
+public interface RoleRepository extends BaseRepository<Role, Long> {
 
 }
