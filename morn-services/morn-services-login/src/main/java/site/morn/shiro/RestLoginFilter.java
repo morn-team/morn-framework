@@ -5,10 +5,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -90,7 +95,12 @@ public class RestLoginFilter extends FormAuthenticationFilter {
   @Override
   protected boolean onLoginSuccess(AuthenticationToken token, Subject subject,
       ServletRequest request, ServletResponse response) {
-    RestMessage restMessage = RestBuilders.successMessage();
+    Map<String, Object> data = new HashMap<>();
+    String uuid = UUID.randomUUID().toString().replace("-", "");
+    data.put("token", uuid);
+    HttpSession session = ((HttpServletRequest) request).getSession();
+    session.setAttribute("token", uuid);
+    RestMessage restMessage = RestBuilders.successMessage(data);
     Responses.standard(response).respond(restMessage);
     return false;
   }

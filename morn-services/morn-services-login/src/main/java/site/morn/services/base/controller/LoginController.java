@@ -1,5 +1,8 @@
 package site.morn.services.base.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +32,10 @@ public class LoginController extends BaseController<UserService> {
    * 登录由FormAuthenticationFilter代理
    */
   @PostMapping("/login")
-  public RestMessage login(@Valid @RequestBody User user) {
-    return RestBuilders.successMessage();
+  public RestMessage login(@Valid @RequestBody User user, HttpServletRequest request) {
+    Object token = request.getSession().getAttribute("token");
+    Map<String, Object> data = new HashMap<>();
+    data.put("token", token);
+    return RestBuilders.successMessage(data);
   }
 }
