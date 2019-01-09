@@ -1,7 +1,10 @@
 package site.morn.services.base.controller;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.apache.shiro.SecurityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +15,8 @@ import site.morn.boot.rest.RestPage;
 import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
 import site.morn.services.base.domain.User;
+import site.morn.services.base.service.PrivilegeService;
+import site.morn.services.base.service.RoleService;
 import site.morn.services.base.service.UserService;
 
 /**
@@ -24,6 +29,15 @@ import site.morn.services.base.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController extends BaseController<UserService> {
+
+  @Autowired
+  private RoleService roleService;
+
+  /**
+   * 权限服务
+   */
+  @Autowired
+  private PrivilegeService privilegeService;
 
   public UserController(UserService service) {
     super(service);
@@ -46,10 +60,19 @@ public class UserController extends BaseController<UserService> {
     return new HashMap<>();
   }
 
+  /**
+   * 获取用户信息
+   *
+   * @return 用户信息
+   */
   @GetMapping("info")
   public RestMessage info() {
-    Object principal = SecurityUtils.getSubject().getPrincipal();
-    return RestBuilders.successMessage(principal);
+    User user = (User) SecurityUtils.getSubject().getPrincipal();
+    List<String> codes = privilegeService.findCodes(user);
+    Map<String, Object> data = new HashMap<>();
+    codes.add("admin");
+    data.put("roles", codes);
+    return RestBuilders.successMessage(data);
   }
 
   @PostMapping("datatable")
