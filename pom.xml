@@ -4,19 +4,16 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>site.timely.web</groupId>
-  <artifactId>timely-boot</artifactId>
+  <groupId>site.morn.framework</groupId>
+  <artifactId>morn-framework</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
 
   <modules>
-    <module>timely-test</module>
-    <module>timely-core</module>
-    <module>timely-web</module>
-    <module>timely-jpa</module>
-    <module>timely-services</module>
-    <module>timely-config</module>
-    <module>timely-shiro</module>
+    <module>morn-config</module>
+    <module>morn-dependencies</module>
+    <module>morn-services</module>
+    <module>morn-test</module>
   </modules>
 
   <properties>
@@ -25,7 +22,6 @@
     <java.version>1.8</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-
 
     <boot.version>1.5.15.RELEASE</boot.version>
     <timely.version>1.0-SNAPSHOT</timely.version>
@@ -84,59 +80,59 @@
 
       <!--本地模块-->
       <dependency>
-        <groupId>site.timely.web</groupId>
-        <artifactId>timely-test</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-test</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <dependency>
-        <groupId>site.timely.web</groupId>
-        <artifactId>timely-core</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-core</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <dependency>
-        <groupId>site.timely.web</groupId>
-        <artifactId>timely-config</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-config</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <dependency>
-        <groupId>site.timely.web</groupId>
-        <artifactId>timely-web</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-web</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <dependency>
-        <groupId>site.timely.web</groupId>
-        <artifactId>timely-jpa</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-jpa</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <dependency>
-        <groupId>site.timely.web</groupId>
-        <artifactId>timely-shiro</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-shiro</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <!--Services Start-->
       <dependency>
-        <groupId>site.timely.web</groupId>
-        <artifactId>timely-services</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-services</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <dependency>
-        <groupId>site.timely.web</groupId>
-        <artifactId>timely-services-base</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-services-base</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <dependency>
-        <groupId>site.timely.web</groupId>
-        <artifactId>timely-services-user</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-services-user</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <dependency>
-        <groupId>site.timely.web</groupId>
-        <artifactId>timely-services-login</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-services-login</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <dependency>
-        <groupId>site.timely.web</groupId>
-        <artifactId>timely-services-notice</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-services-notice</artifactId>
         <version>${timely.version}</version>
       </dependency>
       <!--Services End-->
