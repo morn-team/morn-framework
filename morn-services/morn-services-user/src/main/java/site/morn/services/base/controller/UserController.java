@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import site.morn.boot.rest.RestPage;
@@ -16,7 +17,6 @@ import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
 import site.morn.services.base.domain.User;
 import site.morn.services.base.service.PrivilegeService;
-import site.morn.services.base.service.RoleService;
 import site.morn.services.base.service.UserService;
 
 /**
@@ -30,9 +30,6 @@ import site.morn.services.base.service.UserService;
 @RequestMapping("/user")
 public class UserController extends BaseController<UserService> {
 
-  @Autowired
-  private RoleService roleService;
-
   /**
    * 权限服务
    */
@@ -44,20 +41,8 @@ public class UserController extends BaseController<UserService> {
   }
 
   @PostMapping
-  public Object add(@Validated User user) {
-//        if (result.hasErrors()) {
-//            List<FieldError> fieldErrors = result.getFieldErrors();
-//            List<String> messages = new ArrayList<>();
-//            for (FieldError fieldError : fieldErrors) {
-//                String message = messageSource.getMessage(fieldError, messageHolder.currentLocale());
-//                String fieldPath = fieldError.getObjectName() + "." + fieldError.getField();
-//                String fieldName = messageSource.getMessage(fieldPath, null, fieldPath, messageHolder.currentLocale());
-//                messages.add(fieldName + message);
-//            }
-//            String s = StringUtils.collectionToCommaDelimitedString(messages);
-//            return Rests.error().message(s);
-//        }
-    return new HashMap<>();
+  public RestMessage add(@Validated @RequestBody User user) {
+    return RestBuilders.successMessage();
   }
 
   /**
@@ -71,7 +56,7 @@ public class UserController extends BaseController<UserService> {
     List<String> codes = privilegeService.findCodes(user);
     Map<String, Object> data = new HashMap<>();
     codes.add("admin");
-    data.put("roles", codes);
+    data.put("privileges", codes);
     return RestBuilders.successMessage(data);
   }
 
