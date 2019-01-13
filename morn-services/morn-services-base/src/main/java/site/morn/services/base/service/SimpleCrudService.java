@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.condition.ConditionSpecification;
 import site.morn.boot.rest.RestPage;
+import site.morn.core.CriteriaMap;
 import site.morn.services.base.repository.BaseRepository;
 
 /**
@@ -40,8 +41,9 @@ public class SimpleCrudService<T, ID extends Serializable, D extends BaseReposit
   public Page<T> search(RestPage<T> restPage) {
     log.info("搜索列表");
     PageRequest pageRequest = restPage.generatePageRequest();// 分页请求
+    CriteriaMap attach = restPage.getAttach(); // 附加数据
     T model = restPage.getModel(); // 数据模型
-    ConditionSpecification<T> specification = specification(model); // 查询条件
+    ConditionSpecification<T> specification = specification(attach, model); // 查询条件
     return dao.findAll(model, pageRequest, specification); // 分页查询
   }
 
@@ -75,7 +77,7 @@ public class SimpleCrudService<T, ID extends Serializable, D extends BaseReposit
    *
    * @return JPA查询条件
    */
-  protected ConditionSpecification<T> specification(T model) {
+  protected ConditionSpecification<T> specification(CriteriaMap attach, T model) {
     return ((root, query, cb, jc) -> {
       // 默认匹配所有字段
       Predicate[] equals = jc.equals();
