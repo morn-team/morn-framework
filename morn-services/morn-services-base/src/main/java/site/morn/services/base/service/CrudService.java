@@ -11,6 +11,7 @@ import site.morn.boot.rest.RestPage;
  * @version 1.0.0, 2018/10/14
  * @since 1.0
  */
+@Deprecated
 public interface CrudService<T, ID extends Serializable> {
 
   /**
