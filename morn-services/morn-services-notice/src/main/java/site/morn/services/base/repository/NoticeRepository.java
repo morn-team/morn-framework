@@ -1,7 +1,7 @@
 package site.morn.services.base.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 import site.morn.services.base.domain.Notice;
 
 /**
@@ -11,7 +11,7 @@ import site.morn.services.base.domain.Notice;
  * @version 1.0.0, 2017/9/10
  * @since 1.0-SNAPSHOT
  */
-@RepositoryRestResource
+@Repository
 public interface NoticeRepository extends JpaRepository<Notice, Long> {
 
 }
