@@ -3,7 +3,7 @@ package site.morn.services.base.repository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 import site.morn.services.base.domain.User;
 
 /**
@@ -13,7 +13,7 @@ import site.morn.services.base.domain.User;
  * @version 1.0.0, 2017/9/9
  * @since 1.0-SNAPSHOT
  */
-@RepositoryRestResource
+@Repository
 public interface UserRepository extends BaseRepository<User, Long> {
 
   /**
