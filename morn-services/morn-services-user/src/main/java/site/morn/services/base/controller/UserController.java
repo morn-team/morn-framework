@@ -28,16 +28,19 @@ import site.morn.services.base.service.UserService;
  */
 @RestController
 @RequestMapping("/user")
-public class UserController extends BaseController<UserService> {
+public class UserController {
+
+  private final UserService userService;
 
   /**
    * 权限服务
    */
-  @Autowired
-  private PrivilegeService privilegeService;
+  private final PrivilegeService privilegeService;
 
-  public UserController(UserService service) {
-    super(service);
+  @Autowired
+  public UserController(UserService userService, PrivilegeService privilegeService) {
+    this.userService = userService;
+    this.privilegeService = privilegeService;
   }
 
   @PostMapping
@@ -62,7 +65,7 @@ public class UserController extends BaseController<UserService> {
 
   @PostMapping("datatable")
   public RestMessage datatable(RestPage<User> restPage) {
-    Page<User> page = getService().search(restPage);
+    Page<User> page = userService.search(restPage);
     return RestBuilders.successMessage(page);
   }
 }
