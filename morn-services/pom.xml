@@ -44,6 +44,11 @@
       <groupId>site.morn.framework</groupId>
       <artifactId>morn-jpa</artifactId>
     </dependency>
+    <dependency>
+      <groupId>site.morn.boot</groupId>
+      <artifactId>morn-boot-support</artifactId>
+      <version>${morn.version}</version>
+    </dependency>
   </dependencies>
 
 </project>
