@@ -18,6 +18,7 @@ import org.springframework.data.repository.NoRepositoryBean;
  * @version 1.0.0, 2017/9/16
  * @since 1.0-SNAPSHOT
  */
+@Deprecated
 @NoRepositoryBean
 public interface BaseRepository<T, ID extends Serializable> extends JpaRepository<T, ID>,
     JpaSpecificationExecutor<T> {

@@ -20,6 +20,7 @@ import site.morn.services.base.repository.BaseRepository;
  */
 @Slf4j
 @Getter
+@Deprecated
 public class SimpleCrudService<T, ID extends Serializable, D extends BaseRepository<T, ID>> implements
     CrudService<T, ID> {
 
