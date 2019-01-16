@@ -24,12 +24,12 @@ public class UserServiceSupport extends CrudServiceSupport<User, Long, UserRepos
 
   @Override
   public User findByUsername(String username) {
-    return repository.findByUsername(username);
+    return repository().findByUsername(username);
   }
 
   @Override
   public void deleteByUsername(String username) {
-    repository.deleteByUsername(username);
+    repository().deleteByUsername(username);
   }
 
   @Override
