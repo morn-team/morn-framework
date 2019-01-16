@@ -5,14 +5,12 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
 import org.apache.shiro.SecurityUtils;
-import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import site.morn.boot.rest.RestPage;
 import site.morn.boot.support.CrudControllerSupport;
 import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
@@ -54,11 +52,5 @@ public class UserController extends CrudControllerSupport<User, Long, UserServic
     codes.add("admin");
     data.put("privileges", codes);
     return RestBuilders.successMessage(data);
-  }
-
-  @PostMapping("search")
-  public RestMessage search(RestPage<User> restPage) {
-    Page<User> page = service.search(restPage);
-    return RestBuilders.successMessage(page);
   }
 }
