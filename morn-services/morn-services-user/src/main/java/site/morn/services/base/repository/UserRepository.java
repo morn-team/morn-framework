@@ -4,17 +4,17 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import site.morn.boot.support.JpaRepository;
 import site.morn.services.base.domain.User;
 
 /**
- * 用户Restful数据访问对象
+ * 用户数据访问
  *
- * @author TianGanLin
- * @version 1.0.0, 2017/9/9
- * @since 1.0-SNAPSHOT
+ * @author timely-rain
+ * @since 1.0.0, 2017/9/28
  */
 @Repository
-public interface UserRepository extends BaseRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
   /**
    * 按用户名查询
