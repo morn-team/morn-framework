@@ -19,7 +19,7 @@ import site.morn.services.base.repository.PrivilegeRepository;
  * @since 1.0-SNAPSHOT
  */
 @Service
-public class SimplePrivilegeService extends
+public class PrivilegeServiceSupport extends
     SimpleJpaService<Privilege, Long, PrivilegeRepository> implements PrivilegeService {
 
   @Override
