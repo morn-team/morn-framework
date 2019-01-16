@@ -14,6 +14,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.annotation.CreatedDate;
@@ -83,20 +85,22 @@ public class User implements java.io.Serializable {
   @Temporal(TemporalType.DATE)
   private Date birthday;          // 生日
   /**
-   * 手机号
+   * 手机
    */
   @Column
-  private String phone;           // 手机号
+  private String phone;           // 手机
   /**
-   * 录入时间
+   * 创建时间
    */
   @CreatedDate
   @Column
   @Temporal(TemporalType.DATE)
-  private Date date;              // 创建时间
+  private Date createDate;              // 创建时间
   /**
    * 角色
    */
+  @EqualsAndHashCode.Exclude
+  @ToString.Exclude
   @ManyToMany
   @JoinColumn
   private Set<Role> roles;
