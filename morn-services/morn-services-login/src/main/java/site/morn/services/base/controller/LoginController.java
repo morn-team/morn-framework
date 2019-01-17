@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import site.morn.application.user.User;
 import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
-import site.morn.services.base.domain.User;
 
 /**
  * 登录控制器

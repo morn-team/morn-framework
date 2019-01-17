@@ -6,9 +6,9 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Predicate;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import site.morn.application.user.User;
 import site.morn.services.base.domain.Privilege;
 import site.morn.services.base.domain.Role;
-import site.morn.services.base.domain.User;
 import site.morn.services.base.repository.PrivilegeRepository;
 
 /**

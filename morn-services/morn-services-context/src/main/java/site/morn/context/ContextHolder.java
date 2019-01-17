@@ -3,7 +3,7 @@ package site.morn.context;
 import java.util.Objects;
 import lombok.experimental.UtilityClass;
 import org.apache.shiro.SecurityUtils;
-import site.morn.services.base.domain.User;
+import site.morn.application.user.User;
 import site.morn.util.TypeUtils;
 
 /**

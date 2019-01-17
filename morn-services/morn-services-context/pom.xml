@@ -18,9 +18,10 @@
       <artifactId>lombok</artifactId>
       <scope>provided</scope>
     </dependency>
+    <!--基础模块-->
     <dependency>
       <groupId>site.morn.framework</groupId>
-      <artifactId>morn-services-user</artifactId>
+      <artifactId>morn-services-base</artifactId>
     </dependency>
   </dependencies>
 </project>
