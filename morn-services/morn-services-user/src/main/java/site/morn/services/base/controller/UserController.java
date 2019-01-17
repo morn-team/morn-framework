@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
-import org.apache.shiro.SecurityUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import site.morn.application.user.User;
 import site.morn.boot.support.CrudControllerSupport;
+import site.morn.context.ContextHolder;
 import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
-import site.morn.services.base.domain.User;
 import site.morn.services.base.service.PrivilegeService;
 import site.morn.services.base.service.UserService;
 
@@ -38,7 +38,7 @@ public class UserController extends CrudControllerSupport<User, Long, UserServic
    */
   @GetMapping("info")
   public RestMessage info() {
-    User user = (User) SecurityUtils.getSubject().getPrincipal();
+    User user = ContextHolder.currentUser();
     List<String> codes = privilegeService.findCodes(user);
     Map<String, Object> data = new HashMap<>();
     codes.add("admin");

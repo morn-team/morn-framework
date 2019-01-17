@@ -1,21 +1,16 @@
-package site.morn.services.base.domain;
+package site.morn.application.user;
 
 import java.util.Date;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.annotation.CreatedDate;
@@ -96,12 +91,4 @@ public class User implements java.io.Serializable {
   @Column
   @Temporal(TemporalType.DATE)
   private Date createDate;              // 创建时间
-  /**
-   * 角色
-   */
-  @EqualsAndHashCode.Exclude
-  @ToString.Exclude
-  @ManyToMany
-  @JoinColumn
-  private Set<Role> roles;
 }

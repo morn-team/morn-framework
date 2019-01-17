@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import site.morn.application.user.User;
 import site.morn.boot.jpa.SpecificationBuilder;
 import site.morn.boot.support.CrudServiceSupport;
 import site.morn.core.CriteriaMap;
-import site.morn.services.base.domain.User;
 import site.morn.services.base.repository.UserRepository;
 
 /**

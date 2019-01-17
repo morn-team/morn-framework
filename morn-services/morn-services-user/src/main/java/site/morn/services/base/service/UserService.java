@@ -2,8 +2,8 @@ package site.morn.services.base.service;
 
 
 import java.util.List;
+import site.morn.application.user.User;
 import site.morn.boot.support.CrudService;
-import site.morn.services.base.domain.User;
 
 /**
  * 用户服务
