@@ -1,6 +1,6 @@
 package site.morn.services.base.repository;
 
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 import site.morn.services.base.domain.Role;
 
 /**
@@ -10,7 +10,7 @@ import site.morn.services.base.domain.Role;
  * @version 1.0.0, 2017/9/10
  * @since 1.0-SNAPSHOT
  */
-@RepositoryRestResource
+@Repository
 public interface RoleRepository extends BaseRepository<Role, Long> {
 
 }

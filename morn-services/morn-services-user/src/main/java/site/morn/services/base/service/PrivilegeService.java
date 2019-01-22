@@ -1,8 +1,8 @@
 package site.morn.services.base.service;
 
 import java.util.List;
+import site.morn.application.user.User;
 import site.morn.services.base.domain.Privilege;
-import site.morn.services.base.domain.User;
 
 /**
  * 权限服务

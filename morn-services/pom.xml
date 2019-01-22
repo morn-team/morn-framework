@@ -13,6 +13,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>morn-services-base</module>
+    <module>morn-services-context</module>
     <module>morn-services-login</module>
     <module>morn-services-notice</module>
     <module>morn-services-user</module>

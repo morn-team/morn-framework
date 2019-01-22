@@ -12,7 +12,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.stereotype.Component;
-import site.morn.services.base.domain.User;
+import site.morn.application.user.User;
 import site.morn.services.base.service.UserService;
 
 /**
