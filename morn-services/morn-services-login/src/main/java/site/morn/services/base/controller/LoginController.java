@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import site.morn.application.user.User;
 import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
-import site.morn.services.base.domain.User;
-import site.morn.services.base.service.UserService;
 
 /**
  * 登录控制器
@@ -22,11 +21,7 @@ import site.morn.services.base.service.UserService;
  */
 @RestController
 @RequestMapping
-public class LoginController extends BaseController<UserService> {
-
-  public LoginController(UserService service) {
-    super(service);
-  }
+public class LoginController {
 
   /**
    * 登录由FormAuthenticationFilter代理

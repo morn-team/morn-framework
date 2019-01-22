@@ -12,9 +12,22 @@
   <artifactId>morn-services-user</artifactId>
 
   <dependencies>
+    <!--Lombok-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <!--基础-->
     <dependency>
       <groupId>site.morn.framework</groupId>
       <artifactId>morn-services-base</artifactId>
+    </dependency>
+    <!--上下文-->
+    <dependency>
+      <groupId>site.morn.framework</groupId>
+      <artifactId>morn-services-context</artifactId>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
 </project>

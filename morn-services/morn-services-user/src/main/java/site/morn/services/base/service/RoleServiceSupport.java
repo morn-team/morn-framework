@@ -11,10 +11,10 @@ import site.morn.services.base.repository.RoleRepository;
  * @since 1.0.0, 2019/1/9
  */
 @Service
-public class SimpleRoleService extends SimpleCrudService<Role, Long, RoleRepository> implements
+public class RoleServiceSupport extends SimpleCrudService<Role, Long, RoleRepository> implements
     RoleService {
 
-  public SimpleRoleService(RoleRepository dao) {
+  public RoleServiceSupport(RoleRepository dao) {
     super(dao);
   }
 }
