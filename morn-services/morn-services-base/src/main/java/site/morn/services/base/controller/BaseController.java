@@ -11,6 +11,7 @@ import site.morn.services.base.service.CrudService;
  * @version 1.0.0, 2017/10/11
  * @since 1.0-SNAPSHOT
  */
+@Deprecated
 @Getter
 public class BaseController<S extends CrudService> {
 

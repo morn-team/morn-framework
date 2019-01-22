@@ -3,18 +3,18 @@ package site.morn.services.base.repository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import site.morn.services.base.domain.User;
+import org.springframework.stereotype.Repository;
+import site.morn.application.user.User;
+import site.morn.boot.support.JpaRepository;
 
 /**
- * 用户Restful数据访问对象
+ * 用户数据访问
  *
- * @author TianGanLin
- * @version 1.0.0, 2017/9/9
- * @since 1.0-SNAPSHOT
+ * @author timely-rain
+ * @since 1.0.0, 2017/9/28
  */
-@RepositoryRestResource
-public interface UserRepository extends BaseRepository<User, Long> {
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
 
   /**
    * 按用户名查询

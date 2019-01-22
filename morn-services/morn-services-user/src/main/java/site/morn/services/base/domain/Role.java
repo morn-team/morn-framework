@@ -7,11 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import site.morn.application.user.User;
 
 /**
  * 角色
@@ -46,7 +48,8 @@ public class Role {
   @ManyToMany(mappedBy = "roles")
   private Set<Privilege> privileges;  // 权限
 
-  @ManyToMany(mappedBy = "roles")
+  @JoinColumn
+  @ManyToMany
   private Set<User> users;            // 用户
 
   public Long getId() {
