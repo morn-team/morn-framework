@@ -13,7 +13,7 @@ public class UserAuditorAware implements AuditorAware<Long> {
 
   @Override
   public Long getCurrentAuditor() {
-    User user = ContextHolder.currentUser();
+    User user = CommonContext.currentUser();
     return user.getId();
   }
 }

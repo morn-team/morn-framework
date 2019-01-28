@@ -9,7 +9,7 @@ import site.morn.application.user.User;
 import site.morn.boot.jpa.JpaConditionUtils;
 import site.morn.boot.jpa.SpecificationBuilder;
 import site.morn.boot.support.CrudServiceSupport;
-import site.morn.context.ContextHolder;
+import site.morn.context.CommonContext;
 import site.morn.core.CriteriaMap;
 import site.morn.services.base.repository.UserRepository;
 import site.morn.services.user.UserField;
@@ -38,7 +38,7 @@ public class UserServiceSupport extends CrudServiceSupport<User, Long, UserRepos
   @Override
   protected Specification<User> searchSpecification(User model, CriteriaMap attach) {
     return SpecificationBuilder.specification((root, query, builder, predicate) -> {
-      User currentUser = ContextHolder.currentUser(); // 当前登录用户
+      User currentUser = CommonContext.currentUser(); // 当前登录用户
       // 过滤当前用户
       Predicate filterCurrent = builder
           .notEqual(root.get(UserField.USERNAME), currentUser.getUsername());
