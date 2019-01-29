@@ -2,10 +2,7 @@ package site.morn.services.base.controller;
 
 import java.util.List;
 import javax.annotation.Resource;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import site.morn.application.user.User;
@@ -14,12 +11,9 @@ import site.morn.context.CommonContext;
 import site.morn.rest.RestBuilder;
 import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
-import site.morn.rest.RestModel;
 import site.morn.services.base.service.PrivilegeService;
 import site.morn.services.base.service.UserService;
 import site.morn.services.user.UserConstant;
-import site.morn.validate.group.Put;
-import site.morn.validate.group.Update;
 
 /**
  * 用户控制器
@@ -36,17 +30,6 @@ public class UserController extends CrudControllerSupport<User, Long, UserServic
    */
   @Resource
   private PrivilegeService privilegeService;
-
-  /**
-   * 修改
-   */
-  @PutMapping
-  @Override
-  public RestMessage update(
-      @Validated({Update.class, Put.class}) @RequestBody RestModel<User> restModel) {
-    User user = service().update(restModel);
-    return RestBuilders.successMessage(user);
-  }
 
   /**
    * 获取用户信息
