@@ -16,6 +16,8 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import site.morn.validate.group.Add;
+import site.morn.validate.group.Update;
 
 /**
  * 用户
@@ -41,14 +43,14 @@ public class User implements java.io.Serializable {
    * 用户名
    */
   @Column(length = 32, unique = true, nullable = false)
-  @NotNull
+  @NotNull(groups = {Add.class, Update.class})
   @Size(min = 4, max = 32)
   private String username;        // 用户名
   /**
    * 密码
    */
   @Column(length = 32, nullable = false)
-  @NotNull
+  @NotNull(groups = Add.class)
   @Size(min = 4, max = 32)
   private String password;        // 密码
   /**
