@@ -1,6 +1,7 @@
 package site.morn.services.base.repository;
 
 import org.springframework.stereotype.Repository;
+import site.morn.boot.support.JpaRepository;
 import site.morn.services.base.domain.Role;
 
 /**
@@ -11,6 +12,6 @@ import site.morn.services.base.domain.Role;
  * @since 1.0-SNAPSHOT
  */
 @Repository
-public interface RoleRepository extends BaseRepository<Role, Long> {
+public interface RoleRepository extends JpaRepository<Role, Long> {
 
 }
