@@ -48,11 +48,6 @@
         <version>${shiro.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.springframework.data</groupId>
-        <artifactId>spring-data-jpa-condition</artifactId>
-        <version>${condition.version}</version>
-      </dependency>
-      <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>fastjson</artifactId>
         <version>${fastjson.version}</version>
