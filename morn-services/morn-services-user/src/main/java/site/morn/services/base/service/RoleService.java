@@ -1,5 +1,7 @@
 package site.morn.services.base.service;
 
+
+import site.morn.boot.support.CrudService;
 import site.morn.services.base.domain.Role;
 
 /**

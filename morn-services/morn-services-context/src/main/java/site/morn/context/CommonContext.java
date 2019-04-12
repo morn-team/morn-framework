@@ -7,13 +7,13 @@ import site.morn.application.user.User;
 import site.morn.util.TypeUtils;
 
 /**
- * 上下文工具
+ * 通用上下文
  *
  * @author timely-rain
  * @since 1.0.0, 2019/1/17
  */
 @UtilityClass
-public class ContextHolder {
+public class CommonContext {
 
   /**
    * 获取当前用户
@@ -31,6 +31,6 @@ public class ContextHolder {
    * @return 当前用户是否为管理员
    */
   public static boolean isAdmin() {
-    return Objects.equals(currentUser().getUsername(), ContextConstant.ADMIN);
+    return Objects.equals(currentUser().getUsername(), CommonConstant.ADMIN);
   }
 }
