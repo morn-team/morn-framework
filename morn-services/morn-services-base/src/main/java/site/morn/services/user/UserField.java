@@ -22,4 +22,9 @@ public class UserField {
   public static final String BIRTHDAY = "birthday";
   public static final String PHONE = "phone";
   public static final String CREATE_DATE = "createDate";
+
+  /**
+   * 关键字
+   */
+  public static final String ATTACH_KEYWORD = "keyword";
 }
