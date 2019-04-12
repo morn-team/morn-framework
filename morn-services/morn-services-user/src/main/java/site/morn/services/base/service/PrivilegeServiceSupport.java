@@ -7,6 +7,8 @@ import javax.persistence.criteria.Predicate;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import site.morn.application.user.User;
+import site.morn.boot.support.CrudServiceSupport;
+import site.morn.core.CriteriaMap;
 import site.morn.services.base.domain.Privilege;
 import site.morn.services.base.domain.Role;
 import site.morn.services.base.repository.PrivilegeRepository;
@@ -20,7 +22,7 @@ import site.morn.services.base.repository.PrivilegeRepository;
  */
 @Service
 public class PrivilegeServiceSupport extends
-    SimpleJpaService<Privilege, Long, PrivilegeRepository> implements PrivilegeService {
+    CrudServiceSupport<Privilege, Long, PrivilegeRepository> implements PrivilegeService {
 
   @Override
   public List<String> findCodes(User user) {
@@ -36,6 +38,11 @@ public class PrivilegeServiceSupport extends
       Predicate equal = cb.equal(users.get("username"), user.getUsername());
       return cb.and(equal);
     };
-    return dao().findAll(specification);
+    return repository().findAll(specification);
+  }
+
+  @Override
+  protected Specification<Privilege> searchSpecification(Privilege model, CriteriaMap attach) {
+    return null;
   }
 }

@@ -1,6 +1,7 @@
 package site.morn.services.base.repository;
 
 import org.springframework.stereotype.Repository;
+import site.morn.boot.support.JpaRepository;
 import site.morn.services.base.domain.Privilege;
 
 /**
@@ -11,6 +12,6 @@ import site.morn.services.base.domain.Privilege;
  * @since 1.0-SNAPSHOT
  */
 @Repository
-public interface PrivilegeRepository extends BaseRepository<Privilege, Long> {
+public interface PrivilegeRepository extends JpaRepository<Privilege, Long> {
 
 }
