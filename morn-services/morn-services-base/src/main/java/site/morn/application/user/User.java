@@ -3,19 +3,18 @@ package site.morn.application.user;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.FieldNameConstants;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import site.morn.boot.support.entity.ReviserEntity;
 import site.morn.validate.group.Add;
 import site.morn.validate.group.Update;
 
@@ -26,12 +25,12 @@ import site.morn.validate.group.Update;
  * @since 1.0.0, 2017/9/10
  */
 @Data
-@Entity
-@EntityListeners(AuditingEntityListener.class)
-@Inheritance
 @DynamicInsert
 @DynamicUpdate
-public class User implements java.io.Serializable {
+@Entity
+@EqualsAndHashCode(callSuper = true)
+@FieldNameConstants
+public class User extends ReviserEntity implements java.io.Serializable {
 
   /**
    * 主键
@@ -89,11 +88,4 @@ public class User implements java.io.Serializable {
    */
   @Column
   private String phone;           // 手机
-  /**
-   * 创建时间
-   */
-  @CreatedDate
-  @Column
-  @Temporal(TemporalType.DATE)
-  private Date createDate;              // 创建时间
 }
