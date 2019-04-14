@@ -9,11 +9,11 @@ import site.morn.application.user.User;
  * @author timely-rain
  * @since 1.0.0, 2019/1/22
  */
-public class UserAuditorAware implements AuditorAware<Long> {
+public class UserAuditorAware implements AuditorAware<String> {
 
   @Override
-  public Long getCurrentAuditor() {
+  public String getCurrentAuditor() {
     User user = CommonContext.currentUser();
-    return user.getId();
+    return user.getUsername();
   }
 }
