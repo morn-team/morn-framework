@@ -13,7 +13,7 @@ import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
 import site.morn.services.base.service.PrivilegeService;
 import site.morn.services.base.service.UserService;
-import site.morn.services.user.UserConstant;
+import site.morn.services.user.UserConstant.Data;
 
 /**
  * 用户控制器
@@ -45,8 +45,8 @@ public class UserController extends CrudControllerSupport<User, Long, UserServic
     codes.add("admin"); // 管理员权限
     // 构建REST消息
     RestBuilder builder = RestBuilders.successBuilder()
-        .data(UserConstant.INFO, user)
-        .data(UserConstant.PRIVILEGES, codes);
+        .data(Data.INFO, user)
+        .data(Data.PRIVILEGES, codes);
     return builder.build();
   }
 }

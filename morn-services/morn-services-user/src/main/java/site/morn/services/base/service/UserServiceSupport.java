@@ -6,13 +6,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import site.morn.application.user.User;
+import site.morn.application.user.User.Fields;
 import site.morn.boot.jpa.JpaConditionUtils;
 import site.morn.boot.jpa.SpecificationBuilder;
 import site.morn.boot.support.CrudServiceSupport;
 import site.morn.context.CommonContext;
 import site.morn.core.CriteriaMap;
 import site.morn.services.base.repository.UserRepository;
-import site.morn.services.user.UserField;
+import site.morn.services.user.UserConstant.Attach;
 
 /**
  * 用户服务
@@ -41,14 +42,14 @@ public class UserServiceSupport extends CrudServiceSupport<User, Long, UserRepos
       User currentUser = CommonContext.currentUser(); // 当前登录用户
       // 过滤当前用户
       Predicate filterCurrent = builder
-          .notEqual(root.get(UserField.USERNAME), currentUser.getUsername());
+          .notEqual(root.get(Fields.username), currentUser.getUsername());
       // 按用户名/姓名模糊搜索
-      Object keyword = attach.get(UserField.ATTACH_KEYWORD);
+      Object keyword = attach.get(Attach.KEYWORD);
       if (!StringUtils.isEmpty(keyword)) {
         Predicate containsUsername = builder
-            .like(root.get(UserField.USERNAME), JpaConditionUtils.contains(keyword));
+            .like(root.get(Fields.username), JpaConditionUtils.contains(keyword));
         Predicate containsNickname = builder
-            .like(root.get(UserField.NICKNAME), JpaConditionUtils.contains(keyword));
+            .like(root.get(Fields.nickname), JpaConditionUtils.contains(keyword));
         Predicate containsKeyword = builder.or(containsUsername, containsNickname);
         predicate.applyAnd(containsKeyword);
       }
