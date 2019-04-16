@@ -2,18 +2,18 @@ package site.morn.context;
 
 import java.util.Objects;
 import lombok.experimental.UtilityClass;
-import org.apache.shiro.SecurityUtils;
+import org.springframework.util.Assert;
 import site.morn.application.user.User;
-import site.morn.util.TypeUtils;
+import site.morn.bean.BeanCaches;
 
 /**
- * 通用上下文
+ * 账户上下文
  *
  * @author timely-rain
  * @since 1.0.0, 2019/1/17
  */
 @UtilityClass
-public class CommonContext {
+public class AccountContext {
 
   /**
    * 获取当前用户
@@ -21,8 +21,9 @@ public class CommonContext {
    * @return 当前用户
    */
   public static User currentUser() {
-    Object principal = SecurityUtils.getSubject().getPrincipal();
-    return TypeUtils.as(principal);
+    CurrentUserAdapter<User> userAdapter = BeanCaches.bean(CurrentUserAdapter.class, User.class);
+    Assert.notNull(userAdapter, "无法获取当前用户适配器");
+    return userAdapter.getCurrentUser();
   }
 
   /**

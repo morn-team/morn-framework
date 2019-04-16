@@ -13,7 +13,7 @@ public class UserAuditorAware implements AuditorAware<String> {
 
   @Override
   public String getCurrentAuditor() {
-    User user = CommonContext.currentUser();
+    User user = AccountContext.currentUser();
     return user.getUsername();
   }
 }
