@@ -1,7 +1,7 @@
 package site.morn.framework.context;
 
 import org.springframework.data.domain.AuditorAware;
-import site.morn.framework.user.entity.User;
+import site.morn.framework.entity.BaseUser;
 
 /**
  * 修订人信息
@@ -13,7 +13,7 @@ public class UserAuditorAware implements AuditorAware<String> {
 
   @Override
   public String getCurrentAuditor() {
-    User user = AccountContext.currentUser();
+    BaseUser user = AccountContext.currentUser();
     return user.getUsername();
   }
 }
