@@ -11,9 +11,9 @@ import site.morn.boot.jpa.SpecificationBuilder;
 import site.morn.boot.support.CrudServiceSupport;
 import site.morn.core.CriteriaMap;
 import site.morn.framework.context.AccountContext;
-import site.morn.framework.user.UserConstant.Attach;
+import site.morn.framework.entity.BaseUser.Fields;
+import site.morn.framework.user.constant.UserConstant.Attach;
 import site.morn.framework.user.entity.User;
-import site.morn.framework.user.entity.User.Fields;
 import site.morn.framework.user.repository.UserRepository;
 import site.morn.util.ArrayUtils;
 
@@ -46,6 +46,7 @@ public class UserServiceSupport extends CrudServiceSupport<User, Long, UserRepos
           CriteriaBuilder builder = reference.builder();
           User currentUser = AccountContext.currentUser(); // 当前登录用户
           // 过滤当前用户
+
           Predicate filterCurrent = JpaConditionUtils
               .predicate(root.get(Fields.username), currentUser.getUsername(), builder::equal);
           // 按用户名/姓名模糊搜索

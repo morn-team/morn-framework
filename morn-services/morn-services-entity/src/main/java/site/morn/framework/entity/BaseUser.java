@@ -1,10 +1,10 @@
-package site.morn.framework.user.entity;
+package site.morn.framework.entity;
 
 import java.util.Date;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -19,18 +19,20 @@ import site.morn.validate.group.Add;
 import site.morn.validate.group.Update;
 
 /**
- * 用户
+ * 用户基础映射类
  *
  * @author timely-rain
- * @since 1.0.0, 2017/9/10
+ * @since 0.0.1-SNAPSHOT, 2019/4/16
  */
 @Data
 @DynamicInsert
 @DynamicUpdate
-@Entity
 @EqualsAndHashCode(callSuper = true)
 @FieldNameConstants
-public class User extends ReviserEntity implements java.io.Serializable {
+@MappedSuperclass
+public class BaseUser extends ReviserEntity implements java.io.Serializable {
+
+  private static final long serialVersionUID = 1L;
 
   /**
    * 主键
