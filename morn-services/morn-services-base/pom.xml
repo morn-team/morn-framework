@@ -17,6 +17,10 @@
       <artifactId>lombok</artifactId>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <artifactId>morn-services-entity</artifactId>
+      <groupId>site.morn.framework</groupId>
+    </dependency>
   </dependencies>
 
 </project>
