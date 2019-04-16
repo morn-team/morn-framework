@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import site.morn.application.user.User;
 import site.morn.boot.support.CrudControllerSupport;
-import site.morn.context.CommonContext;
+import site.morn.context.AccountContext;
 import site.morn.rest.RestBuilder;
 import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
@@ -39,7 +39,7 @@ public class UserController extends CrudControllerSupport<User, Long, UserServic
   @GetMapping("info")
   public RestMessage info() {
     // 当前登录用户
-    User user = CommonContext.currentUser();
+    User user = AccountContext.currentUser();
     // 权限码
     List<String> codes = privilegeService.findCodes(user);
     codes.add("admin"); // 管理员权限
