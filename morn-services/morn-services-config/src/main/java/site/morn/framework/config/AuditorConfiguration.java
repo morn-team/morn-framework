@@ -3,7 +3,7 @@ package site.morn.framework.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
-import site.morn.context.UserAuditorAware;
+import site.morn.framework.context.UserAuditorAware;
 
 /**
  * 修订配置
