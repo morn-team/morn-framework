@@ -21,6 +21,46 @@
     <module>morn-services-user</module>
   </modules>
 
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <artifactId>morn-services-base</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${timely.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-config</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${timely.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-context</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${timely.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-entity</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${timely.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-login</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${timely.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-notice</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${timely.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-user</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${timely.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -34,10 +74,6 @@
     <dependency>
       <groupId>site.morn.framework</groupId>
       <artifactId>morn-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>site.morn.framework</groupId>
-      <artifactId>morn-jpa</artifactId>
     </dependency>
     <dependency>
       <groupId>site.morn.boot</groupId>

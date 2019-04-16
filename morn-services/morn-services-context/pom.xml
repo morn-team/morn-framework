@@ -23,5 +23,10 @@
       <groupId>site.morn.framework</groupId>
       <artifactId>morn-services-base</artifactId>
     </dependency>
+    <!--实体模块-->
+    <dependency>
+      <artifactId>morn-services-entity</artifactId>
+      <groupId>site.morn.framework</groupId>
+    </dependency>
   </dependencies>
 </project>
