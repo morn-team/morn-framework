@@ -1,4 +1,4 @@
-package site.morn.framework.user;
+package site.morn.framework.user.constant;
 
 import lombok.experimental.UtilityClass;
 
