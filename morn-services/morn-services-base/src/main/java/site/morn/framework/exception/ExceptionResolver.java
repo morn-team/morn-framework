@@ -1,11 +1,15 @@
 package site.morn.framework.exception;
 
+import java.util.Optional;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import lombok.extern.slf4j.Slf4j;
 import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
 
@@ -33,6 +37,9 @@ public class ExceptionResolver {
   public RestMessage resolveException(HttpServletRequest request, HttpServletResponse response,
       Exception e) {
     log.error("应用异常：" + e.toString(), e);
-    return RestBuilders.failureMessage();
+    String message = Optional.ofNullable(e.getMessage()).orElse(e.toString());
+    RestMessage restMessage = RestBuilders.failureMessage();
+    restMessage.setMessage(restMessage.getMessage() + " - " + message);
+    return restMessage;
   }
 }
