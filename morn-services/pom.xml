@@ -15,6 +15,7 @@
     <module>morn-services-base</module>
     <module>morn-services-config</module>
     <module>morn-services-context</module>
+    <module>morn-services-entity</module>
     <module>morn-services-login</module>
     <module>morn-services-notice</module>
     <module>morn-services-user</module>
