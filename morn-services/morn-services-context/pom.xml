@@ -23,5 +23,9 @@
       <groupId>site.morn.framework</groupId>
       <artifactId>morn-services-base</artifactId>
     </dependency>
+    <dependency>
+      <groupId>site.morn.framework</groupId>
+      <artifactId>morn-services-entity</artifactId>
+    </dependency>
   </dependencies>
 </project>
