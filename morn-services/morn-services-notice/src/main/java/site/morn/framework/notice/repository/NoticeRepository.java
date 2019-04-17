@@ -7,7 +7,7 @@ import site.morn.framework.notice.entity.Notice;
 /**
  * 新闻Restful数据访问对象
  *
- * @author TianGanLin
+ * @author timely-rain
  * @version 1.0.0, 2017/9/10
  * @since 1.0-SNAPSHOT
  */
