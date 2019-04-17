@@ -2,15 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <parent>
-    <artifactId>morn-services</artifactId>
-    <groupId>site.morn.framework</groupId>
-    <version>1.0.0-SNAPSHOT</version>
-  </parent>
-  <modelVersion>4.0.0</modelVersion>
-
   <artifactId>morn-services-login</artifactId>
-
   <dependencies>
     <dependency>
       <artifactId>lombok</artifactId>
@@ -18,18 +10,26 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>site.morn.framework</groupId>
       <artifactId>morn-shiro</artifactId>
+      <groupId>site.morn.framework</groupId>
     </dependency>
     <dependency>
       <artifactId>morn-services-user</artifactId>
       <groupId>site.morn.framework</groupId>
     </dependency>
     <dependency>
-      <groupId>site.morn.boot</groupId>
       <artifactId>morn-boot-interpreter</artifactId>
+      <groupId>site.morn.boot</groupId>
       <version>${morn.version}</version>
     </dependency>
   </dependencies>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>morn-services</artifactId>
+    <groupId>site.morn.framework</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
 
 </project>

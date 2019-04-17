@@ -2,37 +2,37 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>morn-core</artifactId>
+  <dependencies>
+    <dependency>
+      <artifactId>spring-boot-devtools</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>fastjson</artifactId>
+      <groupId>com.alibaba</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>morn-boot-core</artifactId>
+      <groupId>site.morn.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>morn-boot-autoconfigure</artifactId>
+      <groupId>site.morn.boot</groupId>
+    </dependency>
+  </dependencies>
+
+  <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <artifactId>morn-dependencies</artifactId>
     <groupId>site.morn.framework</groupId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <modelVersion>4.0.0</modelVersion>
-
-  <artifactId>morn-core</artifactId>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-devtools</artifactId>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>fastjson</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>site.morn.boot</groupId>
-      <artifactId>morn-boot-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>site.morn.boot</groupId>
-      <artifactId>morn-boot-autoconfigure</artifactId>
-    </dependency>
-  </dependencies>
 
 </project>
