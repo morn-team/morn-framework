@@ -7,29 +7,89 @@
   <groupId>site.morn.framework</groupId>
   <artifactId>morn-framework</artifactId>
   <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!--Sonar插件-->
+        <plugin>
+          <artifactId>sonar-maven-plugin</artifactId>
+          <groupId>org.sonarsource.scanner.maven</groupId>
+        </plugin>
+        <!--源码插件-->
+        <plugin>
+          <artifactId>maven-source-plugin</artifactId>
+          <groupId>org.apache.maven.plugins</groupId>
+        </plugin>
+        <!--单元测试覆盖率插件-->
+        <plugin>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <groupId>org.jacoco</groupId>
+          <version>${jacoco.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <!--源码插件-->
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <id>attach-sources</id>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+      </plugin>
+      <!--静态检查插件-->
+      <plugin>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+      </plugin>
+      <!--单元测试覆盖率插件-->
+      <plugin>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+        <groupId>org.jacoco</groupId>
+      </plugin>
+      <!--发布插件，自动Release-->
+      <plugin>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <configuration>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <serverId>sonatype-nexus-staging</serverId>
+        </configuration>
+        <extensions>true</extensions>
+        <groupId>org.sonatype.plugins</groupId>
+        <version>1.6.8</version>
+      </plugin>
+      <!--Maven版本管理插件-->
+      <plugin>
+        <artifactId>versions-maven-plugin</artifactId>
+        <configuration>
+          <generateBackupPoms>false</generateBackupPoms>
+        </configuration>
+        <groupId>org.codehaus.mojo</groupId>
+        <version>2.3</version>
+      </plugin>
+    </plugins>
+  </build>
 
   <modules>
     <module>morn-dependencies</module>
     <module>morn-services</module>
     <module>morn-test</module>
   </modules>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
-
-    <morn.version>1.0.0-SNAPSHOT</morn.version>
-    <boot.version>1.5.15.RELEASE</boot.version>
-    <timely.version>1.0-SNAPSHOT</timely.version>
-    <condition.version>1.0-SNAPSHOT</condition.version>
-    <shiro.version>1.3.2</shiro.version>
-    <fastjson.version>1.2.39</fastjson.version>
-    <lombok.version>1.18.4</lombok.version>
-  </properties>
 
   <dependencyManagement>
     <dependencies>
@@ -83,35 +143,82 @@
       <dependency>
         <groupId>site.morn.framework</groupId>
         <artifactId>morn-test</artifactId>
-        <version>${timely.version}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
         <artifactId>morn-core</artifactId>
-        <version>${timely.version}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
         <artifactId>morn-web</artifactId>
-        <version>${timely.version}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
         <artifactId>morn-jpa</artifactId>
-        <version>${timely.version}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
         <artifactId>morn-shiro</artifactId>
-        <version>${timely.version}</version>
+        <version>${project.version}</version>
       </dependency>
       <!--Services Start-->
       <dependency>
         <groupId>site.morn.framework</groupId>
         <artifactId>morn-services</artifactId>
-        <version>${timely.version}</version>
+        <version>${project.version}</version>
       </dependency>
       <!--Services End-->
     </dependencies>
   </dependencyManagement>
+
+  <distributionManagement>
+    <repository>
+      <id>sonatype-nexus-staging</id>
+      <name>Nexus Release Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <snapshotRepository>
+      <id>sonatype-nexus-snapshots</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+
+    <jacoco.version>0.8.2</jacoco.version>
+    <boot.version>1.5.15.RELEASE</boot.version>
+
+    <lombok.version>1.18.4</lombok.version>
+    <condition.version>1.0-SNAPSHOT</condition.version>
+    <shiro.version>1.3.2</shiro.version>
+    <fastjson.version>1.2.39</fastjson.version>
+
+    <morn.version>1.0.0-SNAPSHOT</morn.version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>sonatype-nexus-snapshots</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+  </repositories>
+
+  <version>1.0.0-SNAPSHOT</version>
 </project>

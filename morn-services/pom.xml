@@ -2,11 +2,45 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <parent>
-    <artifactId>morn-framework</artifactId>
-    <groupId>site.morn.framework</groupId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <artifactId>morn-services-base</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-config</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-context</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-entity</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-login</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-notice</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>morn-services-user</artifactId>
+        <groupId>site.morn.framework</groupId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>morn-services</artifactId>
@@ -21,45 +55,11 @@
     <module>morn-services-user</module>
   </modules>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <artifactId>morn-services-base</artifactId>
-        <groupId>site.morn.framework</groupId>
-        <version>${timely.version}</version>
-      </dependency>
-      <dependency>
-        <artifactId>morn-services-config</artifactId>
-        <groupId>site.morn.framework</groupId>
-        <version>${timely.version}</version>
-      </dependency>
-      <dependency>
-        <artifactId>morn-services-context</artifactId>
-        <groupId>site.morn.framework</groupId>
-        <version>${timely.version}</version>
-      </dependency>
-      <dependency>
-        <artifactId>morn-services-entity</artifactId>
-        <groupId>site.morn.framework</groupId>
-        <version>${timely.version}</version>
-      </dependency>
-      <dependency>
-        <artifactId>morn-services-login</artifactId>
-        <groupId>site.morn.framework</groupId>
-        <version>${timely.version}</version>
-      </dependency>
-      <dependency>
-        <artifactId>morn-services-notice</artifactId>
-        <groupId>site.morn.framework</groupId>
-        <version>${timely.version}</version>
-      </dependency>
-      <dependency>
-        <artifactId>morn-services-user</artifactId>
-        <groupId>site.morn.framework</groupId>
-        <version>${timely.version}</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+  <parent>
+    <artifactId>morn-framework</artifactId>
+    <groupId>site.morn.framework</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
 
   <dependencies>
     <dependency>
