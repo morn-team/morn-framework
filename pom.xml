@@ -207,6 +207,11 @@
         <artifactId>morn-services-notice</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-services-entity</artifactId>
+        <version>${project.version}</version>
+      </dependency>
       <!--Services End-->
     </dependencies>
   </dependencyManagement>
