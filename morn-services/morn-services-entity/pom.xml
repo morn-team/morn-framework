@@ -2,7 +2,18 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>morn-services-notice</artifactId>
+  <artifactId>morn-services-entity</artifactId>
+  <dependencies>
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>morn-jpa</artifactId>
+      <groupId>site.morn.framework</groupId>
+    </dependency>
+  </dependencies>
+
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -10,6 +21,5 @@
     <groupId>site.morn.framework</groupId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-
 
 </project>
