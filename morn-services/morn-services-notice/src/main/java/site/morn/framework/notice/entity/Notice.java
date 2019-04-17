@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 /**
  * 新闻
  *
- * @author TianGanLin
+ * @author timely-rain
  * @version 1.0.0, 2017/9/10
  * @since 1.0-SNAPSHOT
  */

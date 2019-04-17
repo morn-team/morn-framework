@@ -17,7 +17,7 @@ import org.hibernate.annotations.DynamicUpdate;
 /**
  * 角色
  *
- * @author TianGanLin
+ * @author timely-rain
  * @version 1.0.0, 2017/9/10
  * @since 1.0-SNAPSHOT
  */
