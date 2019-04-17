@@ -2,28 +2,28 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>morn-web</artifactId>
+  <dependencies>
+    <dependency>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>jackson-datatype-hibernate5</artifactId>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>morn-boot-web</artifactId>
+      <groupId>site.morn.boot</groupId>
+      <version>${morn.version}</version>
+    </dependency>
+  </dependencies>
+
+  <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <artifactId>morn-dependencies</artifactId>
     <groupId>site.morn.framework</groupId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <modelVersion>4.0.0</modelVersion>
-
-  <artifactId>morn-web</artifactId>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.datatype</groupId>
-      <artifactId>jackson-datatype-hibernate5</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>site.morn.boot</groupId>
-      <artifactId>morn-boot-web</artifactId>
-      <version>${morn.version}</version>
-    </dependency>
-  </dependencies>
 </project>
