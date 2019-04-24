@@ -22,12 +22,12 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
+    <morn.version>1.0.2-SNAPSHOT</morn.version>
+
+    <lombok.version>1.18.4</lombok.version>
     <boot.version>1.5.15.RELEASE</boot.version>
-    <morn.version>1.0.0-SNAPSHOT</morn.version>
-    <condition.version>1.0-SNAPSHOT</condition.version>
     <shiro.version>1.3.2</shiro.version>
     <fastjson.version>1.2.39</fastjson.version>
-    <lombok.version>1.18.4</lombok.version>
   </properties>
 
   <build>
