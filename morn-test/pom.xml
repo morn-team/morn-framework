@@ -33,6 +33,10 @@
       <artifactId>spring-boot-starter-jdbc</artifactId>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>site.morn.framework</groupId>
+      <artifactId>morn-services-user</artifactId>
+    </dependency>
   </dependencies>
 
 </project>
