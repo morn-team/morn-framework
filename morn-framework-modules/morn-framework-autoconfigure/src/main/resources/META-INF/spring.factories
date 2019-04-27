@@ -1,0 +1,4 @@
+#÷∏∂®≈‰÷√¿‡
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  site.morn.framework.autoconfigure.AuditorAutoConfiguration,\
+  site.morn.framework.autoconfigure.ShiroAutoConfiguration
