@@ -10,9 +10,9 @@
   <version>1.0.0-SNAPSHOT</version>
 
   <modules>
-    <module>morn-dependencies</module>
-    <module>morn-services</module>
-    <module>morn-test</module>
+    <module>morn-framework-dependencies</module>
+    <module>morn-framework-modules</module>
+    <module>morn-framework-test</module>
   </modules>
 
   <properties>
@@ -143,13 +143,6 @@
         <version>${fastjson.version}</version>
       </dependency>
 
-      <!--Morn-->
-      <dependency>
-        <groupId>site.morn</groupId>
-        <artifactId>morn-core</artifactId>
-        <version>${morn.version}</version>
-      </dependency>
-
       <!--Morn Boot-->
       <dependency>
         <groupId>site.morn.boot</groupId>
@@ -165,58 +158,58 @@
       <!--本地模块-->
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-test</artifactId>
+        <artifactId>morn-framework-test</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-core</artifactId>
+        <artifactId>morn-dependencies-core</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-web</artifactId>
+        <artifactId>morn-dependencies-web</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-jpa</artifactId>
+        <artifactId>morn-dependencies-jpa</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-shiro</artifactId>
+        <artifactId>morn-dependencies-shiro</artifactId>
         <version>${project.version}</version>
       </dependency>
       <!--Services Start-->
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-services</artifactId>
+        <artifactId>morn-framework-modules</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-services-base</artifactId>
+        <artifactId>morn-framework-base</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-services-user</artifactId>
+        <artifactId>morn-framework-user</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-services-login</artifactId>
+        <artifactId>morn-framework-login</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-services-notice</artifactId>
+        <artifactId>morn-framework-notice</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-services-entity</artifactId>
+        <artifactId>morn-framework-entity</artifactId>
         <version>${project.version}</version>
       </dependency>
       <!--Services End-->
