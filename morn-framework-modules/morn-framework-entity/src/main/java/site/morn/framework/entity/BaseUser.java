@@ -2,6 +2,7 @@ package site.morn.framework.entity;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.NullSerializer;
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -18,6 +19,7 @@ import lombok.experimental.FieldNameConstants;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import site.morn.boot.support.entity.ReviserEntity;
+import site.morn.constant.MetricUnit.Text;
 import site.morn.validate.group.Add;
 import site.morn.validate.group.Login;
 import site.morn.validate.group.Update;
@@ -26,7 +28,7 @@ import site.morn.validate.group.Update;
  * 用户基础映射类
  *
  * @author timely-rain
- * @since 0.0.1-SNAPSHOT, 2019/4/16
+ * @since 1.0.2, 2019/4/16
  */
 @Data
 @DynamicInsert
@@ -34,8 +36,11 @@ import site.morn.validate.group.Update;
 @EqualsAndHashCode(callSuper = true)
 @FieldNameConstants
 @MappedSuperclass
-public class BaseUser extends ReviserEntity implements java.io.Serializable {
+public class BaseUser extends ReviserEntity implements Serializable {
 
+  /**
+   * @serialField
+   */
   private static final long serialVersionUID = 1L;
 
   /**
@@ -47,9 +52,9 @@ public class BaseUser extends ReviserEntity implements java.io.Serializable {
   /**
    * 用户名
    */
-  @Column(length = 32, unique = true, nullable = false)
+  @Column(length = Text.SHORT)
   @NotNull(groups = {Add.class, Update.class, Login.class})
-  @Size(min = 4, max = 32)
+  @Size(min = 4, max = Text.SHORT)
   private String username;
   /**
    * 密码
@@ -115,7 +120,7 @@ public class BaseUser extends ReviserEntity implements java.io.Serializable {
   /**
    * 备注
    */
-  @Size(max = 255)
+  @Size(max = Text.NORMAL)
   @Column
   private String description;
 }
