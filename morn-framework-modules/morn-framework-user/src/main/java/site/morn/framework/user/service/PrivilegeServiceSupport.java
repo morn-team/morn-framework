@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import site.morn.boot.support.CrudServiceSupport;
 import site.morn.core.CriteriaMap;
+import site.morn.framework.entity.BaseUser.Fields;
 import site.morn.framework.user.entity.Privilege;
 import site.morn.framework.user.entity.Role;
 import site.morn.framework.user.entity.User;
@@ -35,7 +36,7 @@ public class PrivilegeServiceSupport extends
     Specification<Privilege> specification = (root, query, cb) -> {
       Join<Privilege, Role> roles = root.join("roles");
       Join<Role, User> users = roles.join("users");
-      Predicate equal = cb.equal(users.get("username"), user.getUsername());
+      Predicate equal = cb.equal(users.get(Fields.username), user.getUsername());
       return cb.and(equal);
     };
     return repository().findAll(specification);
