@@ -7,7 +7,7 @@
   <groupId>site.morn.framework</groupId>
   <artifactId>morn-framework</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.2-SNAPSHOT</version>
 
   <modules>
     <module>morn-framework-dependencies</module>
@@ -118,17 +118,17 @@
     <dependencies>
 
       <dependency>
-        <artifactId>lombok</artifactId>
-        <groupId>org.projectlombok</groupId>
-        <version>${lombok.version}</version>
-      </dependency>
-
-      <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
         <version>${boot.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <artifactId>lombok</artifactId>
+        <groupId>org.projectlombok</groupId>
+        <version>${lombok.version}</version>
       </dependency>
 
       <!--依赖模块-->
