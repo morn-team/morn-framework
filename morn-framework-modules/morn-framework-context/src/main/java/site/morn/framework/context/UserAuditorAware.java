@@ -1,6 +1,8 @@
 package site.morn.framework.context;
 
+import java.util.Optional;
 import org.springframework.data.domain.AuditorAware;
+import org.springframework.util.Assert;
 import site.morn.framework.entity.BaseUser;
 
 /**
@@ -12,8 +14,9 @@ import site.morn.framework.entity.BaseUser;
 public class UserAuditorAware implements AuditorAware<String> {
 
   @Override
-  public String getCurrentAuditor() {
+  public Optional<String> getCurrentAuditor() {
     BaseUser user = AccountContext.currentUser();
-    return user.getUsername();
+    Assert.notNull(user, "无法获取当前用户");
+    return Optional.ofNullable(user.getUsername());
   }
 }
