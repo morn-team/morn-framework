@@ -7,8 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import lombok.Data;
 import lombok.experimental.FieldNameConstants;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 import site.morn.constant.MetricUnit.Text;
 
 /**
@@ -18,8 +16,6 @@ import site.morn.constant.MetricUnit.Text;
  * @since 1.0.2, 2019/5/12
  */
 @Data
-@DynamicInsert
-@DynamicUpdate
 @FieldNameConstants
 @MappedSuperclass
 public class BasePrivilege implements Serializable {

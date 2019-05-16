@@ -1,12 +1,14 @@
 package site.morn.framework.context;
 
-import java.util.List;
 import java.util.Objects;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import site.morn.bean.BeanCaches;
+import site.morn.framework.context.dto.BaseLoginInfo;
 import site.morn.framework.entity.BaseUser;
+import site.morn.util.BeanFunctionUtils;
+import site.morn.util.TypeUtils;
 
 /**
  * 账户上下文
@@ -25,15 +27,21 @@ public class AccountContext {
    */
   @SuppressWarnings("unchecked")
   public static <T extends BaseUser> T currentUser() {
-    List<CurrentUserAdapter> adapters = BeanCaches.beans(CurrentUserAdapter.class);
-    Assert.notEmpty(adapters, "无法获取当前用户适配器");
-    int size = adapters.size();
-    if (size > 1) {
-      log.warn("存在多个当前用户适配器：{}", size);
-    }
-    CurrentUserAdapter<T> userAdapter = adapters.get(0);
+    CurrentUserAdapter<T> userAdapter = BeanCaches.tagBean(CurrentUserAdapter.class);
     Assert.notNull(userAdapter, "无法获取当前用户适配器");
     return userAdapter.getCurrentUser();
+  }
+
+  /**
+   * 获取登录信息
+   *
+   * @param <T> 登录信息类型
+   * @return 登录信息
+   */
+  @SuppressWarnings("unchecked")
+  public static <T extends BaseLoginInfo> T loginInfo() {
+    Object product = BeanFunctionUtils.product(LoginInfoProducer.class);
+    return TypeUtils.as(product);
   }
 
   /**
