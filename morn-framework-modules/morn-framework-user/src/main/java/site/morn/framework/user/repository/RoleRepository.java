@@ -1,5 +1,6 @@
 package site.morn.framework.user.repository;
 
+import java.util.List;
 import org.springframework.stereotype.Repository;
 import site.morn.boot.support.JpaRepository;
 import site.morn.framework.user.entity.Role;
@@ -14,4 +15,11 @@ import site.morn.framework.user.entity.Role;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
 
+  /**
+   * 查询用户所属角色
+   *
+   * @param id 用户编号
+   * @return 用户所属角色
+   */
+  List<Role> findAllByUsersId(Long id);
 }

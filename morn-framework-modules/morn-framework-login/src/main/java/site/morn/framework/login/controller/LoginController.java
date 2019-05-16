@@ -4,10 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import site.morn.framework.context.AccountContext;
+import site.morn.framework.login.info.LoginInfo;
 import site.morn.framework.user.entity.User;
 import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
@@ -32,5 +35,11 @@ public class LoginController {
     Map<String, Object> data = new HashMap<>();
     data.put("token", token);
     return RestBuilders.successMessage(data);
+  }
+
+  @GetMapping("/login/info")
+  public RestMessage loginInfo() {
+    LoginInfo loginInfo = AccountContext.loginInfo();
+    return RestBuilders.successMessage(loginInfo);
   }
 }
