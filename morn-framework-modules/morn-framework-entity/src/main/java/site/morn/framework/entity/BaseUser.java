@@ -16,8 +16,6 @@ import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldNameConstants;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 import site.morn.boot.support.entity.OrganizedEntity;
 import site.morn.constant.MetricUnit.Text;
 import site.morn.validate.group.Add;
@@ -31,8 +29,6 @@ import site.morn.validate.group.Update;
  * @since 1.0.2, 2019/4/16
  */
 @Data
-@DynamicInsert
-@DynamicUpdate
 @EqualsAndHashCode(callSuper = true)
 @FieldNameConstants
 @MappedSuperclass

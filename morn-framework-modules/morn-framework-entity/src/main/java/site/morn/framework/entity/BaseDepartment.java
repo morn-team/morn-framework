@@ -5,7 +5,6 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,41 +14,83 @@ import site.morn.constant.MetricUnit.Text;
 import site.morn.validate.group.Add;
 
 /**
- * 角色基础映射类
+ * site.morn.framework.entity
  *
  * @author timely-rain
- * @since 1.0.2, 2019/5/12
+ * @since 1.0.0, 2019/5/16
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @FieldNameConstants
 @MappedSuperclass
-public class BaseRole extends ReviserEntity implements Serializable {
+public class BaseDepartment extends ReviserEntity implements Serializable {
+
 
   /**
-   * @serialField
+   * 序列化
    */
   private static final long serialVersionUID = 1L;
 
   /**
-   * 主键
+   * 主键id
    */
   @Id
   @GeneratedValue
-  private Long id;                    // 主键
+  private Long id;
 
   /**
-   * 角色名称
-   */
-  @Column(length = Text.SHORT)
-  @NotNull(groups = Add.class)
-  @Max(Text.SHORT)
-  private String name;                // 名称
-
-  /**
-   * 角色描述
+   * 父级id
    */
   @Column
-  @Max(Text.NORMAL)
-  private String description;         // 描述
+  private Long parentId;
+
+  /**
+   * 名称
+   */
+  @Column(length = Text.SHORT)
+  @NotNull(groups = {Add.class})
+  private String name;
+
+  /**
+   * 编号
+   */
+  @Column(length = Text.SHORT)
+  private String code;
+
+  /**
+   * 邮箱
+   */
+  @Column(length = Text.SHORT)
+  private String email;
+
+  /**
+   * 联系方式
+   */
+  @Column
+  private String contact;
+
+  /**
+   * 地址
+   */
+  @Column
+  private String address;
+
+  /**
+   * 备注
+   */
+  @Column
+  private String remark;
+
+  /**
+   * 层级
+   */
+  @Column
+  private Integer level;
+
+  /**
+   * 查询码
+   */
+  @Column
+  private String searchCode;
+
 }
