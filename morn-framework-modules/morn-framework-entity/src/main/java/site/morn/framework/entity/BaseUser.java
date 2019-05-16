@@ -18,7 +18,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldNameConstants;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-import site.morn.boot.support.entity.ReviserEntity;
+import site.morn.boot.support.entity.OrganizedEntity;
 import site.morn.constant.MetricUnit.Text;
 import site.morn.validate.group.Add;
 import site.morn.validate.group.Login;
@@ -36,7 +36,7 @@ import site.morn.validate.group.Update;
 @EqualsAndHashCode(callSuper = true)
 @FieldNameConstants
 @MappedSuperclass
-public class BaseUser extends ReviserEntity implements Serializable {
+public class BaseUser extends OrganizedEntity implements Serializable {
 
   /**
    * @serialField
