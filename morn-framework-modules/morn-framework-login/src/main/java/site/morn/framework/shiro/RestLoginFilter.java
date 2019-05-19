@@ -114,7 +114,7 @@ public class RestLoginFilter extends FormAuthenticationFilter {
     ApplicationMessage applicationMessage;
     // 从缓存中获取异常解释器
     ExceptionInterpreter exceptionInterpreter = BeanCaches.defaultBeanCache()
-        .bean(ExceptionInterpreter.class, e.getClass());
+        .targetBean(ExceptionInterpreter.class, e.getClass());
     if (Objects.isNull(exceptionInterpreter)) {
       log.warn("登录异常处理失败：尚未发现处理{}的异常解释器", e.getClass().getSimpleName());
       applicationMessage = ApplicationMessages.translateMessage("login.failure");
