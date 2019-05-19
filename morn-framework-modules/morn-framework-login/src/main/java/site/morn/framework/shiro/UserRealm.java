@@ -31,13 +31,6 @@ public class UserRealm extends AuthorizingRealm {
   @Resource
   private UserService userService;
 
-//    /**
-//     * 权限服务
-//     */
-//    @Resource
-//    @Lazy
-//    private PrivilegeService privilegeService;
-
   /**
    * 认证 AuthenticationInfo 认证信息
    *
@@ -63,12 +56,6 @@ public class UserRealm extends AuthorizingRealm {
    */
   @Override
   protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-//        User user = (User) principals.getPrimaryPrincipal();
-//        List<Privilege> all = privilegeService.findAll(user);
-//        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-//        for (Privilege privilege : all) {
-//            info.addStringPermission(privilege.getCode());
-//        }
     return null; // 不需要Shiro验证权限
   }
 
