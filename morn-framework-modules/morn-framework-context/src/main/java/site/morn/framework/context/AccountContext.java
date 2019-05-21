@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import site.morn.bean.BeanCaches;
 import site.morn.framework.context.dto.BaseLoginInfo;
+import site.morn.framework.entity.BaseDepartment;
 import site.morn.framework.entity.BaseUser;
 import site.morn.util.BeanFunctionUtils;
 import site.morn.util.TypeUtils;
@@ -19,6 +20,32 @@ import site.morn.util.TypeUtils;
 @Slf4j
 @UtilityClass
 public class AccountContext {
+
+  /**
+   * 获取当前激活的组织机构
+   *
+   * @param <T> 组织机构类型
+   * @return 当前激活的组织机构
+   */
+  @SuppressWarnings("unchecked")
+  public static <T extends BaseDepartment> T activeDepartment() {
+    DepartmentProducer<T> producer = BeanCaches.tagBean(DepartmentProducer.class);
+    Assert.notNull(producer, "无法获取激活组织机构");
+    return producer.getActiveDepartment();
+  }
+
+  /**
+   * 获取组织机构
+   *
+   * @param <T> 组织机构类型
+   * @return 当前组织机构
+   */
+  @SuppressWarnings("unchecked")
+  public static <T extends BaseDepartment> T currentDepartment() {
+    DepartmentProducer<T> producer = BeanCaches.tagBean(DepartmentProducer.class);
+    Assert.notNull(producer, "无法获取当前组织机构");
+    return producer.getDepartment();
+  }
 
   /**
    * 获取当前用户
