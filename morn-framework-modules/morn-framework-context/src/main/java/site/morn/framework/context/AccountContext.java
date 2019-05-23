@@ -77,6 +77,16 @@ public class AccountContext {
    * @return 当前用户是否为管理员
    */
   public static boolean isAdmin() {
-    return Objects.equals(currentUser().getUsername(), CommonConstant.ADMIN);
+    return isAdmin(currentUser());
+  }
+
+  /**
+   * 判断用户是否为管理员
+   *
+   * @param user 用户
+   * @return 用户是否为管理员
+   */
+  public static boolean isAdmin(BaseUser user) {
+    return Objects.equals(user.getUsername(), CommonConstant.ADMIN);
   }
 }

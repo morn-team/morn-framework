@@ -1,7 +1,5 @@
 package site.morn.framework.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.NullSerializer;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -58,7 +56,6 @@ public class BaseUser extends OrganizedEntity implements Serializable {
   @Column(nullable = false)
   @NotNull(groups = Add.class)
   @Size(min = 4, max = 64)
-  @JsonSerialize(using = NullSerializer.class)
   private String password;
   /**
    * 编码
