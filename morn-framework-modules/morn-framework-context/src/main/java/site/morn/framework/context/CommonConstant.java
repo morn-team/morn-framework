@@ -70,5 +70,15 @@ public class CommonConstant {
      * 真
      */
     public static final String TRUE_STRING = "true";
+
+    /**
+     * 获取布尔整数值
+     *
+     * @param flag 真/假
+     * @return 整数值
+     */
+    public static int getBoolean(boolean flag) {
+      return flag ? TRUE_VALUE : FALSE_VALUE;
+    }
   }
 }
