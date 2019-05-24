@@ -5,8 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldNameConstants;
@@ -43,13 +43,13 @@ public class BaseRole extends ReviserEntity implements Serializable {
    */
   @Column(length = Text.SHORT)
   @NotNull(groups = Add.class)
-  @Max(Text.SHORT)
+  @Size(max = Text.SHORT)
   private String name;                // 名称
 
   /**
    * 角色描述
    */
   @Column
-  @Max(Text.NORMAL)
+  @Size(max = Text.NORMAL)
   private String description;         // 描述
 }
