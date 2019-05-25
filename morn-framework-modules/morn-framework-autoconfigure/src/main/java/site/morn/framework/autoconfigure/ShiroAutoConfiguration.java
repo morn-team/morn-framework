@@ -16,7 +16,7 @@ import site.morn.framework.user.entity.User;
  * @since 1.0.0, 2019/4/27
  */
 @Configuration
-@ConditionalOnClass(SecurityManager.class)
+@ConditionalOnClass({SecurityManager.class, User.class})
 public class ShiroAutoConfiguration {
 
   /**
