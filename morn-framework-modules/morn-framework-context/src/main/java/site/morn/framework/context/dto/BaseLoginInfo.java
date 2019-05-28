@@ -2,8 +2,10 @@ package site.morn.framework.context.dto;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.Data;
 import site.morn.framework.entity.BaseDepartment;
+import site.morn.framework.entity.BasePrivilege;
 import site.morn.framework.entity.BaseRole;
 import site.morn.framework.entity.BaseUser;
 
@@ -29,10 +31,19 @@ public class BaseLoginInfo implements Serializable {
   /**
    * 所属角色
    */
-  private List<BaseRole> roles;
+  private List<? extends BaseRole> roles;
 
   /**
-   * 权限码
+   * 拥有权限
    */
-  private List<String> privileges;
+  private List<? extends BasePrivilege> privileges;
+
+  /**
+   * 获取权限码
+   *
+   * @return 权限码集合
+   */
+  public List<String> getPrivilegeCodes() {
+    return privileges.stream().map(BasePrivilege::getCode).collect(Collectors.toList());
+  }
 }
