@@ -30,59 +30,59 @@ public class BasePrivilege implements Serializable {
    */
   @Id
   @GeneratedValue
-  private Long id;
+  protected Long id;
 
   /**
    * 父节点
    */
   @Column
-  private Long parentId;
+  protected Long parentId;
 
   /**
    * 层级
    */
   @Column
-  private Integer level;
+  protected Integer level;
 
   /**
    * 查询码
    */
   @Column
-  private String searchCode;
+  protected String searchCode;
 
   /**
    * 权限名
    */
   @Column(length = Text.SHORT)
-  private String name;
+  protected String name;
 
   /**
    * 说明
    */
   @Column
-  private String description;
+  protected String description;
 
   /**
    * 类型，0:菜单目录 1:菜单 2:按钮
    */
   @Column
-  private Integer type;
+  protected Integer type;
 
   /**
    * 权限码
    */
-  @Column
-  private String code;
+  @Column(length = 32)
+  protected String code;
 
   /**
    * 路径
    */
   @Column
-  private String url;
+  protected String url;
 
   /**
    * 排序的序号
    */
   @Column
-  private Integer sort;
+  protected Integer sort;
 }
