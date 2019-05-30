@@ -6,7 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldNameConstants;
+import site.morn.boot.support.entity.CreatorEntity;
 import site.morn.constant.MetricUnit.Text;
 
 /**
@@ -16,9 +18,10 @@ import site.morn.constant.MetricUnit.Text;
  * @since 1.0.2, 2019/5/12
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 @FieldNameConstants
 @MappedSuperclass
-public class BasePrivilege implements Serializable {
+public class BasePrivilege extends CreatorEntity implements Serializable {
 
   /**
    * @serialField
