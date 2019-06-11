@@ -114,13 +114,28 @@
     </plugins>
   </build>
 
+  <dependencies>
+    <!--Lombok-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
   <dependencyManagement>
     <dependencies>
-
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
         <version>${boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>site.morn.boot</groupId>
+        <artifactId>morn-boot-projects</artifactId>
+        <version>${morn.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
