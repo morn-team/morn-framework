@@ -19,6 +19,11 @@ import site.morn.framework.entity.BaseUser;
 public class BaseLoginInfo implements Serializable {
 
   /**
+   * @serialField
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
    * 登录用户
    */
   private BaseUser user;
