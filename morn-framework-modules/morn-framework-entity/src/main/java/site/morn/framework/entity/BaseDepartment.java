@@ -14,10 +14,10 @@ import site.morn.constant.MetricUnit.Text;
 import site.morn.validate.group.Add;
 
 /**
- * site.morn.framework.entity
+ * 组织机构基础映射类
  *
  * @author timely-rain
- * @since 1.0.0, 2019/5/16
+ * @since 1.0.2, 2019/5/16
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
