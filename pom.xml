@@ -24,7 +24,6 @@
 
     <morn.version>2.1.0-SNAPSHOT</morn.version>
 
-    <lombok.version>1.18.4</lombok.version>
     <boot.version>2.1.4.RELEASE</boot.version>
     <shiro.version>1.3.2</shiro.version>
     <fastjson.version>1.2.39</fastjson.version>
@@ -140,12 +139,6 @@
         <scope>import</scope>
       </dependency>
 
-      <dependency>
-        <artifactId>lombok</artifactId>
-        <groupId>org.projectlombok</groupId>
-        <version>${lombok.version}</version>
-      </dependency>
-
       <!--依赖模块-->
       <dependency>
         <groupId>org.apache.shiro</groupId>
@@ -173,17 +166,7 @@
       <!--本地模块-->
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-framework-test</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>site.morn.framework</groupId>
         <artifactId>morn-dependencies-core</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>site.morn.framework</groupId>
-        <artifactId>morn-dependencies-web</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
@@ -196,7 +179,13 @@
         <artifactId>morn-dependencies-shiro</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <!--Services Start-->
+      <dependency>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-dependencies-web</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!--Services-->
       <dependency>
         <groupId>site.morn.framework</groupId>
         <artifactId>morn-framework-modules</artifactId>
@@ -209,7 +198,12 @@
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-framework-user</artifactId>
+        <artifactId>morn-framework-context</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-framework-entity</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
@@ -224,10 +218,16 @@
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
-        <artifactId>morn-framework-entity</artifactId>
+        <artifactId>morn-framework-user</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <!--Services End-->
+
+      <!--Tests-->
+      <dependency>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-framework-test</artifactId>
+        <version>${project.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
