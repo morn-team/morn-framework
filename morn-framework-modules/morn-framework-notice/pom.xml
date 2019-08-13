@@ -11,5 +11,10 @@
     <version>2.1.0-SNAPSHOT</version>
   </parent>
 
-
+  <dependencies>
+    <dependency>
+      <groupId>site.morn.framework</groupId>
+      <artifactId>morn-dependencies-jpa</artifactId>
+    </dependency>
+  </dependencies>
 </project>
