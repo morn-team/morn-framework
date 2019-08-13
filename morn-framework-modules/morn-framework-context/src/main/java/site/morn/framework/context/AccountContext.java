@@ -54,7 +54,7 @@ public class AccountContext {
    */
   @SuppressWarnings("unchecked")
   public static <T extends BaseUser> T currentUser() {
-    CurrentUserAdapter<T> userAdapter = BeanCaches.tagBean(CurrentUserAdapter.class);
+    CurrentUserProducer<T> userAdapter = BeanCaches.tagBean(CurrentUserProducer.class);
     Assert.notNull(userAdapter, "无法获取当前用户适配器");
     return userAdapter.getCurrentUser();
   }

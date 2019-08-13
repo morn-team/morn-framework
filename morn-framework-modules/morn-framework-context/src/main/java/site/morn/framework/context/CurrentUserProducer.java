@@ -10,7 +10,7 @@ import site.morn.framework.entity.BaseUser;
  * @since 0.0.1-SNAPSHOT, 2019/4/16
  */
 @FunctionalInterface
-public interface CurrentUserAdapter<T extends BaseUser> extends BeanProducer<T> {
+public interface CurrentUserProducer<T extends BaseUser> extends BeanProducer<T> {
 
   /**
    * 获取当前用户
