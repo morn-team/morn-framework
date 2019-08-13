@@ -11,6 +11,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldNameConstants;
 import site.morn.boot.support.entity.ReviserEntity;
 import site.morn.constant.MetricUnit.Text;
+import site.morn.tree.TreeNode;
 import site.morn.validate.group.Add;
 
 /**
@@ -23,7 +24,7 @@ import site.morn.validate.group.Add;
 @EqualsAndHashCode(callSuper = true)
 @FieldNameConstants
 @MappedSuperclass
-public class BaseDepartment extends ReviserEntity implements Serializable {
+public class BaseDepartment extends ReviserEntity implements Serializable, TreeNode {
 
 
   /**
@@ -92,5 +93,4 @@ public class BaseDepartment extends ReviserEntity implements Serializable {
    */
   @Column
   private String searchCode;
-
 }
