@@ -12,11 +12,9 @@
   <artifactId>morn-framework-user</artifactId>
 
   <dependencies>
-    <!--Lombok-->
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <scope>provided</scope>
+      <groupId>site.morn.framework</groupId>
+      <artifactId>morn-dependencies-jpa</artifactId>
     </dependency>
     <!--基础-->
     <dependency>
