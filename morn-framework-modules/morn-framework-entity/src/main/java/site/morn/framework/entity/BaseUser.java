@@ -62,7 +62,7 @@ public class BaseUser extends OrganizedEntity implements Serializable {
   @Column(nullable = false)
   @NotNull(groups = Add.class)
   @Size(min = 4, max = 64)
-  private String password;
+  private transient String password;
   /**
    * 编码
    */
