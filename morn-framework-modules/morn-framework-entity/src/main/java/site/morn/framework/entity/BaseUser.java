@@ -1,5 +1,7 @@
 package site.morn.framework.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
@@ -52,7 +54,7 @@ public class BaseUser extends OrganizedEntity implements Serializable {
    */
   @ApiModelProperty("用户名")
   @Column(length = Text.SHORT)
-  @NotNull(groups = {Add.class, Update.class, Login.class})
+  @NotNull(groups = {Add.class, Login.class, Update.class})
   @Size(min = 4, max = Text.SHORT)
   private String username;
   /**
@@ -60,9 +62,9 @@ public class BaseUser extends OrganizedEntity implements Serializable {
    */
   @ApiModelProperty("密码")
   @Column(nullable = false)
-  @NotNull(groups = Add.class)
+  @NotNull(groups = {Add.class, Login.class})
   @Size(min = 4, max = 64)
-  private transient String password;
+  private String password;
   /**
    * 编码
    */
@@ -133,4 +135,14 @@ public class BaseUser extends OrganizedEntity implements Serializable {
   @Size(max = Text.NORMAL)
   @Column
   private String description;
+
+  @JsonProperty
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  @JsonIgnore
+  public String getPassword() {
+    return password;
+  }
 }
