@@ -15,6 +15,7 @@
   <modules>
     <module>morn-dependencies-core</module>
     <module>morn-dependencies-jpa</module>
+    <module>morn-dependencies-mybatis</module>
     <module>morn-dependencies-shiro</module>
     <module>morn-dependencies-web</module>
   </modules>
