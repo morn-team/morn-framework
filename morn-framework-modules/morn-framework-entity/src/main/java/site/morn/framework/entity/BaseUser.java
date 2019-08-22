@@ -22,7 +22,6 @@ import site.morn.boot.support.entity.OrganizedEntity;
 import site.morn.constant.MetricUnit.Text;
 import site.morn.validate.group.Add;
 import site.morn.validate.group.Login;
-import site.morn.validate.group.Update;
 
 /**
  * 用户基础映射类
@@ -54,7 +53,7 @@ public class BaseUser extends OrganizedEntity implements Serializable {
    */
   @ApiModelProperty("用户名")
   @Column(length = Text.SHORT)
-  @NotNull(groups = {Add.class, Login.class, Update.class})
+  @NotNull(groups = {Add.class, Login.class})
   @Size(min = 4, max = Text.SHORT)
   private String username;
   /**
