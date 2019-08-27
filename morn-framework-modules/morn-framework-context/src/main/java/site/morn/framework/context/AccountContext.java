@@ -5,6 +5,7 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import site.morn.bean.BeanCaches;
+import site.morn.core.BeanProducer;
 import site.morn.framework.context.dto.BaseLoginInfo;
 import site.morn.framework.entity.BaseDepartment;
 import site.morn.framework.entity.BaseUser;
@@ -35,16 +36,30 @@ public class AccountContext {
   }
 
   /**
-   * 获取组织机构
+   * 获取当前组织机构
    *
    * @param <T> 组织机构类型
    * @return 当前组织机构
    */
   @SuppressWarnings("unchecked")
   public static <T extends BaseDepartment> T currentDepartment() {
-    DepartmentProducer<T> producer = BeanCaches.tagBean(DepartmentProducer.class);
+    DepartmentProducer<T> producer = BeanCaches.bean(DepartmentProducer.class);
     Assert.notNull(producer, "无法获取当前组织机构");
     return producer.getDepartment();
+  }
+
+  /**
+   * 获取自定义登录信息
+   *
+   * @param target 信息类
+   * @param <T> 信息类型
+   * @return 自定义登录信息
+   */
+  @SuppressWarnings("unchecked")
+  public static <T> T current(Class<T> target) {
+    BeanProducer<T> producer = BeanCaches.targetBean(BeanProducer.class, target);
+    Assert.notNull(producer, "无法获取当前登录信息");
+    return producer.product();
   }
 
   /**
@@ -54,7 +69,7 @@ public class AccountContext {
    */
   @SuppressWarnings("unchecked")
   public static <T extends BaseUser> T currentUser() {
-    CurrentUserProducer<T> userAdapter = BeanCaches.tagBean(CurrentUserProducer.class);
+    CurrentUserProducer<T> userAdapter = BeanCaches.bean(CurrentUserProducer.class);
     Assert.notNull(userAdapter, "无法获取当前用户适配器");
     return userAdapter.getCurrentUser();
   }
@@ -68,7 +83,7 @@ public class AccountContext {
   @SuppressWarnings("unchecked")
   public static <T extends BaseLoginInfo> T loginInfo() {
     Object product = BeanFunctionUtils.product(LoginInfoProducer.class);
-    return TypeUtils.as(product);
+    return TypeUtils.cast(product);
   }
 
   /**
