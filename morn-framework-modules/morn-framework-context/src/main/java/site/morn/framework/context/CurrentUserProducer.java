@@ -7,9 +7,8 @@ import site.morn.framework.entity.BaseUser;
  * 当前用户适配器
  *
  * @author timely-rain
- * @since 0.0.1-SNAPSHOT, 2019/4/16
+ * @since 1.0.0, 2019/4/16
  */
-@FunctionalInterface
 public interface CurrentUserProducer<T extends BaseUser> extends BeanProducer<T> {
 
   /**
@@ -18,6 +17,11 @@ public interface CurrentUserProducer<T extends BaseUser> extends BeanProducer<T>
    * @return 当前用户
    */
   T getCurrentUser();
+
+  /**
+   * 获取当前用户名
+   */
+  String getCurrentUsername();
 
   @Override
   default T product() {

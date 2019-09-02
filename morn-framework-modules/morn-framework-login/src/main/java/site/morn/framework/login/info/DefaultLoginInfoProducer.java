@@ -16,7 +16,7 @@ import site.morn.framework.user.service.RoleService;
  * 默认登录信息
  *
  * @author timely-rain
- * @since 2.1.0, 2019/5/16
+ * @since 1.2.0, 2019/5/16
  */
 @Component
 @Tag
