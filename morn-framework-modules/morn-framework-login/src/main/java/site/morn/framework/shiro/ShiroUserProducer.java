@@ -1,5 +1,6 @@
 package site.morn.framework.shiro;
 
+import java.util.Optional;
 import org.apache.shiro.SecurityUtils;
 import site.morn.bean.annotation.Tag;
 import site.morn.framework.context.CurrentUserProducer;
@@ -19,5 +20,10 @@ public class ShiroUserProducer implements CurrentUserProducer<User> {
   public User getCurrentUser() {
     Object principal = SecurityUtils.getSubject().getPrincipal();
     return TypeUtils.cast(principal);
+  }
+
+  @Override
+  public String getCurrentUsername() {
+    return Optional.ofNullable(getCurrentUser()).map(User::getUsername).orElse(null);
   }
 }

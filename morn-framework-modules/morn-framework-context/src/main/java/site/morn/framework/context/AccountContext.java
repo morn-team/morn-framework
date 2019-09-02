@@ -75,6 +75,17 @@ public class AccountContext {
   }
 
   /**
+   * 获取当前用户
+   *
+   * @return 当前用户
+   */
+  public static String currentUsername() {
+    CurrentUserProducer<?> userAdapter = BeanCaches.bean(CurrentUserProducer.class);
+    Assert.notNull(userAdapter, "无法获取当前用户适配器");
+    return userAdapter.getCurrentUsername();
+  }
+
+  /**
    * 获取登录信息
    *
    * @param <T> 登录信息类型
