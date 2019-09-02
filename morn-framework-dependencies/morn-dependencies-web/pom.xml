@@ -25,16 +25,19 @@
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <artifactId>jackson-datatype-hibernate5</artifactId>
     </dependency>
-    <!--Morn-异常解释-->
+    <!--MornBoot-->
     <dependency>
       <groupId>site.morn.boot</groupId>
       <artifactId>morn-boot-interpreter</artifactId>
     </dependency>
-    <!--Morn-Web-->
     <dependency>
       <groupId>site.morn.boot</groupId>
       <artifactId>morn-boot-web</artifactId>
       <version>${morn.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>site.morn.boot</groupId>
+      <artifactId>morn-fastjson</artifactId>
     </dependency>
   </dependencies>
 </project>

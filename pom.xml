@@ -227,6 +227,11 @@
       </dependency>
       <dependency>
         <groupId>site.morn.framework</groupId>
+        <artifactId>morn-framework-autoconfigure</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>site.morn.framework</groupId>
         <artifactId>morn-framework-base</artifactId>
         <version>${project.version}</version>
       </dependency>
