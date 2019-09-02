@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>morn-framework</artifactId>
+    <groupId>site.morn.framework</groupId>
+    <version>1.2.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>morn-framework-modules</artifactId>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>morn-framework-autoconfigure</module>
+    <module>morn-framework-base</module>
+    <module>morn-framework-context</module>
+    <module>morn-framework-entity</module>
+    <module>morn-framework-login</module>
+    <module>morn-framework-notice</module>
+    <module>morn-framework-user</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-framework-autoconfigure</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-framework-base</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-framework-context</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-framework-entity</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-framework-login</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-framework-notice</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>site.morn.framework</groupId>
+        <artifactId>morn-framework-user</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>site.morn.framework</groupId>
+      <artifactId>morn-dependencies-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>site.morn.boot</groupId>
+      <artifactId>morn-boot-support</artifactId>
+      <version>${morn.version}</version>
+    </dependency>
+  </dependencies>
+
+</project>
