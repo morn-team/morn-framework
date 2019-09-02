@@ -62,7 +62,7 @@ public class BaseUser extends OrganizedEntity implements Serializable {
   @ApiModelProperty("密码")
   @Column(nullable = false)
   @NotNull(groups = {Add.class, Login.class})
-  @Size(min = 4, max = 64)
+  @Size(min = 4, max = 128)
   private String password;
   /**
    * 编码
