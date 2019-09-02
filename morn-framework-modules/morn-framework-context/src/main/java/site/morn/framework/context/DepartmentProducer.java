@@ -2,6 +2,7 @@ package site.morn.framework.context;
 
 import site.morn.core.BeanProducer;
 import site.morn.framework.entity.BaseDepartment;
+import site.morn.framework.entity.BaseUser;
 
 /**
  * 当前组织机构
@@ -24,9 +25,20 @@ public interface DepartmentProducer<T extends BaseDepartment> extends BeanProduc
   T getActiveDepartment();
 
   /**
+   * 获取组织机构
+   *
+   * @param id 组织机构编号
+   * @return 组织机构
+   */
+  T getDepartment(Long id);
+
+  /**
    * 获取当前组织机构
    *
    * @return 当前组织机构
    */
-  T getDepartment();
+  default T getDepartment() {
+    BaseUser baseUser = AccountContext.currentUser();
+    return getDepartment(baseUser.getDepartmentId());
+  }
 }
