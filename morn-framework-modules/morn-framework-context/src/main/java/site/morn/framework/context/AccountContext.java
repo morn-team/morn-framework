@@ -5,8 +5,9 @@ import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import site.morn.bean.BeanCaches;
-import site.morn.core.BeanProducer;
 import site.morn.framework.context.dto.BaseLoginInfo;
+import site.morn.framework.context.function.ActiveProducer;
+import site.morn.framework.context.function.CurrentProducer;
 import site.morn.framework.entity.BaseDepartment;
 import site.morn.framework.entity.BaseUser;
 import site.morn.util.BeanFunctionUtils;
@@ -23,6 +24,20 @@ import site.morn.util.TypeUtils;
 public class AccountContext {
 
   /**
+   * 获取自定义登录信息
+   *
+   * @param target 信息类
+   * @param <T> 信息类型
+   * @return 自定义登录信息
+   */
+  @SuppressWarnings("unchecked")
+  public static <T> T active(Class<T> target) {
+    ActiveProducer<T> activeProducer = BeanCaches.targetBean(ActiveProducer.class, target);
+    Assert.notNull(activeProducer, "无法获取激活登录信息");
+    return activeProducer.getActive();
+  }
+
+  /**
    * 获取当前激活的组织机构
    *
    * @param <T> 组织机构类型
@@ -32,7 +47,21 @@ public class AccountContext {
   public static <T extends BaseDepartment> T activeDepartment() {
     DepartmentProducer<T> producer = BeanCaches.tagBean(DepartmentProducer.class);
     Assert.notNull(producer, "无法获取激活组织机构");
-    return producer.getActiveDepartment();
+    return producer.getActive();
+  }
+
+  /**
+   * 获取自定义登录信息
+   *
+   * @param target 信息类
+   * @param <T> 信息类型
+   * @return 自定义登录信息
+   */
+  @SuppressWarnings("unchecked")
+  public static <T> T current(Class<T> target) {
+    CurrentProducer<T> producer = BeanCaches.targetBean(CurrentProducer.class, target);
+    Assert.notNull(producer, "无法获取当前登录信息");
+    return producer.getCurrent();
   }
 
   /**
@@ -45,21 +74,7 @@ public class AccountContext {
   public static <T extends BaseDepartment> T currentDepartment() {
     DepartmentProducer<T> producer = BeanCaches.bean(DepartmentProducer.class);
     Assert.notNull(producer, "无法获取当前组织机构");
-    return producer.getDepartment();
-  }
-
-  /**
-   * 获取自定义登录信息
-   *
-   * @param target 信息类
-   * @param <T> 信息类型
-   * @return 自定义登录信息
-   */
-  @SuppressWarnings("unchecked")
-  public static <T> T current(Class<T> target) {
-    BeanProducer<T> producer = BeanCaches.targetBean(BeanProducer.class, target);
-    Assert.notNull(producer, "无法获取当前登录信息");
-    return producer.product();
+    return producer.getCurrent();
   }
 
   /**
@@ -71,7 +86,7 @@ public class AccountContext {
   public static <T extends BaseUser> T currentUser() {
     CurrentUserProducer<T> userAdapter = BeanCaches.bean(CurrentUserProducer.class);
     Assert.notNull(userAdapter, "无法获取当前用户适配器");
-    return userAdapter.getCurrentUser();
+    return userAdapter.getCurrent();
   }
 
   /**
