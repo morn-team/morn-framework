@@ -1,6 +1,7 @@
 package site.morn.framework.context;
 
-import site.morn.core.BeanProducer;
+import site.morn.framework.context.function.ActiveProducer;
+import site.morn.framework.context.function.CurrentProducer;
 import site.morn.framework.entity.BaseDepartment;
 import site.morn.framework.entity.BaseUser;
 
@@ -10,19 +11,8 @@ import site.morn.framework.entity.BaseUser;
  * @author TianGanLin
  * @since 0.1.1, 2019/5/21
  */
-public interface DepartmentProducer<T extends BaseDepartment> extends BeanProducer<BaseDepartment> {
-
-  @Override
-  default BaseDepartment product() {
-    return getActiveDepartment();
-  }
-
-  /**
-   * 获取当前激活的组织机构
-   *
-   * @return 当前激活的组织机构
-   */
-  T getActiveDepartment();
+public interface DepartmentProducer<T extends BaseDepartment> extends ActiveProducer<T>,
+    CurrentProducer<T> {
 
   /**
    * 获取组织机构
@@ -30,15 +20,19 @@ public interface DepartmentProducer<T extends BaseDepartment> extends BeanProduc
    * @param id 组织机构编号
    * @return 组织机构
    */
-  T getDepartment(Long id);
+  T get(Long id);
 
   /**
    * 获取当前组织机构
-   *
-   * @return 当前组织机构
    */
-  default T getDepartment() {
+  @Override
+  default T getCurrent() {
     BaseUser baseUser = AccountContext.currentUser();
-    return getDepartment(baseUser.getDepartmentId());
+    return get(baseUser.getDepartmentId());
+  }
+
+  @Override
+  default T product() {
+    return getActive();
   }
 }

@@ -17,13 +17,13 @@ import site.morn.util.TypeUtils;
 public class ShiroUserProducer implements CurrentUserProducer<User> {
 
   @Override
-  public User getCurrentUser() {
+  public User getCurrent() {
     Object principal = SecurityUtils.getSubject().getPrincipal();
     return TypeUtils.cast(principal);
   }
 
   @Override
   public String getCurrentUsername() {
-    return Optional.ofNullable(getCurrentUser()).map(User::getUsername).orElse(null);
+    return Optional.ofNullable(getCurrent()).map(User::getUsername).orElse(null);
   }
 }
