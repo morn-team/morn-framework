@@ -1,10 +1,14 @@
 package site.morn.framework.context;
 
+import static site.morn.framework.context.CommonConstant.Caches.ACCOUNT_GROUP;
+
 import java.util.Objects;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import site.morn.bean.BeanCaches;
+import site.morn.cache.CacheGroup;
+import site.morn.cache.CacheGroups;
 import site.morn.framework.context.dto.BaseLoginInfo;
 import site.morn.framework.context.function.ActiveProducer;
 import site.morn.framework.context.function.CurrentProducer;
@@ -15,6 +19,8 @@ import site.morn.util.TypeUtils;
 
 /**
  * 账户上下文
+ *
+ * <p>提供当前登录用户的相关操作
  *
  * @author timely-rain
  * @since 1.0.0, 2019/1/17
@@ -45,9 +51,18 @@ public class AccountContext {
    */
   @SuppressWarnings("unchecked")
   public static <T extends BaseDepartment> T activeDepartment() {
-    DepartmentProducer<T> producer = BeanCaches.tagBean(DepartmentProducer.class);
+    DepartmentProducer<T> producer = BeanCaches.bean(DepartmentProducer.class);
     Assert.notNull(producer, "无法获取激活组织机构");
     return producer.getActive();
+  }
+
+  /**
+   * 获取账户缓存组
+   *
+   * @return 账户缓存组
+   */
+  public static CacheGroup cacheGroup() {
+    return CacheGroups.cacheGroup(ACCOUNT_GROUP);
   }
 
   /**
