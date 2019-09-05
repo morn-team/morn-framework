@@ -17,6 +17,33 @@ public class CommonConstant {
   public static final String ADMIN = "admin";
 
   /**
+   * 缓存
+   */
+  @UtilityClass
+  public class Caches {
+
+    /**
+     * 当前账户缓存组
+     */
+    public static final String ACCOUNT_GROUP = "account";
+
+    /**
+     * 当前激活机构缓存
+     */
+    public static final String ACTIVE_DEPARTMENT = "activeDepartment";
+
+    /**
+     * 当前所属机构缓存
+     */
+    public static final String DEPARTMENT = "department";
+
+    /**
+     * 当前用户缓存
+     */
+    public static final String USER = "user";
+  }
+
+  /**
    * 上下文常量
    */
   @UtilityClass
