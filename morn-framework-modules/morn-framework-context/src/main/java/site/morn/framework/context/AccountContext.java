@@ -2,6 +2,7 @@ package site.morn.framework.context;
 
 import static site.morn.framework.context.CommonConstant.Caches.ACCOUNT_GROUP;
 
+import java.util.Collection;
 import java.util.Objects;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
@@ -99,9 +100,9 @@ public class AccountContext {
    */
   @SuppressWarnings("unchecked")
   public static <T extends BaseUser> T currentUser() {
-    CurrentUserProducer<T> userAdapter = BeanCaches.bean(CurrentUserProducer.class);
-    Assert.notNull(userAdapter, "无法获取当前用户适配器");
-    return userAdapter.getCurrent();
+    CurrentUserProducer<T> producer = BeanCaches.bean(CurrentUserProducer.class);
+    Assert.notNull(producer, "无法获取当前用户适配器");
+    return producer.getCurrent();
   }
 
   /**
@@ -110,9 +111,18 @@ public class AccountContext {
    * @return 当前用户
    */
   public static String currentUsername() {
-    CurrentUserProducer<?> userAdapter = BeanCaches.bean(CurrentUserProducer.class);
-    Assert.notNull(userAdapter, "无法获取当前用户适配器");
-    return userAdapter.getCurrentUsername();
+    CurrentUserProducer<?> producer = BeanCaches.bean(CurrentUserProducer.class);
+    Assert.notNull(producer, "无法获取当前用户适配器");
+    return producer.getCurrentUsername();
+  }
+
+  /**
+   * 获取当前用户系统权限码
+   */
+  public static Collection<String> currentPrivilegeCodes() {
+    PrivilegeProducer<?> producer = BeanCaches.bean(PrivilegeProducer.class);
+    Assert.notNull(producer, "无法获取系统权限适配器");
+    return producer.getPrivileges();
   }
 
   /**
