@@ -9,7 +9,7 @@ import site.morn.framework.entity.BaseDepartment;
  * @author TianGanLin
  * @since 0.1.1, 2019/5/21
  */
-public interface DepartmentProducer<T extends BaseDepartment> extends ActiveProducer<T> {
+public interface DepartmentContextProducer<T extends BaseDepartment> extends ActiveProducer<T> {
 
   /**
    * 获取组织机构

@@ -4,6 +4,7 @@ import static site.morn.framework.context.CommonConstant.Caches.ACCOUNT_GROUP;
 
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Optional;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
@@ -14,6 +15,7 @@ import site.morn.framework.context.dto.BaseLoginInfo;
 import site.morn.framework.context.function.ActiveProducer;
 import site.morn.framework.context.function.CurrentProducer;
 import site.morn.framework.entity.BaseDepartment;
+import site.morn.framework.entity.BaseRole;
 import site.morn.framework.entity.BaseUser;
 import site.morn.util.BeanFunctionUtils;
 import site.morn.util.TypeUtils;
@@ -52,7 +54,7 @@ public class AccountContext {
    */
   @SuppressWarnings("unchecked")
   public static <T extends BaseDepartment> T activeDepartment() {
-    DepartmentProducer<T> producer = BeanCaches.bean(DepartmentProducer.class);
+    DepartmentContextProducer<T> producer = BeanCaches.bean(DepartmentContextProducer.class);
     Assert.notNull(producer, "无法获取激活组织机构");
     return producer.getActive();
   }
@@ -88,7 +90,20 @@ public class AccountContext {
    */
   @SuppressWarnings("unchecked")
   public static <T extends BaseDepartment> T currentDepartment() {
-    DepartmentProducer<T> producer = BeanCaches.bean(DepartmentProducer.class);
+    DepartmentContextProducer<T> producer = BeanCaches.bean(DepartmentContextProducer.class);
+    Assert.notNull(producer, "无法获取当前组织机构");
+    return producer.getCurrent();
+  }
+
+  /**
+   * 获取当前角色
+   *
+   * @param <T> 角色类型
+   * @return 当前角色
+   */
+  @SuppressWarnings("unchecked")
+  public static <T extends BaseRole> Collection<T> currentRoles() {
+    RolesContextProducer<T> producer = BeanCaches.bean(RolesContextProducer.class);
     Assert.notNull(producer, "无法获取当前组织机构");
     return producer.getCurrent();
   }
@@ -100,7 +115,7 @@ public class AccountContext {
    */
   @SuppressWarnings("unchecked")
   public static <T extends BaseUser> T currentUser() {
-    CurrentUserProducer<T> producer = BeanCaches.bean(CurrentUserProducer.class);
+    UserContextProducer<T> producer = BeanCaches.bean(UserContextProducer.class);
     Assert.notNull(producer, "无法获取当前用户适配器");
     return producer.getCurrent();
   }
@@ -111,7 +126,7 @@ public class AccountContext {
    * @return 当前用户
    */
   public static String currentUsername() {
-    CurrentUserProducer<?> producer = BeanCaches.bean(CurrentUserProducer.class);
+    UserContextProducer<?> producer = BeanCaches.bean(UserContextProducer.class);
     Assert.notNull(producer, "无法获取当前用户适配器");
     return producer.getCurrentUsername();
   }
@@ -120,7 +135,7 @@ public class AccountContext {
    * 获取当前用户系统权限码
    */
   public static Collection<String> currentPrivilegeCodes() {
-    PrivilegeProducer<?> producer = BeanCaches.bean(PrivilegeProducer.class);
+    PrivilegesContextProducer<?> producer = BeanCaches.bean(PrivilegesContextProducer.class);
     Assert.notNull(producer, "无法获取系统权限适配器");
     return producer.getPrivileges();
   }
@@ -153,6 +168,7 @@ public class AccountContext {
    * @return 用户是否为管理员
    */
   public static boolean isAdmin(BaseUser user) {
-    return Objects.equals(user.getUsername(), CommonConstant.ADMIN);
+    return Optional.ofNullable(user).map(u -> Objects.equals(u.getUsername(), CommonConstant.ADMIN))
+        .orElse(false);
   }
 }

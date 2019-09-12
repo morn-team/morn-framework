@@ -41,6 +41,11 @@ public class CommonConstant {
      * 当前用户缓存
      */
     public static final String USER = "user";
+
+    /**
+     * 当前角色缓存
+     */
+    public static final String ROLES = "roles";
   }
 
   /**
