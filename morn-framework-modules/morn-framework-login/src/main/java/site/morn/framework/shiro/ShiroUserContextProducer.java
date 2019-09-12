@@ -3,7 +3,7 @@ package site.morn.framework.shiro;
 import java.util.Optional;
 import org.apache.shiro.SecurityUtils;
 import site.morn.bean.annotation.Tag;
-import site.morn.framework.context.CurrentUserProducer;
+import site.morn.framework.context.UserContextProducer;
 import site.morn.framework.user.entity.User;
 import site.morn.util.TypeUtils;
 
@@ -14,7 +14,7 @@ import site.morn.util.TypeUtils;
  * @since 0.0.1-SNAPSHOT, 2019/4/16
  */
 @Tag
-public class ShiroUserProducer implements CurrentUserProducer<User> {
+public class ShiroUserContextProducer implements UserContextProducer<User> {
 
   @Override
   public User getCurrent() {

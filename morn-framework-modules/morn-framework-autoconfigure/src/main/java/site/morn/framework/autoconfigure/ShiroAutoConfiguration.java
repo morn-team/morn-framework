@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import site.morn.framework.context.CurrentUserProducer;
-import site.morn.framework.shiro.ShiroUserProducer;
+import site.morn.framework.context.UserContextProducer;
+import site.morn.framework.shiro.ShiroUserContextProducer;
 import site.morn.framework.user.entity.User;
 
 /**
@@ -26,7 +26,7 @@ public class ShiroAutoConfiguration {
    */
   @Bean
   @ConditionalOnMissingBean
-  public CurrentUserProducer<User> currentUserAdapter() {
-    return new ShiroUserProducer();
+  public UserContextProducer<User> currentUserAdapter() {
+    return new ShiroUserContextProducer();
   }
 }
