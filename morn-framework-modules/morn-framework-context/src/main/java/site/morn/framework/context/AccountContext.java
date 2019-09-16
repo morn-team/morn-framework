@@ -12,7 +12,9 @@ import site.morn.bean.BeanCaches;
 import site.morn.cache.CacheGroup;
 import site.morn.cache.CacheGroups;
 import site.morn.framework.context.dto.BaseLoginInfo;
+import site.morn.framework.context.function.ActiveCollectionProducer;
 import site.morn.framework.context.function.ActiveProducer;
+import site.morn.framework.context.function.CurrentCollectionProducer;
 import site.morn.framework.context.function.CurrentProducer;
 import site.morn.framework.entity.BaseDepartment;
 import site.morn.framework.entity.BaseRole;
@@ -42,6 +44,21 @@ public class AccountContext {
   @SuppressWarnings("unchecked")
   public static <T> T active(Class<T> target) {
     ActiveProducer<T> activeProducer = BeanCaches.targetBean(ActiveProducer.class, target);
+    Assert.notNull(activeProducer, "无法获取激活登录信息");
+    return activeProducer.getActive();
+  }
+
+  /**
+   * 获取自定义登录信息
+   *
+   * @param target 信息类
+   * @param <T> 信息类型
+   * @return 自定义登录信息
+   */
+  @SuppressWarnings("unchecked")
+  public static <T> Collection<T> actives(Class<T> target) {
+    ActiveCollectionProducer<T> activeProducer = BeanCaches
+        .targetBean(ActiveCollectionProducer.class, target);
     Assert.notNull(activeProducer, "无法获取激活登录信息");
     return activeProducer.getActive();
   }
@@ -78,6 +95,21 @@ public class AccountContext {
   @SuppressWarnings("unchecked")
   public static <T> T current(Class<T> target) {
     CurrentProducer<T> producer = BeanCaches.targetBean(CurrentProducer.class, target);
+    Assert.notNull(producer, "无法获取当前登录信息");
+    return producer.getCurrent();
+  }
+
+  /**
+   * 获取自定义登录信息
+   *
+   * @param target 信息类
+   * @param <T> 信息类型
+   * @return 自定义登录信息
+   */
+  @SuppressWarnings("unchecked")
+  public static <T> Collection<T> currents(Class<T> target) {
+    CurrentCollectionProducer<T> producer = BeanCaches
+        .targetBean(CurrentCollectionProducer.class, target);
     Assert.notNull(producer, "无法获取当前登录信息");
     return producer.getCurrent();
   }
