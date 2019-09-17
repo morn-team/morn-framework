@@ -136,7 +136,7 @@ public class AccountContext {
   @SuppressWarnings("unchecked")
   public static <T extends BaseRole> Collection<T> currentRoles() {
     RolesContextProducer<T> producer = BeanCaches.bean(RolesContextProducer.class);
-    Assert.notNull(producer, "无法获取当前组织机构");
+    Assert.notNull(producer, "无法获取当前角色");
     return producer.getCurrent();
   }
 
