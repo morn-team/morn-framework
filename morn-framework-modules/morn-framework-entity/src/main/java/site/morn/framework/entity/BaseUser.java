@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldNameConstants;
-import site.morn.boot.support.entity.OrganizedEntity;
+import site.morn.boot.data.entity.OrganizedEntity;
 import site.morn.constant.MetricUnit.Text;
 import site.morn.validate.group.Add;
 import site.morn.validate.group.Login;
