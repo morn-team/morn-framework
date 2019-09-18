@@ -2,7 +2,7 @@ package site.morn.framework.user.repository;
 
 import java.util.List;
 import org.springframework.stereotype.Repository;
-import site.morn.boot.support.JpaRepository;
+import site.morn.boot.data.jpa.JpaRepository;
 import site.morn.framework.user.entity.Role;
 
 /**

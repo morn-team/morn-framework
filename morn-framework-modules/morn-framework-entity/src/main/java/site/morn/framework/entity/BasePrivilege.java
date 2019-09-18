@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldNameConstants;
-import site.morn.boot.support.entity.CreatorEntity;
+import site.morn.boot.data.entity.CreatorEntity;
 import site.morn.constant.MetricUnit.Text;
 
 /**

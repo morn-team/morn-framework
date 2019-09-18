@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import site.morn.boot.support.JpaRepository;
+import site.morn.boot.data.jpa.JpaRepository;
 import site.morn.framework.user.entity.User;
 
 /**

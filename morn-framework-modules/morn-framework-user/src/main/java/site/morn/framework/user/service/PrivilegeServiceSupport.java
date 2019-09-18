@@ -6,7 +6,7 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Predicate;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import site.morn.boot.support.CrudServiceSupport;
+import site.morn.boot.data.CrudServiceSupport;
 import site.morn.core.CriteriaMap;
 import site.morn.framework.entity.BaseUser.Fields;
 import site.morn.framework.user.entity.Privilege;

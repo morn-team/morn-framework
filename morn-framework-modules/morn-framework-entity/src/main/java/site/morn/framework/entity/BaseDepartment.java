@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldNameConstants;
-import site.morn.boot.support.entity.ReviserEntity;
+import site.morn.boot.data.entity.ReviserEntity;
 import site.morn.constant.MetricUnit.Text;
 import site.morn.tree.TreeNode;
 import site.morn.validate.group.Add;
