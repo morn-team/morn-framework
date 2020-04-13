@@ -1,6 +1,5 @@
 package site.morn.framework.shiro;
 
-import com.alibaba.fastjson.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,6 +30,7 @@ import site.morn.exception.ExceptionInterpreter;
 import site.morn.rest.RestBuilder;
 import site.morn.rest.RestBuilders;
 import site.morn.rest.RestMessage;
+import site.morn.support.fastjson.JsonUtils;
 
 /**
  * REST鉴权过滤器
@@ -113,7 +113,7 @@ public class RestLoginFilter extends FormAuthenticationFilter {
       ServletRequest request, ServletResponse response) {
     ApplicationMessage applicationMessage;
     // 从缓存中获取异常解释器
-    ExceptionInterpreter exceptionInterpreter = BeanCaches.defaultBeanCache()
+    ExceptionInterpreter exceptionInterpreter = BeanCaches
         .targetBean(ExceptionInterpreter.class, e.getClass());
     if (Objects.isNull(exceptionInterpreter)) {
       log.warn("登录异常处理失败：尚未发现处理{}的异常解释器", e.getClass().getSimpleName());
@@ -141,8 +141,7 @@ public class RestLoginFilter extends FormAuthenticationFilter {
       while ((s = bufferedReader.readLine()) != null) {
         builder.append(s);
       }
-      return JSONObject.parseObject(builder.toString(),
-          UsernamePasswordToken.class);
+      return JsonUtils.toObject(builder.toString(), UsernamePasswordToken.class);
     } catch (IOException e) {
       log.error(e.getMessage(), e);
     }

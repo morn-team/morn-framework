@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import site.morn.boot.support.CrudControllerSupport;
+import site.morn.boot.data.CrudControllerSupport;
 import site.morn.framework.context.AccountContext;
 import site.morn.framework.user.constant.UserConstant.Data;
 import site.morn.framework.user.entity.User;

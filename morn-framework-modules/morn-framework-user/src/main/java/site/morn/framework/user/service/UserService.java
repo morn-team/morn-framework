@@ -1,7 +1,7 @@
 package site.morn.framework.user.service;
 
 
-import site.morn.boot.support.CrudService;
+import site.morn.boot.data.CrudService;
 import site.morn.framework.user.entity.User;
 
 /**

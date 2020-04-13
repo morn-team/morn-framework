@@ -1,7 +1,7 @@
 package site.morn.framework.notice.repository;
 
 import org.springframework.stereotype.Repository;
-import site.morn.boot.support.JpaRepository;
+import site.morn.boot.data.jpa.JpaRepository;
 import site.morn.framework.notice.entity.Notice;
 
 /**
