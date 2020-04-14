@@ -14,7 +14,7 @@ import site.morn.framework.entity.BaseUser.Fields;
 import site.morn.framework.user.constant.UserConstant.Attach;
 import site.morn.framework.user.entity.User;
 import site.morn.framework.user.repository.UserRepository;
-import site.morn.util.ArrayUtils;
+import site.morn.util.SpareArrayUtils;
 
 /**
  * 用户服务
@@ -48,7 +48,7 @@ public class UserServiceSupport extends CrudServiceSupport<User, Long, UserRepos
           Predicate filterCurrent = conditionSupport.innerBuilder()
               .mapPredicate(Fields.username, currentUser.getUsername(), builder::notEqual);
           // 按用户名/姓名模糊搜索
-          String[] searchAttributes = ArrayUtils.merge(Fields.username, Fields.nickname);
+          String[] searchAttributes = SpareArrayUtils.toArray(Fields.username, Fields.nickname);
           Predicate[] containsKeyword = condition.contains(searchAttributes, Attach.KEYWORD);
           predicate.appendAnd(filterCurrent, predicate.mergeAnd(containsKeyword));
         });

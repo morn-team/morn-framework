@@ -5,7 +5,7 @@ import org.apache.shiro.SecurityUtils;
 import site.morn.bean.annotation.Tag;
 import site.morn.framework.context.UserContextProducer;
 import site.morn.framework.user.entity.User;
-import site.morn.util.TypeUtils;
+import site.morn.util.GenericUtils;
 
 /**
  * Shiro用户适配器
@@ -19,7 +19,7 @@ public class ShiroUserContextProducer implements UserContextProducer<User> {
   @Override
   public User getCurrent() {
     Object principal = SecurityUtils.getSubject().getPrincipal();
-    return TypeUtils.cast(principal);
+    return GenericUtils.castFrom(principal);
   }
 
   @Override

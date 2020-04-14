@@ -10,6 +10,11 @@
   <artifactId>morn-framework-context</artifactId>
 
   <dependencies>
+    <!--Jpa-->
+    <dependency>
+      <groupId>site.morn.framework</groupId>
+      <artifactId>morn-dependencies-jpa</artifactId>
+    </dependency>
     <!--基础模块-->
     <dependency>
       <groupId>site.morn.framework</groupId>
@@ -18,10 +23,6 @@
     <dependency>
       <groupId>site.morn.framework</groupId>
       <artifactId>morn-framework-entity</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.data</groupId>
-      <artifactId>spring-data-jpa</artifactId>
     </dependency>
   </dependencies>
 </project>

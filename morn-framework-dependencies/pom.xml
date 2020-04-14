@@ -18,29 +18,4 @@
     <module>morn-dependencies-web</module>
   </modules>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>site.morn.framework</groupId>
-        <artifactId>morn-dependencies-core</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>site.morn.framework</groupId>
-        <artifactId>morn-dependencies-jpa</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>site.morn.framework</groupId>
-        <artifactId>morn-dependencies-shiro</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>site.morn.framework</groupId>
-        <artifactId>morn-dependencies-web</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
 </project>

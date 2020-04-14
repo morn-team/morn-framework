@@ -20,7 +20,7 @@ import site.morn.framework.entity.BaseDepartment;
 import site.morn.framework.entity.BaseRole;
 import site.morn.framework.entity.BaseUser;
 import site.morn.util.BeanFunctionUtils;
-import site.morn.util.TypeUtils;
+import site.morn.util.GenericUtils;
 
 /**
  * 账户上下文
@@ -181,7 +181,7 @@ public class AccountContext {
   @SuppressWarnings("unchecked")
   public static <T extends BaseLoginInfo> T loginInfo() {
     Object product = BeanFunctionUtils.product(LoginInfoProducer.class);
-    return TypeUtils.cast(product);
+    return GenericUtils.castFrom(product);
   }
 
   /**

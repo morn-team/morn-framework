@@ -8,13 +8,29 @@ import lombok.experimental.UtilityClass;
  * @author timely-rain
  * @since 1.0.0, 2019/1/17
  */
-@UtilityClass
 public class CommonConstant {
 
   /**
    * 管理员账号
    */
   public static final String ADMIN = "admin";
+
+  private CommonConstant() {
+  }
+
+  /**
+   * 系统配置
+   */
+  public static class Config {
+
+    /**
+     * 基础包
+     */
+    public static final String FRAMEWORK_BASE_PACKAGES = "site.morn.framework";
+
+    private Config() {
+    }
+  }
 
   /**
    * 缓存
@@ -51,8 +67,10 @@ public class CommonConstant {
   /**
    * 上下文常量
    */
-  @UtilityClass
-  public class Context {
+  public static class Context {
+
+    private Context() {
+    }
 
     /**
      * 激活的组织机构

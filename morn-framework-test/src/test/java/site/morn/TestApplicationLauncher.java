@@ -9,9 +9,9 @@ import site.morn.boot.data.jpa.JpaRepositoryFactoryProducer;
 @SpringBootApplication
 @EnableJpaRepositories(repositoryFactoryBeanClass = JpaRepositoryFactoryProducer.class)
 @EnableTransactionManagement
-public class TimelyTestApplication {
+public class TestApplicationLauncher {
 
   public static void main(String[] args) {
-    SpringApplication.run(TimelyTestApplication.class, args);
+    SpringApplication.run(TestApplicationLauncher.class, args);
   }
 }
