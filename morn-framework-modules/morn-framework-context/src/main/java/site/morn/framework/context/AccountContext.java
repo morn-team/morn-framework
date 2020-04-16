@@ -8,7 +8,7 @@ import java.util.Optional;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
-import site.morn.bean.BeanCaches;
+import site.morn.bean.support.BeanCaches;
 import site.morn.cache.CacheGroup;
 import site.morn.cache.CacheGroups;
 import site.morn.framework.context.dto.BaseLoginInfo;

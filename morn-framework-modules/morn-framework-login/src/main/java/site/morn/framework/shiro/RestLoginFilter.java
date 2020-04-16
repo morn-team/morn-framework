@@ -22,7 +22,7 @@ import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.util.StringUtils;
-import site.morn.bean.BeanCaches;
+import site.morn.bean.support.BeanCaches;
 import site.morn.boot.web.Responses;
 import site.morn.exception.ApplicationMessage;
 import site.morn.exception.ApplicationMessages;
