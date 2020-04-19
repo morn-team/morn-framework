@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldNameConstants;
 import site.morn.boot.data.entity.ReviserEntity;
 import site.morn.constant.MetricUnit.Text;
-import site.morn.validate.group.Add;
+import site.morn.data.group.Add;
 
 /**
  * 角色基础映射类

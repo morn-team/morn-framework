@@ -20,8 +20,8 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldNameConstants;
 import site.morn.boot.data.entity.OrganizedEntity;
 import site.morn.constant.MetricUnit.Text;
-import site.morn.validate.group.Add;
-import site.morn.validate.group.Login;
+import site.morn.data.group.Add;
+import site.morn.data.group.Login;
 
 /**
  * 用户基础映射类

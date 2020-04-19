@@ -11,8 +11,8 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldNameConstants;
 import site.morn.boot.data.entity.ReviserEntity;
 import site.morn.constant.MetricUnit.Text;
+import site.morn.data.group.Add;
 import site.morn.tree.TreeNode;
-import site.morn.validate.group.Add;
 
 /**
  * 组织机构基础映射类
