@@ -5,7 +5,7 @@
   <groupId>site.morn.framework</groupId>
   <artifactId>morn-framework</artifactId>
   <packaging>pom</packaging>
-  <version>1.2.1-SNAPSHOT</version>
+  <version>1.2.1.0419-SNAPSHOT</version>
 
   <parent>
     <groupId>org.sonatype.oss</groupId>
@@ -34,7 +34,7 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
-    <morn.version>1.2.1-SNAPSHOT</morn.version>
+    <morn.version>1.2.1.0419-SNAPSHOT</morn.version>
 
     <mybatis.version>2.1.0</mybatis.version>
     <mybatis-plus.version>3.1.1</mybatis-plus.version>
