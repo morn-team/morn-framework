@@ -6,7 +6,7 @@
   <parent>
     <artifactId>morn-framework-modules</artifactId>
     <groupId>site.morn.framework</groupId>
-    <version>1.2.1.0419-SNAPSHOT</version>
+    <version>1.2.1</version>
   </parent>
 
   <dependencies>

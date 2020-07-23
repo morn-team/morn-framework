@@ -5,7 +5,7 @@
   <groupId>site.morn.framework</groupId>
   <artifactId>morn-framework</artifactId>
   <packaging>pom</packaging>
-  <version>1.2.1.0419-SNAPSHOT</version>
+  <version>1.2.1</version>
 
   <parent>
     <groupId>org.sonatype.oss</groupId>
@@ -24,7 +24,7 @@
     <connection>scm:git:https://github.com/morn-team/morn-framework.git</connection>
     <developerConnection>scm:git:https://github.com/morn-team/morn-framework.git
     </developerConnection>
-    <tag>HEAD</tag>
+    <tag>v1.2.1</tag>
   </scm>
 
   <properties>
